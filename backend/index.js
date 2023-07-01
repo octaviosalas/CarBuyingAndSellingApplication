@@ -1,8 +1,9 @@
 import express from "express"
 import bodyParser from "body-parser"
 import cors from "cors"
-
-
+import carsRoutes from "./routes/cars.routes.js"
+import connectDataBase from "./database/connectdb.js"
+import { addCars } from "./controllers/cars.js"
 
 
 const app = express()
@@ -16,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({type:"*/*"}))
 app.use(express.urlencoded({extended:true}))
 
-
+app.use(carsRoutes)
 
 
 
@@ -26,6 +27,8 @@ app.get('/', (req, res) => {
   
 app.listen(port, () => {
     console.log(`El servidor esta funcionando correctamente en el puerto ${port} ✔✔`)
+    connectDataBase()
+
   })
 
   

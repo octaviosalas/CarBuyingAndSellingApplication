@@ -1,17 +1,28 @@
-import React from 'react'
+import * as React from 'react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
+import Footer from './components/Footer'
+import AllCars from './components/AllCars'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-  console.log("App")
+ 
+
 
   return (
-    <>
-     <div>aaa</div>
-    </>
+ 
+             <div className='app'>
+        
+                    <Navbar/>
+                    <Sidebar/>
+                    <AllCars/>
+                   
+              
+             </div>
+           
+  
   )
 }
 
