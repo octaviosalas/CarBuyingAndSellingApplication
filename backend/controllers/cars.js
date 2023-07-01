@@ -148,3 +148,16 @@ export const addCars = async (req, res) => {
                     res.status(500).send("Error al obtener los autos");
             });
 }
+
+export const getCarById = async (req, res) => { 
+  const {id} = req.params
+  console.log(req.params)
+
+ Cars.find({id: id})
+       .then((car) => { 
+          res.json(car)
+       })
+       .catch((err) => { 
+          console.log(err)
+       })
+}

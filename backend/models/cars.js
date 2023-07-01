@@ -30,7 +30,10 @@ const carsSchema = mongoose.Schema( {
     },
     country:{ 
         String
-    } 
+    },
+    price: { 
+        type: Number
+    }
     
 })
 

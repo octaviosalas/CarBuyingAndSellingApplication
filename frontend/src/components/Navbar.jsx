@@ -8,8 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 const Navbar = () => {
   return (
     <div className="navbar   bg-blue-500 w-full fixed top-0 left-0 right-0 main-content z-50">
-    <div className="flex-1">
-      <a className="btn btn-ghost normal-case text-xl ml-10">Find you Car</a>
+    <div className="flex-1 ml-14">
       <Filters />
     </div>
     <div className="flex-none gap-2">

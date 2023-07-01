@@ -1,8 +1,10 @@
 import React from 'react'
+import Footer from './Footer'
+import { Link } from 'react-router-dom'
 
 const StructureCars = ({car}) => {
   return (
-    <div >
+    <div className='ml-36'>
        <div className="card card-compact flex w-96 bg-base-100 shadow-xl mt-5">
           <div className='float-left'>
             <figure><img src={car.img} /></figure>
@@ -25,10 +27,12 @@ const StructureCars = ({car}) => {
                          </div>
                     </div>
                       <div className="card-actions flex justify-center">
-                        <button className="btn btn-primary">View More</button>
+                     <Link to={`/carDetail/${car.id}`}><button className="btn btn-primary">View More</button> </Link>
                       </div>
               </div>
       </div>
+
+      
    </div>
   )
 }
