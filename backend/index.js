@@ -2,6 +2,7 @@ import express from "express"
 import bodyParser from "body-parser"
 import cors from "cors"
 import carsRoutes from "./routes/cars.routes.js"
+import usersRoutes from "./routes/users.routes.js"
 import connectDataBase from "./database/connectdb.js"
 import { addCars } from "./controllers/cars.js"
 
@@ -18,6 +19,7 @@ app.use(express.json({type:"*/*"}))
 app.use(express.urlencoded({extended:true}))
 
 app.use(carsRoutes)
+app.use(usersRoutes)
 
 
 

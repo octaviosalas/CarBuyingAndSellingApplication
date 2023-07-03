@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 function classNames(...classes) {
@@ -10,22 +11,34 @@ function classNames(...classes) {
 }
 
 export default function Register() {
+
+
   const [agreed, setAgreed] = useState(false)
   const [name, setName] = useState("")
   const [telephone, setTelephone] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const navigate = useNavigate()
+
   const registerAccount = () => { 
-    
-    const newUser = { 
+    const newUser = ({ 
       name: name,
       telephone: telephone,
       email: email,
       password: password
-    }
+    })
     axios.post("http://localhost:4000/register", newUser)
+         .then((res) =>  { 
+          console.log(res.data)
+          setTimeout(() => { 
+             navigate("/login")
+          }, 500)
+         })
+         .catch((err) => console.log(err))
+         
   }
+
 
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -96,7 +109,7 @@ export default function Register() {
    
         </div>
         <div className="mt-10">
-          <button  type="submit" className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => registerAccount()}> Register </button>
+          <button  className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => registerAccount()}> Register </button>
         </div>
 
         <div>
