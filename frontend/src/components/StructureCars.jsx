@@ -15,9 +15,8 @@ const StructureCars = ({car}) => {
                     <div className="flex-none">
                        <p>Brand: {car.brand}</p>
                        <p>Engine: {car.engine}</p>
-                       <p>Color: {car.color}</p>
                        <p>Kilometres: {car.kilometres}</p>
-                       <p>Country: {car.country}</p>
+                      
                          <div className="rating">
                            <input type="radio" name="rating-1" className="mask mask-star" />
                             <input type="radio" name="rating-1" className="mask mask-star" checked />

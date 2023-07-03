@@ -37,18 +37,40 @@ const StructureCarDetail = ({car}) => {
     </div>
   </div>
 </div>
-                       <div className="card-body ml-4">
-                             <h2 className="card-title w-10 ml-6 whitespace-nowrap">{car.name}</h2>
-                                <p className="py-6"> <b>Brand: </b> {car.brand}</p>
-                                <p><b>Year: </b> {car.year}</p>
-                                <p><b>Kilometres: </b> {car.kilometres}</p>
-                                <p><b>Price: </b> {car.price}</p>
-                           <div className="card-actions justify-end">
-                              <button className="btn btn-primary ml-24">See seller's comment</button>
-                              <button className="btn btn-primary ml-24">Send message to Seller</button>
+                       <div  className="card-body ml-4 text-cemter">
+                          
+                       
+                
+                          <div  className='ml-25 mt-10'>
+                               <h2 className="card-title w-5 ml-10  whitespace-nowrap">{car.name}</h2>
+                               <br />
+                               <hr />
+                                <p> <b>Brand: </b> {car.brand}.</p>
+                                <p><b>Car Year: </b> {car.year}.</p>
+                                <p><b>Kilometres: </b> {car.kilometres}.</p>
+                                <p><b>Price: </b> {car.price} USD</p>
+                          </div>
+                            
+                           <div className="card-actions mt-10 justify-end flex">
+                              <button className="btn btn-primary ">Send message to Seller</button>
                            </div>
                         </div>
            </div>
+
+                <div>
+                   <div tabIndex={0} className="collapse border border-base-300 bg-base-200"> 
+                      <div className="collapse-title text-xl font-medium"> Sellers Location</div>
+                         <div className="collapse-content"> 
+                            <p>{car.location}</p>
+                         </div>
+                   </div>
+                   <div tabIndex={0} className="collapse border border-base-300 bg-base-200"> 
+                      <div className="collapse-title text-xl font-medium"> View Seller Description</div>
+                         <div className="collapse-content"> 
+                            <p>It is a long established fact that a reader will be distracted by the text content of a site while looking at its design. The point of using Lorem Ipsum is that it has a more or less normal distribution of the letters, as opposed to using texts such as "Content here, content here". These texts make it sound like readable Spanish. Many desktop publishing packages and web page editors use Lorem Ipsum as their default text, and a search for "Lorem Ipsum" will return many websites that use this text if they are in a development state. Many versions have evolved over the years, sometimes by accident, other times on purpose for example, inserting humor and the like</p>
+                         </div>
+                   </div>
+                </div>
   
 
      <div>

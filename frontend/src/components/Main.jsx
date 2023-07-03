@@ -45,27 +45,27 @@ const tiers = [
   {
     title: 'Find your Used',
     subheader: 'Most popular',
-    price: '15',
+    price: '0',
     description: [
       '20 users included',
       '10 GB of storage',
       'Help center access',
       'Priority email support',
     ],
-    buttonText: 'Get started',
-    buttonVariant: 'contained',
+    buttonText: 'Sign up for free',
+    buttonVariant: 'outlined',
   },
   {
-    title: 'Search by Brand',
-    price: '30',
+    title: 'Publish your car in featured',
+    price: '15',
     description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
+      'All users will see it',
+      'Duration of 1 month',
+      'Interested every day',
       'Phone & email support',
     ],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
+    buttonText: 'Get Started',
+    buttonVariant: 'contained',
   },
 ];
 

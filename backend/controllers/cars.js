@@ -161,3 +161,7 @@ export const getCarById = async (req, res) => {
           console.log(err)
        })
 }
+
+export const saveNewCar = async (req, res) => { 
+     
+}

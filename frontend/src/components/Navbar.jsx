@@ -4,11 +4,14 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Filters from './Filters';
 import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <div className="navbar   bg-blue-500 w-full fixed top-0 left-0 right-0 main-content z-50">
     <div className="flex-1 ml-14">
+      <Link to={"/main"}><HomeIcon className='cursor-pointer ml-5  text-black'/> </Link>
       <Filters />
     </div>
     <div className="flex-none gap-2">

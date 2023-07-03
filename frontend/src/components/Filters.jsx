@@ -18,12 +18,13 @@ const Filters = () => {
    const [showMinPrice, setShowMinPrice] = useState(true)
    const [showYear, setShowYear] = useState(true)
    const [showMaxKilometres, setShowMaxKilometres] = useState(true)
+   const [showLocation, setShowLocation] = useState(true)
    const [showBtnSearch, setShowBtnSearch] = useState(true)
    const [selectedValue, setSelectedValue] = useState(30);
 
    const handleSelection = (event)  => {
-    const selectedOption = event.target.value;
-    console.log("Selected brand:", selectedOption);
+    const brandSelected = event.target.value;
+    console.log("Selected brand:", brandSelected);
     setShowMinPrice(false)
   }
 
@@ -41,14 +42,19 @@ const Filters = () => {
   }
 
   const handleSelectionKilometres = (event) =>  { 
-    setShowBtnSearch(false)
+    setShowLocation(false)
     const selectedOption = event.target.value
     console.log(selectedOption)
+ }
+
+ const handleLocation = (event) => { 
+  setShowBtnSearch(false)
+  const selectedOption = event.target.value
  }
    
 
   return (
-   <div>
+   <div className='ml-5'>
           <button className="btn" onClick={()=>window.my_modal_2.showModal()}>Filter Search <SearchIcon/> </button>
               <dialog id="my_modal_2" className="modal">
                  <form method="dialog" className="modal-box">
@@ -64,6 +70,7 @@ const Filters = () => {
                          <option >Bmw</option>
                          <option >Audi</option>
                          <option >Hyundai</option>
+                         <option >Any Brand</option>
                        </select>
        </p>
        {showMinPrice ? null : 
@@ -91,6 +98,35 @@ const Filters = () => {
                   <Slider onChange={handleSelectionKilometres}  defaultValue={30} getAriaValueText={valuetext} valueLabelDisplay="auto" step={20000} marks min={5000} max={300000}/>
                 </Box>
            </p> 
+        } 
+
+        {showLocation ? null : 
+          <p className="py-4">
+            <select className="select w-full max-w-xs" onChange={handleLocation}>
+                    <option disabled selected>Pick your Location</option>
+                    <option>Buenos Aires</option>
+                    <option>Catamarca</option>
+                    <option>Chaco</option>
+                    <option>Chubut</option>
+                    <option>Cordoba</option>
+                    <option>Corrientes</option>
+                    <option>Entre Rios</option>
+                    <option>Formosa</option>
+                    <option>Jujuy</option>
+                    <option>La Pampa</option>
+                    <option>La Rioja</option>
+                    <option>Mendoza</option>
+                    <option>Misiones</option>
+                    <option>Neuquen</option>
+                    <option>Rio Negro</option>
+                    <option>Salta</option>
+                    <option>San Juan</option>
+                    <option>San Luis</option>
+                    <option>Santa Fe</option>
+                    <option>San Cruz</option>
+                    <option>Santiago del estero</option>
+</select>
+        </p> 
         }
 
       {showBtnSearch ? null : 

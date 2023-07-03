@@ -37,6 +37,7 @@ const AllCars = () => {
                    <StructureCars car={car} />
                 </div>))}
      </div>
+  
 
        
     </>
