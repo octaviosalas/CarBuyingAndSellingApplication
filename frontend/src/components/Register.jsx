@@ -30,7 +30,7 @@ export default function Register() {
     })
     axios.post("http://localhost:4000/register", newUser)
          .then((res) =>  { 
-          console.log(res.data)
+          console.log(res.data) 
           setTimeout(() => { 
              navigate("/login")
           }, 500)

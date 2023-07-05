@@ -30,8 +30,6 @@ const StructureCars = ({car}) => {
                       </div>
               </div>
       </div>
-
-      
    </div>
   )
 }

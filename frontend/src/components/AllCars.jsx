@@ -25,6 +25,8 @@ const AllCars = () => {
     <> 
 
      <div>
+     <Navbar/>
+                    <Sidebar/>
             <Main />
      </div>
 
