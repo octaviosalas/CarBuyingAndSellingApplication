@@ -3,6 +3,32 @@ import bcrypt from "bcrypt"
 
 export const login = async (req, res) =>  { 
 
+   const {email, password} = req.body
+   console.log(req.body)
+
+   try {
+      let userExist = await User.findOne({email: email})
+      if(!userExist) { 
+        res.json({message: "The email is not registered"})
+      } else { 
+        bcrypt.compare(password, userExist.password)
+            .then((correct) => { 
+                if(correct) { 
+                    const {id, name} = userExist;
+                    res.json({
+                         id: id,
+                         name: name
+                        })
+                    }else { 
+                        res.json({message: "Password is Incorrect"})
+                    }
+
+            })
+      }
+   } catch (error) {
+    res.send("I cant Find an user with that data! 👎")
+    console.log(err)
+   }
 }
 
 
