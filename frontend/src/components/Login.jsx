@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 function classNames(...classes) {
@@ -13,6 +14,9 @@ export default function Login() {
   const [agreed, setAgreed] = useState(false)
   const [email, setEmail] = useState(false)
   const [password, setPassword] = useState(false)
+  const [backendMsj, setBackendMsj] = useState("")
+  const [showBackendMsj, setShowBackendMsj] = useState(false)
+  const navigate = useNavigate()
   
 
    const logIn = () => { 
@@ -20,6 +24,26 @@ export default function Login() {
          email: email,
          password: password
      })
+     axios.post("http://localhost:4000/login", userData)
+          .then((res) => { 
+              console.log(res.data)
+              if(res.data.message === "The email is not registered") { 
+                setBackendMsj("The email is not registered")
+                setShowBackendMsj(true)
+              } else if (res.data.message === "Password is Incorrect") { 
+                setBackendMsj("Password is Incorrect")
+                setShowBackendMsj(true)
+              } else { 
+                 setBackendMsj("Entering the account of  " + res.data.name)
+                 setShowBackendMsj(true)
+                 setTimeout(() => { 
+                      navigate("/main")
+                 }, 1500)
+              }
+              
+               
+          })
+          .catch(err => console.log(err))
    }
 
    
@@ -38,7 +62,7 @@ export default function Login() {
         <p className="mt-2 text-lg leading-8 text-gray-600"> Thanks for trusting us!  </p>
       </div>
       
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
+      
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
          
          
@@ -65,13 +89,17 @@ export default function Login() {
    
         </div>
         <div className="mt-10">
-          <button  type="submit" className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" > Login </button>
+          <button   className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => logIn()}> Login </button>
         </div>
 
         <div>
            <p className='cursor-pointer mt-4 textdecora underline'>Forgot my password</p>
         </div>
-      </form>
+
+        <div>
+           {showBackendMsj && <div className="toast"><div className="alert alert-success  bg-indigo-300 text-black"><span>{backendMsj}</span></div></div>}
+        </div>
+      
     </div>
   )
 }
