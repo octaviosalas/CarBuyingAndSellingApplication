@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div className="navbar   bg-blue-500 w-full fixed top-0 left-0 right-0 main-content z-50">
+    <div className="navbar   bg-indigo-600 w-full fixed top-0 left-0 right-0 main-content z-50">
     <div className="flex-1 ml-14">
       <Link to={"/main"}><HomeIcon className='cursor-pointer ml-5  text-black'/> </Link>
       <Filters />
