@@ -18,6 +18,7 @@ export default function Register() {
   const [telephone, setTelephone] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [profileImage, setProfileImage] = useState("")
   const [loading, setLoading] = useState(false)
   const [backendMsj, setBackendMsj] = useState("")
   const [showBackendMsj, setShowBackendMsj] = useState(false)
@@ -29,7 +30,8 @@ export default function Register() {
       name: name,
       telephone: telephone,
       email: email,
-      password: password
+      password: password,
+      profileImage: profileImage
     })
     axios.post("http://localhost:4000/register", newUser)
          .then((res) =>  { 
@@ -103,6 +105,18 @@ export default function Register() {
             <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">  Password  </label>
             <div className="mt-2.5">
               <input  name="password" type="password"  id="password" rows={4} className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" defaultValue={''} onChange={(e) => setPassword(e.target.value)}/>
+            </div>
+          </div>
+
+          <div className="sm:col-span-2">
+            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">  Profile Photo  </label>
+            <div className="mt-2.5">
+              <input  name="password" type="file"  id="password" rows={4} className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+               onChange={(e) => {
+                const file = e.target.files[0];
+                const imageURL = URL.createObjectURL(file);
+                setProfileImage(imageURL);
+              }}/>
             </div>
           </div>
    

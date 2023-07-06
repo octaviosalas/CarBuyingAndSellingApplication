@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { UserContext } from '../store/usercontext'
 
 
 function classNames(...classes) {
@@ -17,6 +18,7 @@ export default function Login() {
   const [backendMsj, setBackendMsj] = useState("")
   const [showBackendMsj, setShowBackendMsj] = useState(false)
   const navigate = useNavigate()
+  const userCtx = useContext(UserContext)
   
 
    const logIn = () => { 
@@ -37,7 +39,11 @@ export default function Login() {
                  setBackendMsj("Entering the account of  " + res.data.name)
                  setShowBackendMsj(true)
                  setTimeout(() => { 
-                      navigate("/main")
+                  userCtx.updateUser(res.data.id)
+                 }, 500) 
+                 setTimeout(() => { 
+                      navigate(`/main/${userCtx.userId}`)
+                      console.log(userCtx.userId)
                  }, 1500)
               }
               
@@ -45,6 +51,11 @@ export default function Login() {
           })
           .catch(err => console.log(err))
    }
+
+
+  
+ 
+
 
    
   
@@ -64,7 +75,8 @@ export default function Login() {
       
       
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-         
+    
+
          
           <div className="sm:col-span-2">
             <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">

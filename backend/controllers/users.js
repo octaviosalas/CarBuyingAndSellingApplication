@@ -22,7 +22,6 @@ export const login = async (req, res) =>  {
                     }else { 
                         res.json({message: "Password is Incorrect"})
                     }
-
             })
       }
    } catch (error) {
@@ -34,7 +33,7 @@ export const login = async (req, res) =>  {
 
 export const register = async (req, res) => { 
     
-    const {name, password, email, telephone} = req.body
+    const {name, password, email, telephone, profileImage} = req.body
     console.log(req.body)
 
     await User.findOne({email})
@@ -52,7 +51,8 @@ export const register = async (req, res) => {
                                 name: name,
                                 password: passwordHash,
                                 telephone: telephone,
-                                email: email
+                                email: email,
+                                profileImage: profileImage
                             })
                              newUser.save()
                                     .then((user) => { 
@@ -64,3 +64,20 @@ export const register = async (req, res) => {
                 }
               })
 }
+
+export const getUserById = async (req, res) =>  { 
+   
+    const {id} = req.params;                                                        
+    if(id.length === 24) {                                                      
+       await User.findById(id).then((user) => {                                 
+           if(!user) {                                                             
+               return res.json({Mensaje: "El usuario no existe"})                 
+           } else {                                                             
+               const {_password, ...respuesta } = user._doc;           
+               res.json(respuesta)                                            
+           }                                                                 
+       })
+    } else { 
+        res.json({Mensaje: "La contraseña es incorrecta"})                  
+    }
+ }

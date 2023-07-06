@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
 
 const usersSchema = mongoose.Schema( { 
@@ -15,6 +16,10 @@ const usersSchema = mongoose.Schema( {
         type: String, 
         required: true
     },
+    profileImage: {
+        type: Schema.Types.Mixed,  
+        default: null
+      },
     password: { 
         type: String,
         required: true

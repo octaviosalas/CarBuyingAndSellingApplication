@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from "axios"
+import Navbar from "./Navbar"
+import Sidebar from "./Sidebar"
 import { useEffect, useState } from 'react'
 import StructureCars from './StructureCars'
 import Main from './Main'
@@ -24,11 +26,11 @@ const AllCars = () => {
   return (
     <> 
 
-     <div>
+ 
      <Navbar/>
-                    <Sidebar/>
-            <Main />
-     </div>
+     <Sidebar />
+      <Main />
+     
 
     <div className='mt-14 text-xs'>
        <h1>Featured Cars of the Month</h1>
