@@ -20,6 +20,7 @@ function App() {
         <UserProvider>
               <Routes>
                 <Route path="/main/:id" element={<Main/>}></Route> 
+                <Route path="/allCars" element={<AllCars/>}></Route> 
                 <Route path="/carDetail/:id" element={<CarDetail/>}></Route> 
                 <Route path="/" element={<Register/>}></Route> 
                 <Route path="/login" element={<Login/>}></Route> 

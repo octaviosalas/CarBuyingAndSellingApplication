@@ -28,7 +28,8 @@ const AllCars = () => {
 
  
    
-     
+     <Navbar/>
+     <Sidebar/>
 
       <div className='mt-14 text-xs'>
       <h1>Featured Cars of the Month</h1>
