@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { UserContext } from '../store/usercontext'
+import { Toaster, toast } from 'sonner'
 
 
 function classNames(...classes) {
@@ -51,14 +52,6 @@ export default function Login() {
           })
           .catch(err => console.log(err))
    }
-
-
-  
- 
-
-
-   
-  
 
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">

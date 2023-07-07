@@ -4,8 +4,8 @@ import Navbar from "./Navbar"
 import Sidebar from "./Sidebar"
 import { useEffect, useState } from 'react'
 import StructureCars from './StructureCars'
-import Main from './Main'
-import Footer from './Footer'
+import Main from './Main/Main'
+import Footer from './Main/Footer'
 
 const AllCars = () => {
    
@@ -27,20 +27,18 @@ const AllCars = () => {
     <> 
 
  
-     <Navbar/>
-     <Sidebar />
-      <Main />
+   
      
 
-    <div className='mt-14 text-xs'>
-       <h1>Featured Cars of the Month</h1>
+      <div className='mt-14 text-xs'>
+      <h1>Featured Cars of the Month</h1>
     </div>
       <div className="flex flex-wrap">
            {allCars.map((car) => (
                 <div className="w-1/2 p-2">
                    <StructureCars car={car} />
                 </div>))}
-     </div>
+           </div> 
   
 
        

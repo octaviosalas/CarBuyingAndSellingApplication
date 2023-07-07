@@ -6,15 +6,12 @@ import Filters from './Filters';
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react'
-import { UserContext } from '../store/usercontext'
 import { useParams } from 'react-router-dom';
 import axios from "axios"
 
 const Navbar = () => {
 
-    
-   const userCtx = useContext(UserContext)
+  
    const {id} = useParams()
 
    useEffect(() => { 

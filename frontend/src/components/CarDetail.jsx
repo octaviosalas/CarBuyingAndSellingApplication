@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { useParams } from 'react-router-dom'
 import StructureCarDetail from './StructureCarDetail'
+import Navbar from './Navbar'
+import Sidebar from './Sidebar'
 
 const CarDetail = () => {
     
@@ -19,6 +21,11 @@ const CarDetail = () => {
 
   return (
     <div>
+
+      <div>
+         <Navbar/>
+         <Sidebar />
+      </div>
           {car.map((car) => <StructureCarDetail car={car}/>)}
     </div>
   )
