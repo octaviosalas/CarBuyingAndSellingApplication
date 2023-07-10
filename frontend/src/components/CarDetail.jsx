@@ -23,7 +23,7 @@ const CarDetail = () => {
     <div>
 
       <div>
-         <Navbar/>
+        
          <Sidebar />
       </div>
           {car.map((car) => <StructureCarDetail car={car}/>)}

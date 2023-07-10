@@ -29,15 +29,19 @@ const AllCars = () => {
 
  
    
-     <Navbar/>
-     <Sidebar/>
+<div className="flex">
+  <Sidebar />
+  <div className="ml-72">
+    <Navbar />
+  </div>
+</div>
 
       <div className='mt-2 text-xs'>
           <h1>Featured Cars of the Month</h1>
       </div>
 
       <div className='mt-[6vh]'>
-        <Filters />
+       
       </div>
 
       <div className="flex flex-wrap 'mt-[6vh]">
