@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import StructureCars from './StructureCars'
 import Main from './Main/Main'
 import Footer from './Main/Footer'
+import Filters from './Filters'
 
 const AllCars = () => {
    
@@ -31,17 +32,22 @@ const AllCars = () => {
      <Navbar/>
      <Sidebar/>
 
-      <div className='mt-14 text-xs'>
-      <h1>Featured Cars of the Month</h1>
-    </div>
-      <div className="flex flex-wrap">
+      <div className='mt-2 text-xs'>
+          <h1>Featured Cars of the Month</h1>
+      </div>
+
+      <div className='mt-[6vh]'>
+        <Filters />
+      </div>
+
+      <div className="flex flex-wrap 'mt-[6vh]">
            {allCars.map((car) => (
-                <div className="w-1/2 p-2">
+                <div className="w-full p-1 mt-3">
                    <StructureCars car={car} />
                 </div>))}
            </div> 
   
-
+      <Footer />
        
     </>
   
