@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 import axios from "axios"
 import { useContext } from 'react';
 import { UserContext } from '../store/usercontext';
-import Prueba from './Prueba';
+import Prueba from './FiltersMenu';
 
 
 const Navbar = () => {
@@ -45,7 +45,7 @@ const Navbar = () => {
      
         <li tabIndex={0}>
           <details>
-            <summary>Filters</summary>
+            <summary>Apply Search Filters</summary>
             <ul className="p-2">
               <Prueba/>
             </ul>

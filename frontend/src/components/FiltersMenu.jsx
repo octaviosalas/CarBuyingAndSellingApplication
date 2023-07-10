@@ -20,6 +20,10 @@ const Prueba = () => {
   </div>
     {menu ? <div>
       <ul className="menu xl:menu-horizontal lg:min-w-max bg-base-200 rounded-box">
+      <li>
+    <a><Filters/></a>
+   
+  </li>
   <li>
     <a>Brand</a>
     <ul>
@@ -72,10 +76,7 @@ const Prueba = () => {
       <li><a>Santa Cruz</a></li>
     </ul>
   </li>
-  <li>
-    <a><Filters/></a>
-   
-  </li>
+ 
 </ul>
     </div> : null}
     </div>

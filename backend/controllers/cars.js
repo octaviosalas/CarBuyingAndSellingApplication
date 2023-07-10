@@ -1,4 +1,5 @@
 import Cars from "../models/cars.js"
+import Favs from "../models/favorites.js";
 
 
 export const addCars = async (req, res) => {
@@ -164,4 +165,29 @@ export const getCarById = async (req, res) => {
 
 export const saveNewCar = async (req, res) => { 
      
+}
+
+export const saveInFavs = async (req, res) => { 
+    const {carId, userId, carName, carBrand, carKms, carSeller, carImg, carPrice} = req.body
+
+
+    try {
+      const newCarToBeSaved = new Favs ( { 
+        carId: carId,
+        userId: userId,
+        carName: carName,
+        carBrand: carBrand,
+        carKms: carKms,
+        carSeller: carSeller,
+        carImg: carImg,
+        carPrice: carPrice
+    })
+    newCarToBeSaved.save()
+            .then((car) => { 
+                res.json({message: "The car was saved in your Favs!", car})     
+            })
+            .catch((err) => console.log(err)) 
+    } catch (error) {
+      console.log(error)
+    }
 }

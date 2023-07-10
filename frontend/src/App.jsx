@@ -8,7 +8,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Main from './components/Main/Main'
 import {UserProvider} from "./store/usercontext"
-import Prueba from './components/Prueba'
+
 
 
 function App() {

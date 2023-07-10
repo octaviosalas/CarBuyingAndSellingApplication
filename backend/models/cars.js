@@ -33,6 +33,9 @@ const carsSchema = mongoose.Schema( {
     },
     price: { 
         type: Number
+    },
+    seller: { 
+        type: String
     }
     
 })

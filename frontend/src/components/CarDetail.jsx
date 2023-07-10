@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import StructureCarDetail from './StructureCarDetail'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
+import Footer from "./Main/Footer"
 
 const CarDetail = () => {
     
@@ -20,14 +21,23 @@ const CarDetail = () => {
     }, [])
 
   return (
-    <div>
 
-      <div>
-        
-         <Sidebar />
-      </div>
-          {car.map((car) => <StructureCarDetail car={car}/>)}
-    </div>
+    <>
+        <div>
+
+        <div>
+          <Navbar/>
+          <Sidebar />
+       </div>
+         {car.map((car) => <StructureCarDetail car={car}/>)}
+       </div>
+
+       <div>
+          <Footer />
+       </div>
+    </>
+
+    
   )
 }
 
