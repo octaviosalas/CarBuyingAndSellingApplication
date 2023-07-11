@@ -5,6 +5,7 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
+//https://tailwindui.com/components/ecommerce/components/category-filters
 
 const sortOptions = [
   { name: 'Contact Seller', href: '#', current: true },
@@ -211,9 +212,14 @@ const StructureCarDetail = ({car}) => {
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
-                
+
+                <div className='mb-1'>
+                  <b>Seller</b>: {car.seller}
+               </div>
+               
             <div className="w-full px-4 pt-16">
               <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+  
 
                <Disclosure>
                  {({ open }) => (
@@ -251,6 +257,7 @@ const StructureCarDetail = ({car}) => {
                      </Disclosure.Button>
                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">The Engine is:  {car.engine} </Disclosure.Panel> </>  )}
                </Disclosure>
+               
 
                <Disclosure>
                  {({ open }) => (

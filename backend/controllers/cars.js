@@ -191,3 +191,15 @@ export const saveInFavs = async (req, res) => {
       console.log(error)
     }
 }
+
+export const getFavs = async (req, res) => { 
+    const {id} = req.params
+    console.log(id)
+
+    Favs.find({userId: id})
+        .then((fav) => { 
+          res.json(fav)
+        })
+        .catch(err => console.log(err))
+
+}

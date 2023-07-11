@@ -1,12 +1,14 @@
 import React from 'react'
 import axios from "axios"
-import Navbar from "./Navbar"
+import PruebaDeNav from './PruebaDeNav'
 import Sidebar from "./Sidebar"
 import { useEffect, useState } from 'react'
 import StructureCars from './StructureCars'
 import Main from './Main/Main'
 import Footer from './Main/Footer'
 import Filters from './Filters'
+import FooterTwo from './Main/FooterTwo'
+
 
 const AllCars = () => {
    
@@ -29,20 +31,21 @@ const AllCars = () => {
 
  
    
-<div className="flex">
-  <Sidebar />
-  <div className="ml-72">
-    <Navbar />
-  </div>
-</div>
+     <div className="flex">
+             <Sidebar />
+          <div className="ml-72">
+              <PruebaDeNav />
+          </div>
+     </div> 
 
-      <div className='mt-2 text-xs'>
-          <h1>Featured Cars of the Month</h1>
+    
+
+
+      <div className='mt-[40px] text-xs'>
+          <h1 className='text-[35px] font-bold tracking-tight text-gray-900 '>Featured Cars of the Month</h1>
       </div>
 
-      <div className='mt-[6vh]'>
-       
-      </div>
+    
 
       <div className="flex flex-wrap 'mt-[6vh]">
            {allCars.map((car) => (
@@ -52,6 +55,7 @@ const AllCars = () => {
            </div> 
   
       <Footer />
+      <FooterTwo/>
        
     </>
   

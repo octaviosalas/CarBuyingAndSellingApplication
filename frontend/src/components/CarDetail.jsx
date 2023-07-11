@@ -5,6 +5,8 @@ import StructureCarDetail from './StructureCarDetail'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import Footer from "./Main/Footer"
+import PruebaDeNav from './PruebaDeNav'
+import FooterTwo from './Main/FooterTwo'
 
 const CarDetail = () => {
     
@@ -26,7 +28,7 @@ const CarDetail = () => {
         <div>
 
         <div>
-          <Navbar/>
+          <PruebaDeNav/>
           <Sidebar />
        </div>
          {car.map((car) => <StructureCarDetail car={car}/>)}
@@ -34,6 +36,7 @@ const CarDetail = () => {
 
        <div>
           <Footer />
+    
        </div>
     </>
 

@@ -8,6 +8,8 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Main from './components/Main/Main'
 import {UserProvider} from "./store/usercontext"
+import Favs from './components/Favs'
+import PruebaDeNav from './components/PruebaDeNav'
 
 
 
@@ -25,6 +27,8 @@ function App() {
                 <Route path="/carDetail/:id" element={<CarDetail/>}></Route> 
                 <Route path="/" element={<Register/>}></Route> 
                 <Route path="/login" element={<Login/>}></Route> 
+                <Route path="/favs" element={<Favs/>}></Route>
+                <Route path="/navegacion" element={<PruebaDeNav/>}></Route>  
               </Routes>
        </UserProvider>
       

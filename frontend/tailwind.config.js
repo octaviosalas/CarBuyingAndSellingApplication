@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 import formsPlugin from '@tailwindcss/forms';
 import daisyui from 'daisyui';
+import aspectRatioPlugin from '@tailwindcss/aspect-ratio';
+
+
+
 
 export default {
   content: [
@@ -22,6 +26,7 @@ export default {
   },
   plugins: [
     daisyui,
-    formsPlugin
+    formsPlugin,
+    aspectRatioPlugin,
   ],
 }

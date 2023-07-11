@@ -20,7 +20,7 @@ const Prueba = () => {
   </div>
     {menu ?
      <div>
-      <ul className=" menu xl:menu-horizontal overflow-y-auto md:w-[28vh] sm:w-[28vh] xxs:w-[26vh] xxxs:w-[26vh] lg:min-w-max bg-base-200 rounded-box menu-right">
+      <ul className=" menu xl:menu-horizontal overflow-y-auto md:w-[28vh] sm:w-[28vh] xxs:w-[26vh] xxxs:w-[26vh] lg:min-w-max bg-base-200 rounded-box menu-right scrollable">
       <li>
     <a><Filters/></a>
    

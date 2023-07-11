@@ -2,10 +2,13 @@ import * as React from 'react';
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Navbar from '../Navbar';
 import SecondMain from './SecondMain';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
+import Sidebar from "../Sidebar"
+import FooterTwo from './FooterTwo';
+import PruebaDeNav from '../PruebaDeNav';
+//https://tailwindui.com/components
 
 export default function Main() {
 
@@ -15,7 +18,8 @@ export default function Main() {
 
     <>
     <div className="bg-white">
-      <Navbar />
+      <PruebaDeNav />
+      <Sidebar />
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div  className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"  aria-hidden="true" >
           <div
@@ -57,9 +61,11 @@ export default function Main() {
       </div>
     </div>
 
+  
 
     <SecondMain/>
     <Footer />
+    <FooterTwo/>
 
  
     </>
