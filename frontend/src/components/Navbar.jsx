@@ -28,7 +28,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar ml-10   bg-indigo-500 w-[calc(100%-78px)] fixed top-0 left-0 right-0 main-content z-50">
+    <div className="navbar md:ml-10 xs:ml-10 sm:ml-10 xxs:ml-10 xxxs:ml-10 bg-indigo-500 2xl:w-[100%]  fixed top-0 left-0 right-0 main-content z-50">
     <div className="navbar-start">
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,12 +56,12 @@ const Navbar = () => {
     </div>
     <div className="navbar-end">
     <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar xxxs:mr-[50px]">
+          <div className="w-10 rounded-full ">
             <img src={me} />
           </div>
         </label>
-        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 xxxs:mr-[50px]">
           <li><a className="justify-between"> Profile <span className="badge">New</span></a></li>
           <li><a>Settings</a></li>
           <Link to={`/main/${userCtx.userId}`}><li><p>Main</p></li></Link>

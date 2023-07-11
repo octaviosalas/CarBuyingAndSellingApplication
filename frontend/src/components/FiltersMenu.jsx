@@ -18,8 +18,9 @@ const Prueba = () => {
       <button onClick={() => openMenu()}>Search By Filter</button>
     </div>
   </div>
-    {menu ? <div>
-      <ul className="menu xl:menu-horizontal lg:min-w-max bg-base-200 rounded-box">
+    {menu ?
+     <div>
+      <ul className=" menu xl:menu-horizontal overflow-y-auto md:w-[28vh] sm:w-[28vh] xxs:w-[26vh] xxxs:w-[26vh] lg:min-w-max bg-base-200 rounded-box menu-right">
       <li>
     <a><Filters/></a>
    
