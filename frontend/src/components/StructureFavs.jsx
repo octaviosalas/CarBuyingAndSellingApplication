@@ -26,6 +26,9 @@ const StructureFavs = ({favCar}) => {
                              <div className="card-actions flex justify-center">
                             <Link to={`/carDetail/${favCar.carId}`}><button className="btn btn-primary">View More</button> </Link>
                              </div>
+                             <div className="mt-4">
+                                 <p className="underline cursor-pointer">Delete Favorites</p>
+                             </div>
                      </div>
              </div>
           </div>
