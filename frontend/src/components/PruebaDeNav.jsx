@@ -6,6 +6,7 @@ import me from "../img/me.jpg"
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { UserContext } from '../store/usercontext'
+import { useNavigate } from 'react-router-dom';
 
 const navigation = {
   categories: [
@@ -161,6 +162,7 @@ const PruebaDeNav = () => {
     const [showSignIn, setShowSignIn] = useState(false)
 
     const userCtx = useContext(UserContext)
+    const navigate = useNavigate()
 
     useEffect(() => { 
         setTimeout(() => { 
@@ -181,6 +183,13 @@ const PruebaDeNav = () => {
     }, [])
 
     console.log(userCtx.userId)
+
+    const handleItemAboutUs = (text) => {
+      if (text === 'About Us') {
+        navigate("/aboutUs")
+        console.log("qa")
+      }
+    };
 
 
 
@@ -275,7 +284,7 @@ const PruebaDeNav = () => {
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
+                      <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900" onClick={() => handleItemAboutUs(page.name)}>
                         {page.name}
                       </a>
                     </div>

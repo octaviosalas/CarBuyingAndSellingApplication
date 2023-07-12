@@ -3,6 +3,8 @@ import Navbar from './Navbar'
 import { useContext } from 'react'
 import { UserContext } from '../store/usercontext'
 import axios from "axios"
+import PruebaDeNav from "./PruebaDeNav"
+import SideBar from "./Sidebar"
 
 
 const Favs = () => {
@@ -36,7 +38,8 @@ const Favs = () => {
 
   return (
     <div className="bg-white">
-        <Navbar/>
+        <PruebaDeNav/>
+        <SideBar/>
       <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
         
         <div>

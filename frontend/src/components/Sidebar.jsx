@@ -23,6 +23,10 @@ import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../store/usercontext';
+
 
 const drawerWidth = 240;
 
@@ -97,6 +101,9 @@ const Sidebar = () => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const [showClose, setShowClose] = React.useState(true)
+
+    const navigate = useNavigate()
+    const userCtx = useContext(UserContext)
   
     const handleDrawerOpen = () => {
       setOpen(true);
@@ -106,6 +113,12 @@ const Sidebar = () => {
     const handleDrawerClose = () => {
       setOpen(false);
       setShowClose(true)
+    };
+
+    const handleItemFavorites = (text) => {
+      if (text === 'Favorites') {
+         navigate(`/favs/${userCtx.userId}`)
+      }
     };
 
 
@@ -133,7 +146,7 @@ const Sidebar = () => {
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center',}} >
                   {index % 2 === 0 ? <FavoriteBorderOutlinedIcon /> : <HandshakeOutlinedIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} onClick={() => handleItemFavorites(text)}/>
               </ListItemButton>
             </ListItem>
           ))}
