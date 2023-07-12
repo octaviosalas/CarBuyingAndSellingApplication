@@ -8,6 +8,7 @@ import { useContext } from 'react'
 import { UserContext } from '../store/usercontext'
 import { useNavigate } from 'react-router-dom';
 
+
 const navigation = {
   categories: [
     {
@@ -105,6 +106,7 @@ const navigation = {
             { name: 'Mercedes Benz', href: '#' },
             { name: 'Audi', href: '#' },
             { name: 'Hiunday', href: '#' },
+          
           ],
         },
         {
@@ -158,8 +160,7 @@ const PruebaDeNav = () => {
 
     const [open, setOpen] = useState(false)
     const [text, setText] = useState("Before you meet with someone, you can look at their reputation as a seller.")
-    const [showCreateAcount, setShowCreateAcount] = useState(true)
-    const [showSignIn, setShowSignIn] = useState(false)
+   
 
     const userCtx = useContext(UserContext)
     const navigate = useNavigate()
@@ -175,19 +176,13 @@ const PruebaDeNav = () => {
 
     }, [])
 
-    useEffect(() => { 
-       if(userCtx.userId !== null) { 
-          setShowCreateAcount(false)
-          console.log("No hay id de usuario")
-       }
-    }, [])
+    
 
     console.log(userCtx.userId)
 
     const handleItemAboutUs = (text) => {
       if (text === 'About Us') {
         navigate("/aboutUs")
-        console.log("qa")
       }
     };
 
@@ -196,7 +191,7 @@ const PruebaDeNav = () => {
 
   return (
     <div>
-        <div className=" bg-indigo-500 2xl:w-[100%]  fixed top-0 left-0 right-0 main-content z-50 md:ml-[30px]  sm:ml-[38px]  xxs:ml-[45px] xxxs:ml-[35px]" >
+        <div className=" bg-indigo-500 2xl:w-[100%]  fixed top-0 left-0 right-0 main-content z-50 md:ml-[30px]  sm:ml-[38px]  xxs:ml-[40px] xxxs:ml-[35px]" >
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment} >
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -205,7 +200,7 @@ const PruebaDeNav = () => {
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-40 flex md:ml-[10vh] md:mt-[14vh] sm:ml-[10vh] sm:mt-[14vh] xxs:ml-[10vh] xxs:mt-[14vh] xxxs:ml-[8vh] xxxs:mt-[14vh]">
+          <div className="fixed inset-0 z-40 flex md:ml-[10vh] md:mt-[14vh] sm:ml-[10vh] sm:mt-[14vh] xxs:ml-[8.5vh] xxs:mt-[14vh] xxxs:ml-[8vh] xxxs:mt-[14vh]">
              <Transition.Child as={Fragment}  enter="transition ease-in-out duration-300 transform"  enterFrom="-translate-x-full"  enterTo="translate-x-0" leave="transition ease-in-out duration-300 transform" leaveFrom="translate-x-0" leaveTo="-translate-x-full"  >
               <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
                 <div className="flex px-4 pb-2 pt-5">
@@ -284,7 +279,7 @@ const PruebaDeNav = () => {
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900" onClick={() => handleItemAboutUs(page.name)}>
+                      <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900" >
                         {page.name}
                       </a>
                     </div>
@@ -314,7 +309,7 @@ const PruebaDeNav = () => {
          {text}
         </p>
 
-        <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Top" className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
               <button
@@ -326,17 +321,8 @@ const PruebaDeNav = () => {
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
 
-              {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
-                <a href="#">
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt=""
-                  />
-                </a>
-              </div>
+             
+            
 
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
@@ -359,6 +345,7 @@ const PruebaDeNav = () => {
                           </div>
 
                           <Transition
+                          
                             as={Fragment}
                             enter="transition ease-out duration-200"
                             enterFrom="opacity-0"
@@ -427,11 +414,7 @@ const PruebaDeNav = () => {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <a
-                      key={page.name}
-                      href={page.href}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
+                    <a  key={page.name}  href={page.href} className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800" onClick={() => handleItemAboutUs(page.name)} >
                       {page.name}
                     </a>
                   ))}

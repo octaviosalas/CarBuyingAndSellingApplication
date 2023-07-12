@@ -10,6 +10,9 @@ import Filters from './Filters'
 import FooterTwo from './Main/FooterTwo'
 
 
+
+
+
 const AllCars = () => {
    
   const [allCars, setAllCars] = useState([])
@@ -42,14 +45,20 @@ const AllCars = () => {
 
 
       <div className='mt-[40px] text-xs'>
-          <h1 className='text-[35px] font-bold tracking-tight text-gray-900 '>Featured Cars of the Month</h1>
+          <h1 className='text-[35px] font-bold tracking-tight text-gray-900 '>Featured Cars of the Month</h1>    
       </div>
+
+      
+      <div className='mt-2 mb-2'>
+          <Filters/>
+          </div>
 
     
 
       <div className="flex flex-wrap 'mt-[6vh]">
            {allCars.map((car) => (
                 <div className="w-full p-1 mt-3">
+                  
                    <StructureCars car={car} />
                 </div>))}
            </div> 

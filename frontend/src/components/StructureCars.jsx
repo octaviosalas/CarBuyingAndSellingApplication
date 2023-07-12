@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { UserContext } from '../store/usercontext';
 import { saveInFavs } from '../../../backend/controllers/cars'
 
+
 const StructureCars = ({car}) => { 
 
   const userCtx = useContext(UserContext)
@@ -35,6 +36,7 @@ const StructureCars = ({car}) => {
 
   return (
     <div className='flex justify-center items-center mt-3'>
+       
 <div className='border-black'>
        <div className="card card-compact flex w-96 bg-base-100 shadow-2xl mt-5">
         <div classname="float-right">

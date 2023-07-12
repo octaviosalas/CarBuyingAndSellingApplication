@@ -161,7 +161,7 @@ const StructureCarDetail = ({car}) => {
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-            <h1 className="text-4xl lg:ml-[40px] lg:text-[30px] xl:ml-[30px] xl:text-[35px] md:text-[30px] sm:text-[30px] sm:ml-[15px] xxs:ml-[30px] xxs:text-[20px] xxxs:text-[15px] xxxs:ml-[15px] font-bold tracking-tight text-gray-900">{car.name}</h1>
+            <h1 className="text-4xl lg:ml-[40px] lg:text-[30px] xl:ml-[30px] xl:text-[35px] md:text-[30px] sm:text-[30px] sm:ml-[15px] xxs:ml-[30px] xxs:text-[15px] xxxs:text-[10px] xxxs:ml-[15px] font-bold tracking-tight text-gray-900">{car.name}</h1>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
