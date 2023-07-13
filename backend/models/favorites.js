@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const favsSchema = mongoose.Schema( { 
     carId: { 
-        type: Number
+        type: String
     },
     userId: { 
         type: String

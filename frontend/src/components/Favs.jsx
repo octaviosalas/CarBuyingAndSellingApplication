@@ -8,6 +8,8 @@ import SideBar from "./Sidebar"
 import { Link } from 'react-router-dom'
 import StructureCars from './StructureCars'
 import StructureFavs from './StructureFavs'
+import Footer from './Main/Footer'
+import FooterTwo from './Main/FooterTwo'
 
 
 const Favs = () => {
@@ -47,13 +49,25 @@ const Favs = () => {
            {msgJNoFavs ? 
              <>
                 {carData.map((car) => <StructureFavs favCar={car}/>)}  
+                <div className=' bottom-0 left-0 right-0 z-50'>
+                
+                <FooterTwo/>
+            </div>
              </>
                 : 
-               <div>
-                <p>You don`t Have Favs saved.</p>
-               </div>
-               
+                <>
+                 <div>
+                    <p>You don`t Have Favs saved.</p>
+                 </div>
 
+                 <div className=' bottom-0 left-0 right-0 z-50'>
+                
+                     <FooterTwo/>
+                 </div>
+                </>
+              
+               
+                
 
 
             

@@ -17,7 +17,7 @@ const StructureFavs = ({favCar}) => {
           
             setTimeout(() => { 
                  window.location.reload()
-            }, 2000)
+            }, 400)
             
            })
            .catch((err) => console.log(err))

@@ -208,8 +208,10 @@ export const deleteFav = async (req, res) => {
   const {userId} = req.params
   const {carId: id} = req.body
 
+  console.log("El id del auto es" + id)
+
   try {
-    await Favs.deleteMany({userId, id})
+    await Favs.deleteOne({userId, id})
     res.send("Eliminado correctamente")
   } catch (error) {
      console.log(error)
