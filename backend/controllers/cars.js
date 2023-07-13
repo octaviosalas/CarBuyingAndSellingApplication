@@ -203,3 +203,16 @@ export const getFavs = async (req, res) => {
         .catch(err => console.log(err))
 
 }
+
+export const deleteFav = async (req, res) => { 
+  const {userId} = req.params
+  const {carId: id} = req.body
+
+  try {
+    await Favs.deleteMany({userId, id})
+    res.send("Eliminado correctamente")
+  } catch (error) {
+     console.log(error)
+  } 
+
+}

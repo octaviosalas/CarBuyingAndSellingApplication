@@ -15,6 +15,7 @@ const Favs = () => {
 
     const [carData, setCarData] = useState([])
     const [loadingData, setLoadingData] = useState(false)
+    const [msgJNoFavs, setMsgNoFavs] = useState(true)
    
 
     const userCtx = useContext(UserContext)
@@ -23,6 +24,9 @@ const Favs = () => {
     const getUserFavs = () => { 
         axios.get(`http://localhost:4000/getFavs/${userCtx.userId}`)
              .then((res) => { 
+              if(res.data.length === 0) { 
+                setMsgNoFavs(false)
+              }
                 console.log(res.data)
                 setCarData(res.data)
              })
@@ -40,7 +44,23 @@ const Favs = () => {
         <PruebaDeNav/>
         <SideBar/> 
         <div>
-          {carData.map((car) => <StructureFavs favCar={car}/>)}
+           {msgJNoFavs ? 
+             <>
+                {carData.map((car) => <StructureFavs favCar={car}/>)}  
+             </>
+                : 
+               <div>
+                <p>You don`t Have Favs saved.</p>
+               </div>
+               
+
+
+
+            
+                
+            }
+
+         
         </div>
     </div>
   )

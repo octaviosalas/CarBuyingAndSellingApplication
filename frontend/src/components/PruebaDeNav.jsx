@@ -415,7 +415,7 @@ const PruebaDeNav = () => {
 
                   {navigation.pages.map((page) => (
                     <a  key={page.name}  href={page.href} className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800" onClick={() => handleItemAboutUs(page.name)} >
-                      {page.name}
+                     {page.name}
                     </a>
                   ))}
                 </div>

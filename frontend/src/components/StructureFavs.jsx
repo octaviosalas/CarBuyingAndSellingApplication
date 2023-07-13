@@ -1,8 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from "axios"
+import { useContext } from 'react'
+import {UserContext} from "../store/usercontext"
 
 const StructureFavs = ({favCar}) => {
     console.log(favCar)
+
+    const userCtx = useContext(UserContext)
+
+
+    const deleteFav = (id) => { 
+      axios.post(`http://localhost:4000/deleteFav/${userCtx.userId}`, {id: id.toString()})
+           .then((res) => { 
+            console.log(res.data)
+          
+            setTimeout(() => { 
+                 window.location.reload()
+            }, 2000)
+            
+           })
+           .catch((err) => console.log(err))
+    }
+
+
+
   return (
     <div>
         <div className='flex justify-center items-center mt-3'>
@@ -27,12 +49,12 @@ const StructureFavs = ({favCar}) => {
                             <Link to={`/carDetail/${favCar.carId}`}><button className="btn btn-primary">View More</button> </Link>
                              </div>
                              <div className="mt-4">
-                                 <p className="underline cursor-pointer">Delete Favorites</p>
+                                 <p className="underline cursor-pointer" onClick={() => deleteFav(favCar.carId)}>Delete Favorites</p>
                              </div>
                      </div>
              </div>
           </div>
-           </div>
+           </div> 
     </div>
   )
 }
