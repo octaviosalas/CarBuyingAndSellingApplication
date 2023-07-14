@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`El servidor esta funcionando correctamente en el puerto ${port} ✔✔`)
     connectDataBase()
+   
 
   })
 

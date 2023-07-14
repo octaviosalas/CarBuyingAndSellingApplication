@@ -26,7 +26,7 @@ export const login = async (req, res) =>  {
       }
    } catch (error) {
     res.send("I cant Find an user with that data! 👎")
-    console.log(err)
+    console.log(error)
    }
 }
 

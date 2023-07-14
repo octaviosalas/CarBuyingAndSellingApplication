@@ -37,7 +37,7 @@ const navigation = {
             { name: 'Ford', href: '#' },
             { name: 'Suzuki', href: '#' },
             { name: 'Fiat', href: '#' },
-            { name: 'Mercedes Benz', href: '#' },
+            { name: 'MercedesBenz', href: '#' },
             { name: 'Audi', href: '#' },
             { name: 'Hiunday', href: '#' },
           ],
@@ -47,19 +47,19 @@ const navigation = {
           name: 'Kilometres',
           items: [
             { name: '5,000 to 25,000', href: '#' },
-            { name: '25,000 to 50,0000', href: '#' },
+            { name: '25,000 to 50,000', href: '#' },
             { name: '50,000 to 75,000', href: '#' },
             { name: '75,000 to 100,000', href: '#' },
             { name: '100,000 to 150,000', href: '#' },
-            { name: '150,000 to 200,000 ', href: '#' },
-            { name: 'More than 200,000 ', href: '#' },
+            { name: '150,000 to 200,000', href: '#' },
+            { name: 'More than 200,000', href: '#' },
           ],
         },
         {
           id: 'location',
           name: 'Location',
           items: [
-            { name: 'Buenos Aires', href: '#' },
+            { name: 'BuenosAires', href: '#' },
             { name: 'Cordoba', href: '#' },
             { name: 'Corrientes', href: '#' },
             { name: 'Entre Rios', href: '#' },
@@ -103,7 +103,7 @@ const navigation = {
             { name: 'Ford', href: '#' },
             { name: 'Suzuki', href: '#' },
             { name: 'Fiat', href: '#' },
-            { name: 'Mercedes Benz', href: '#' },
+            { name: 'MercedesBenz', href: '#' },
             { name: 'Audi', href: '#' },
             { name: 'Hiunday', href: '#' },
           
@@ -114,19 +114,19 @@ const navigation = {
           name: 'Kilometres',
           items: [
             { name: '5,000 to 25,000', href: '#' },
-            { name: '25,000 to 50,0000', href: '#' },
+            { name: '25,000 to 50,000', href: '#' },
             { name: '50,000 to 75,000', href: '#' },
             { name: '75,000 to 100,000', href: '#' },
             { name: '100,000 to 150,000', href: '#' },
-            { name: '150,000 to 200,000 ', href: '#' },
-            { name: 'More than 200,000 ', href: '#' },
+            { name: '150,000 to 200,000', href: '#' },
+            { name: 'More than 200,000', href: '#' },
           ],
         },
         {
             id: 'location',
             name: 'Location',
             items: [
-              { name: 'Buenos Aires', href: '#' },
+              { name: 'BuenosAires', href: '#' },
               { name: 'Cordoba', href: '#' },
               { name: 'Corrientes', href: '#' },
               { name: 'Entre Rios', href: '#' },
@@ -153,6 +153,7 @@ const navigation = {
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
+
 
 
 const PruebaDeNav = () => {
@@ -187,6 +188,52 @@ const PruebaDeNav = () => {
     };
 
 
+    const saveFiltersInSessionStorage = (text) => { 
+      if(text === "Volkswagen" || text === "Ford" || text === "Suzuki" || text === "Fiat" || text === "MercedesBenz" || text === "Audi" || text === "Hiunday") { 
+        sessionStorage.setItem("brand", text)
+        console.log("La marca guardada en el sessionStorage es " + text)
+        console.log(sessionStorage.brand)
+        setTimeout(() => { 
+        navigate(`/allCars/${sessionStorage.brand}`)
+        window.location.reload();
+        }, 400)
+
+      } else if (text === "5,000 to 25,000") { 
+        setTimeout(() => { 
+          navigate("/fiveToTwentyFive")
+        }, 400) 
+      } else if(text === "25,000 to 50,000") { 
+        setTimeout(() => { 
+          navigate("/TwentyFiveToFifty")
+        }, 400)
+
+      } else if(text === "50,000 to 75,000") { 
+        setTimeout(() => { 
+          navigate("/FiftyToSeventyFive")
+        }, 400)
+
+      } else if(text === "75,000 to 100,000") { 
+        setTimeout(() => { 
+          navigate("/seventyFiveToHundred")
+        }, 400)
+
+      } else if(text === "100,000 to 150,000") { 
+         navigate("/hundredToOneFiftyHundred")
+
+      }else if(text === "150,000 to 200,000") { 
+         navigate("/hundredToTwoHundred")
+      } 
+
+       else if(text === "BuenosAires" || text === "Cordoba" || text === "Corrientes" || text === "Entre Rios" || text === "Formosa" || text === "La Pampa" || text === "La Rioja" || text === "Mendoza" || text === "Misiones" || text === "Neuquen" || text === "Salta" || text === "San Luis" || text === "Santa Fe") { 
+        sessionStorage.setItem("location", text)
+        console.log("La ubicacion en el sessionStorage es " + text)
+        console.log(sessionStorage.location)
+        setTimeout(() => { 
+          navigate(`/allCarsByLocation/${sessionStorage.location}`)
+          window.location.reload();
+        }, 400)
+      }
+    }
 
 
   return (
@@ -252,8 +299,8 @@ const PruebaDeNav = () => {
 
                         {category.sections.map((section) => (
                           <div key={section.name}>
-                            <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
-                              {section.name}
+                            <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900" >
+                              {section.name} 
                             </p>
                             <ul
                               role="list"
@@ -262,7 +309,7 @@ const PruebaDeNav = () => {
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <a href={item.href} className="-m-2 block p-2 text-gray-500">
+                                  <a href={item.href} className="-m-2 block p-2 text-gray-500" >
                                     {item.name}
                                   </a>
                                 </li>
@@ -303,6 +350,8 @@ const PruebaDeNav = () => {
           </div>
         </Dialog>
       </Transition.Root>
+
+
 
       <header className="relative bg-white">
         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
@@ -394,7 +443,7 @@ const PruebaDeNav = () => {
                                           >
                                             {section.items.map((item) => (
                                               <li key={item.name} className="flex">
-                                                <a href={item.href} className="hover:text-gray-800">
+                                                <a href={item.href} className="hover:text-gray-800"  onClick={() => saveFiltersInSessionStorage(item.name)}> {/* item menu */}
                                                   {item.name}
                                                 </a>
                                               </li>
