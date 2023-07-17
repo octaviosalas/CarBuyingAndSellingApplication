@@ -9,14 +9,15 @@ const UserContext = createContext({
 const UserProvider = ({ children }) => {    
                     
 const [userId, setUserId] = useState(() => {          
-     const storedUserId = localStorage.getItem('userId');
+     const storedUserId = sessionStorage.getItem('userId');
      return storedUserId !== null ? storedUserId : null;    
  });
 
 
 const updateUser = (id) => {                   
     console.log("aca estoy ")
-    localStorage.setItem('userId', id);     
+    setUserId(id)
+    sessionStorage.setItem('userId', id);     
 };
 
 useEffect(() => {

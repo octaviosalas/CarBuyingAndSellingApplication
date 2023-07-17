@@ -20,8 +20,10 @@ const AllCars = () => {
   const getCars = () => { 
     axios.get("http://localhost:4000/getAllCars")
     .then((res) => { 
-          setAllCars(res.data)
-          console.log(res.data)
+          const docs = res.data
+          const onlyCars = docs.filter(car => car.type === "car")
+          setAllCars(onlyCars)
+          console.log(onlyCars)
     })
     .catch((err) => console.log(err))
   }

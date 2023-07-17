@@ -19,7 +19,7 @@ const FilteringByBrand = () => {
        axios.get("http://localhost:4000/getAllCars")
             .then((res) => { 
               const allCars = res.data
-              const filterByBrand = allCars.filter(cars => cars.brand === brand)           
+              const filterByBrand = allCars.filter(cars => cars.brand === brand && cars.type === "car")           
               setCarsFiltered(filterByBrand)
             })
             .catch((err) => { 

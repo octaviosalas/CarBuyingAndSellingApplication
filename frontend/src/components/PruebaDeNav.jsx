@@ -33,6 +33,7 @@ const navigation = {
           id: 'cars',
           name: 'Brands',
           items: [
+            { name: 'All Cars', href: '/allCars' },
             { name: 'Volkswagen', href: '#' },
             { name: 'Ford', href: '#' },
             { name: 'Suzuki', href: '#' },
@@ -46,12 +47,12 @@ const navigation = {
           id: 'kilometres',
           name: 'Kilometres',
           items: [
-            { name: '5,000 to 25,000', href: '#' },
-            { name: '25,000 to 50,000', href: '#' },
-            { name: '50,000 to 75,000', href: '#' },
-            { name: '75,000 to 100,000', href: '#' },
-            { name: '100,000 to 150,000', href: '#' },
-            { name: '150,000 to 200,000', href: '#' },
+            { name: '5,000 to 25,000', href: '/fiveToTwentyFive' },
+            { name: '25,000 to 50,000', href: '/twentyFiveToFifty' },
+            { name: '50,000 to 75,000', href: '/FiftyToSeventyFive' },
+            { name: '75,000 to 100,000', href: '/seventyFiveToHundred' },
+            { name: '100,000 to 150,000', href: "/hundredToOneFiftyHundred" },
+            { name: '150,000 to 200,000', href: '/hundredToTwoHundred' },
             { name: 'More than 200,000', href: '#' },
           ],
         },
@@ -99,13 +100,14 @@ const navigation = {
           id: 'brand',
           name: 'Brand',
           items: [
-            { name: 'Volkswagen', href: '#' },
-            { name: 'Ford', href: '#' },
-            { name: 'Suzuki', href: '#' },
-            { name: 'Fiat', href: '#' },
-            { name: 'MercedesBenz', href: '#' },
-            { name: 'Audi', href: '#' },
-            { name: 'Hiunday', href: '#' },
+            { name: 'All Vans', href: '/allVans' },
+            { name: 'Volkswagen', href: '/allVans/Volkswagen' },
+            { name: 'Ford', href: 'allVans/Ford' },
+            { name: 'Suzuki', href: 'allVans/Suzuki' },
+            { name: 'Fiat', href: '/allVans/Fiat' },
+            { name: 'MercedesBenz', href: 'allVans/MercedesBenz' },
+            { name: 'Audi', href: 'allVans/Audi' },
+            { name: 'Hiunday', href: 'allVans/Hiunday' },
           
           ],
         },
@@ -113,32 +115,32 @@ const navigation = {
             id: 'kilometres',
           name: 'Kilometres',
           items: [
-            { name: '5,000 to 25,000', href: '#' },
-            { name: '25,000 to 50,000', href: '#' },
-            { name: '50,000 to 75,000', href: '#' },
-            { name: '75,000 to 100,000', href: '#' },
-            { name: '100,000 to 150,000', href: '#' },
-            { name: '150,000 to 200,000', href: '#' },
-            { name: 'More than 200,000', href: '#' },
+            { name: '5,000 to 25,000', href: '/fiveToTwentyFiveVans' },
+            { name: '25,000 to 50,000', href: '/twentyFiveToFiftyVans' },
+            { name: '50,000 to 75,000', href: '/fiftyToSeventyFiveVans' },
+            { name: '75,000 to 100,000', href: '/seventyFiveToHundredVans' },
+            { name: '100,000 to 150,000', href: '/hundredToHundredFiftyVans' },
+            { name: '150,000 to 200,000', href: '/hundredToTwoHundredVans' },
+            { name: 'More than 200,000', href: '/hundredToTwoHundredVans0' },
           ],
         },
         {
             id: 'location',
             name: 'Location',
             items: [
-              { name: 'BuenosAires', href: '#' },
-              { name: 'Cordoba', href: '#' },
-              { name: 'Corrientes', href: '#' },
-              { name: 'Entre Rios', href: '#' },
-              { name: 'Formosa', href: '#' },
-              { name: 'La Pampa', href: '#' },
-              { name: 'La Rioja', href: '#' },
-              { name: 'Mendoza', href: '#' },
-              { name: 'Misiones', href: '#' },
-              { name: 'Neuquen', href: '#' },
-              { name: 'Salta', href: '#' },
-              { name: 'San Luis', href: '#' },
-              { name: 'Santa Fe', href: '#' },
+              { name: 'BuenosAires', href: '/allVansByLocation/BuenosAires' },
+              { name: 'Cordoba', href: '/allVansByLocation/Cordoba' },
+              { name: 'Corrientes', href: '/allVansByLocation/Corrientes' },
+              { name: 'Entre Rios', href: '/allVansByLocation/EntreRios' },
+              { name: 'Formosa', href: '/allVansByLocation/Formosa' },
+              { name: 'La Pampa', href: '/allVansByLocation/LaPampa' },
+              { name: 'La Rioja', href: '/allVansByLocation/LaRioja' },
+              { name: 'Mendoza', href: '/allVansByLocation/Mendoza' },
+              { name: 'Misiones', href: '/allVansByLocation/Misiones' },
+              { name: 'Neuquen', href: '/allVansByLocation/Neuquen' },
+              { name: 'Salta', href: '/allVansByLocation/Salta' },
+              { name: 'San Luis', href: '/allVansByLocation/SanLuis' },
+              { name: 'Santa Fe', href: '/allVansByLocation/SantaFe' },
           ],
         },
       ],
@@ -198,33 +200,7 @@ const PruebaDeNav = () => {
         window.location.reload();
         }, 400)
 
-      } else if (text === "5,000 to 25,000") { 
-        setTimeout(() => { 
-          navigate("/fiveToTwentyFive")
-        }, 400) 
-      } else if(text === "25,000 to 50,000") { 
-        setTimeout(() => { 
-          navigate("/TwentyFiveToFifty")
-        }, 400)
-
-      } else if(text === "50,000 to 75,000") { 
-        setTimeout(() => { 
-          navigate("/FiftyToSeventyFive")
-        }, 400)
-
-      } else if(text === "75,000 to 100,000") { 
-        setTimeout(() => { 
-          navigate("/seventyFiveToHundred")
-        }, 400)
-
-      } else if(text === "100,000 to 150,000") { 
-         navigate("/hundredToOneFiftyHundred")
-
-      }else if(text === "150,000 to 200,000") { 
-         navigate("/hundredToTwoHundred")
-      } 
-
-       else if(text === "BuenosAires" || text === "Cordoba" || text === "Corrientes" || text === "Entre Rios" || text === "Formosa" || text === "La Pampa" || text === "La Rioja" || text === "Mendoza" || text === "Misiones" || text === "Neuquen" || text === "Salta" || text === "San Luis" || text === "Santa Fe") { 
+       if(text === "BuenosAires" || text === "Cordoba" || text === "Corrientes" || text === "Entre Rios" || text === "Formosa" || text === "La Pampa" || text === "La Rioja" || text === "Mendoza" || text === "Misiones" || text === "Neuquen" || text === "Salta" || text === "San Luis" || text === "Santa Fe") { 
         sessionStorage.setItem("location", text)
         console.log("La ubicacion en el sessionStorage es " + text)
         console.log(sessionStorage.location)
@@ -233,6 +209,16 @@ const PruebaDeNav = () => {
           window.location.reload();
         }, 400)
       }
+    }}
+
+    const logOut = () => { 
+      navigate("/")
+      sessionStorage.clear()
+      userCtx.updateUser(null)
+      setTimeout(() => {  
+           console.log("Cerraste la sesion, ahora el contexto tiene un ID de" +  userCtx.userId)
+           console.log("Cerraste la sesion, ahora el SessionStorage tiene un ID de" +  sessionStorage.userId)
+      }, 1000)
     }
 
 
@@ -508,8 +494,8 @@ const PruebaDeNav = () => {
                        <li><a className="justify-between"> Profile <span className="badge">New</span></a></li>
                        <li><a>Settings</a></li>
                       <Link to={`/main/${userCtx.userId}`}><li><p>Main</p></li></Link> 
-                       <li><a>Logout</a></li>
-                      </ul>
+                       <li><a onClick={() => logOut()}>Logout</a></li>
+                      </ul> 
                   </div>
                </div>
                 </div>
@@ -523,4 +509,4 @@ const PruebaDeNav = () => {
   )
 }
 
-export default PruebaDeNav
+export default PruebaDeNav;

@@ -118,8 +118,14 @@ const Sidebar = () => {
     const handleItemFavorites = (text) => {
       if (text === 'Favorites') {
          navigate(`/favs/${userCtx.userId}`)
-      }
+      } 
     };
+
+    const handleItemSellBuyMessages = (text) => { 
+      if(text === "I want to buy") { 
+        navigate("/allCars")
+      }
+    }
 
 
   return (
@@ -160,7 +166,7 @@ const Sidebar = () => {
                   {index === 0 ?  <SellOutlinedIcon /> : index === 1 ?  <ShoppingCartOutlinedIcon /> : <MailIcon/>}
                   {/*  {index === 0 ? <ShoppingBasketIcon  style={{ color: '#ee644c' }}/> : index === 1 ? <FavoriteIcon style={{ color: '#ee644c' }}/> : <SettingsIcon style={{ color: '#ee644c' }}/>}*/}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} onClick={() => handleItemSellBuyMessages(text)}/>
               </ListItemButton>
             </ListItem>
           ))}

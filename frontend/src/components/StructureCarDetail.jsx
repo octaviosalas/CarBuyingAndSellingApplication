@@ -324,9 +324,7 @@ const StructureCarDetail = ({car}) => {
         </main>
       </div>
 
-      <div>
-       <Link to={"/allCars"}> <p>Go Main</p> </Link> 
-      </div>
+     
     </div>
     
   )

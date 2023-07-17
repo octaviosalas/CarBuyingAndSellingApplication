@@ -6,30 +6,28 @@ import StructureCars from '../StructureCars'
 import PruebaDeNav from '../PruebaDeNav'
 import Sidebar from '../Sidebar'
 
-
-const FiftyToSeventyFive = () => {
+const FilterSeventyFiveToHundred = () => {
 
   const [carsFilteredByKms, setCarsFilteredByKms] = useState([])
     
     
-    useEffect(() => { 
-        axios.get("http://localhost:4000/getAllCars")
-             .then((res) => { 
-               const allCars = res.data
-               const lessThanFiftyFiveKms = allCars.filter(cars => cars.kilometres <= 75000 && cars.kilometres >= 50000)
-               console.log(lessThanFiftyFiveKms)
-               setCarsFilteredByKms(lessThanFiftyFiveKms)
-             })
-             .catch((err) => { 
-               console.log(err)
-             })
-    }, [])
-
-
+  useEffect(() => { 
+      axios.get("http://localhost:4000/getAllCars")
+           .then((res) => { 
+             const allCars = res.data
+             const lessThanFiftyFiveKms = allCars.filter(cars => cars.kilometres <= 100000 && cars.kilometres >= 75000 && cars.type === "car")
+             console.log(lessThanFiftyFiveKms)
+             setCarsFilteredByKms(lessThanFiftyFiveKms)
+           })
+           .catch((err) => { 
+             console.log(err)
+           })
+  }, [])
 
 
   return (
     <div>
+       <div>
       <div>
         <div>
             <div>
@@ -44,7 +42,8 @@ const FiftyToSeventyFive = () => {
     </div>
     </div>
     </div>
+    </div>
   )
 }
 
-export default FiftyToSeventyFive
+export default FilterSeventyFiveToHundred

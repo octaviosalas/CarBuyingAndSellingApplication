@@ -42,11 +42,12 @@ export default function Login() {
                  setBackendMsj("Entering the account of  " + res.data.name)
                  setShowBackendMsj(true)
                  setTimeout(() => { 
+                  sessionStorage.setItem("userId", res.data.id)
                   userCtx.updateUser(res.data.id)
                  }, 500) 
                  setTimeout(() => { 
-                      navigate(`/main/${userCtx.userId}`)
-                      console.log(userCtx.userId)
+                      navigate(`/main/${sessionStorage.userId}`)
+                      console.log("Iniciaste sesion, el ID del contexto es " + userCtx.userId)
                  }, 1500)
               }
               
@@ -54,6 +55,11 @@ export default function Login() {
           })
           .catch(err => console.log(err))
    }
+
+   useEffect(() => { 
+     console.log("El ID del contexto: " +    userCtx.userId)
+     console.log("El ID del SessionStorage: " +    sessionStorage.userId)
+   }, [])
 
    
 

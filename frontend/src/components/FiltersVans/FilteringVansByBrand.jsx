@@ -6,18 +6,21 @@ import StructureCars from '../StructureCars'
 import PruebaDeNav from '../PruebaDeNav'
 import Sidebar from '../Sidebar'
 
-const FiveToTwentyFive = () => {
-    
-    const [carsFilteredByKms, setCarsFilteredByKms] = useState([])
+const FilteringVansByBrand = () => {
+
+    const {brand} = useParams()
+    console.log("LA MARCA QUE ME DA LA URL ES " + brand)
+   
+ 
+    const [carsFiltered, setCarsFiltered] = useState([])
     
     
     useEffect(() => { 
         axios.get("http://localhost:4000/getAllCars")
              .then((res) => { 
                const allCars = res.data
-               const lessThanTenThousandKilometers = allCars.filter(cars => cars.kilometres <= 25000)
-               console.log(lessThanTenThousandKilometers)
-               setCarsFilteredByKms(lessThanTenThousandKilometers)
+               const filterByBrand = allCars.filter(cars => cars.brand === brand && cars.type === "van")           
+               setCarsFiltered(filterByBrand)
              })
              .catch((err) => { 
                console.log(err)
@@ -27,17 +30,15 @@ const FiveToTwentyFive = () => {
 
   return (
     <div>
-            <div>
       <PruebaDeNav/>
       <Sidebar/>
 
       <div className='mb-6'> 
-         <h5>You are looking at cars that have between Five and Ten thousand kilometers </h5>
+         <h5>You are looking at brand cars {brand} </h5>
       </div>
-         {carsFilteredByKms.map((car) => <StructureCars car={car}/>)}
-    </div>
+         {carsFiltered.map((car) => <StructureCars car={car}/>)}
     </div>
   )
 }
 
-export default FiveToTwentyFive
+export default FilteringVansByBrand

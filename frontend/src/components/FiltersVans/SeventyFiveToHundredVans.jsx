@@ -7,17 +7,16 @@ import PruebaDeNav from '../PruebaDeNav'
 import Sidebar from '../Sidebar'
 
 
+const SeventyFiveToHundredVans = () => {
 
-const FilterHundredToOnehundredAndfifty = () => {
-
-  const [carsFilteredByKms, setCarsFilteredByKms] = useState([])
+    const [carsFilteredByKms, setCarsFilteredByKms] = useState([])
     
     
   useEffect(() => { 
       axios.get("http://localhost:4000/getAllCars")
            .then((res) => { 
              const allCars = res.data
-             const lessThanFiftyFiveKms = allCars.filter(cars => cars.kilometres <= 150000 && cars.kilometres >= 100000)
+             const lessThanFiftyFiveKms = allCars.filter(cars => cars.kilometres <= 100000 && cars.kilometres >= 75000 && cars.type === "van")
              console.log(lessThanFiftyFiveKms)
              setCarsFilteredByKms(lessThanFiftyFiveKms)
            })
@@ -28,9 +27,7 @@ const FilterHundredToOnehundredAndfifty = () => {
 
 
   return (
-    <div>
-       <div>
-       <div>
+ <div>
       <div>
         <div>
             <div>
@@ -38,11 +35,9 @@ const FilterHundredToOnehundredAndfifty = () => {
       <Sidebar/>
 
       <div className='mb-6'> 
-         <h5>You are looking at cars that have between 100,000 and 150,000  kilometers </h5>
+         <h5>You are looking at Vans that have between 75,000 and 100,000  kilometers </h5>
       </div>
          {carsFilteredByKms.map((car) => <StructureCars car={car}/>)}
-    </div>
-    </div>
     </div>
     </div>
     </div>
@@ -50,4 +45,4 @@ const FilterHundredToOnehundredAndfifty = () => {
   )
 }
 
-export default FilterHundredToOnehundredAndfifty
+export default SeventyFiveToHundredVans
