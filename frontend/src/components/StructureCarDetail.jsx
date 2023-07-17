@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 //https://tailwindui.com/components/ecommerce/components/category-filters
+import {Link} from "react-router-dom"
+import { useContext } from 'react'
+import { UserContext } from '../store/usercontext'
 
 const sortOptions = [
   { name: 'Contact Seller', href: '#', current: true },
@@ -58,6 +60,7 @@ function classNames(...classes) {
 const StructureCarDetail = ({car}) => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const userCtx = useContext(UserContext)
 
 
 
@@ -319,6 +322,10 @@ const StructureCarDetail = ({car}) => {
             </div>
           </section>
         </main>
+      </div>
+
+      <div>
+       <Link to={"/allCars"}> <p>Go Main</p> </Link> 
       </div>
     </div>
     

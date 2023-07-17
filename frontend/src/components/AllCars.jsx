@@ -21,6 +21,7 @@ const AllCars = () => {
     axios.get("http://localhost:4000/getAllCars")
     .then((res) => { 
           setAllCars(res.data)
+          console.log(res.data)
     })
     .catch((err) => console.log(err))
   }
