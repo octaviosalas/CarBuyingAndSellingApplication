@@ -60,19 +60,19 @@ const navigation = {
           id: 'location',
           name: 'Location',
           items: [
-            { name: 'BuenosAires', href: '#' },
-            { name: 'Cordoba', href: '#' },
-            { name: 'Corrientes', href: '#' },
-            { name: 'Entre Rios', href: '#' },
-            { name: 'Formosa', href: '#' },
-            { name: 'La Pampa', href: '#' },
-            { name: 'La Rioja', href: '#' },
-            { name: 'Mendoza', href: '#' },
-            { name: 'Misiones', href: '#' },
-            { name: 'Neuquen', href: '#' },
-            { name: 'Salta', href: '#' },
-            { name: 'San Luis', href: '#' },
-            { name: 'Santa Fe', href: '#' },
+            { name: 'BuenosAires', href: '/allCarsByLocation/BuenosAires' },
+            { name: 'Cordoba', href: '/allCarsByLocation/Cordoba' },
+            { name: 'Corrientes', href: '/allCarsByLocation/Corrientes' },
+            { name: 'Entre Rios', href: '/allCarsByLocation/EntreRios' },
+            { name: 'Formosa', href: '/allCarsByLocation/Formosa' },
+            { name: 'La Pampa', href: '/allCarsByLocation/LaPampa' },
+            { name: 'La Rioja', href: '/allCarsByLocation/LaRioja' },
+            { name: 'Mendoza', href: '/allCarsByLocation/Mendoza' },
+            { name: 'Misiones', href: '/allCarsByLocation/Misiones' },
+            { name: 'Neuquen', href: '/allCarsByLocation/Neuquen' },
+            { name: 'Salta', href: '/allCarsByLocation/Salta' },
+            { name: 'San Luis', href: '/allCarsByLocation/SanLuis' },
+            { name: 'Santa Fe', href: '/allCarsByLocation/SantaFe' },
           ],
         },
       ],
@@ -215,6 +215,7 @@ const PruebaDeNav = () => {
       navigate("/")
       sessionStorage.clear()
       userCtx.updateUser(null)
+      
       setTimeout(() => {  
            console.log("Cerraste la sesion, ahora el contexto tiene un ID de" +  userCtx.userId)
            console.log("Cerraste la sesion, ahora el SessionStorage tiene un ID de" +  sessionStorage.userId)

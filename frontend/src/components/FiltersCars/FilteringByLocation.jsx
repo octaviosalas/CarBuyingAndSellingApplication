@@ -35,10 +35,23 @@ const FilteringByLocation = () => {
       <PruebaDeNav/>
       <Sidebar/>
 
-      <div className='mb-6'> 
+      {carsFiltered.length === 0 
+      ? 
+      <p>At the moment, no user has published their car in {location}. We regret that we do not have availability in this location </p> 
+      :
+      <>
+     <div className='mb-6'> 
          <h5>You are looking at cars in {location} </h5>
       </div>
-         {carsFiltered.map((car) => <StructureCars car={car}/>)}
+
+      <div>
+        {carsFiltered.map((car) => <StructureCars car={car}/>)}
+      </div>
+      </>
+      }
+
+     
+   
     </div>
   )
 }
