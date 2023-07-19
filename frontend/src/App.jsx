@@ -11,6 +11,8 @@ import Main from './components/Main/Main'
 import {UserProvider} from "./store/usercontext"
 import Favs from './components/Favs'
 import AboutUs from './components/AboutUs'
+import ClouddinarPrueba from './components/ClouddinarPrueba'
+
 import FilteringByBrand from './components/FiltersCars/FilteringByBrand'
 import FilteringVansByBrand from './components/FiltersVans/FilteringVansByBrand'
 
@@ -34,6 +36,7 @@ import HundredToHundredFiftyVans from './components/FiltersVans/HundredToHundred
 
 import FilterHundredToTwoHundred from "./components/FiltersCars/FilterHundredToTwoHundred"
 import HundredFiftyToTwoHundredVans from './components/FiltersVans/HundredFiftyToTwoHundredVans'
+
 
 
 
@@ -86,6 +89,10 @@ function App() {
                 
                 <Route path="/hundredToTwoHundred" element={<FilterHundredToTwoHundred/>}></Route>
                 <Route path="/hundredToTwoHundredVans" element={<HundredFiftyToTwoHundredVans/>}></Route>
+
+                <Route path="/cloud" element={<ClouddinarPrueba/>}></Route>
+
+
               </Routes>
        </UserProvider>
 
