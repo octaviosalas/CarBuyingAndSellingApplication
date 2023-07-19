@@ -12,7 +12,7 @@ const ClouddinarPrueba = () => {
   }, [imagenes]);
 
   const handleDropImage = (files) => {
-    setImagenes(files)
+    setImagenes((prevImagenes) => [prevImagenes, ...files]);
     const uploaders = files.map((file) => {
       const formData = new FormData();
       formData.append('file', file);
