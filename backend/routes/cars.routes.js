@@ -9,6 +9,8 @@ carsRoutes.post("/setFav", saveInFavs)
 carsRoutes.get("/getFavs/:id", getFavs)
 carsRoutes.post("/deleteFav/:userId", deleteFav)
 
+carsRoutes.post("/images", deleteFav)
+
 
 
 export default carsRoutes;
