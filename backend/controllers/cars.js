@@ -174,7 +174,7 @@ export const getCarById = async (req, res) => {
 }
 
 export const saveNewCar = async (req, res) => { 
-     
+     console.log(req.body)
 }
 
 export const saveInFavs = async (req, res) => { 

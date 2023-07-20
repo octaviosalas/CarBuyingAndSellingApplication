@@ -36,6 +36,9 @@ const carsSchema = mongoose.Schema( {
     },
     seller: { 
         type: String
+    },
+    description: { 
+        type: String
     }
     
 })
