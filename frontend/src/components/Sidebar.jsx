@@ -26,6 +26,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../store/usercontext';
+import SignpostTwoToneIcon from '@mui/icons-material/SignpostTwoTone';
 
 
 const drawerWidth = 240;
@@ -124,7 +125,11 @@ const Sidebar = () => {
     const handleItemSellBuyMessages = (text) => { 
       if(text === "I want to buy") { 
         navigate("/allCars")
-      }
+      }else if(text === "I want to sell") { 
+        navigate("/buyMyCar")
+      } else if(text === "My Publications") { 
+        navigate("/myPublications")
+      } 
     }
 
 
@@ -159,11 +164,11 @@ const Sidebar = () => {
         </List>
         <Divider />
         <List>
-          {['I want to sell', 'I want to buy', 'Messages'].map((text, index) => (
+          {['I want to sell', 'I want to buy', 'Messages', "My Publications"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton  sx={{minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5,}} >
                 <ListItemIcon  sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center', }} >
-                  {index === 0 ?  <SellOutlinedIcon /> : index === 1 ?  <ShoppingCartOutlinedIcon /> : <MailIcon/>}
+                  {index === 0 ?  <SellOutlinedIcon /> : index === 1 ?  <ShoppingCartOutlinedIcon /> : index === 2 ? <MailIcon/> : <SignpostTwoToneIcon/>}
                   {/*  {index === 0 ? <ShoppingBasketIcon  style={{ color: '#ee644c' }}/> : index === 1 ? <FavoriteIcon style={{ color: '#ee644c' }}/> : <SettingsIcon style={{ color: '#ee644c' }}/>}*/}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} onClick={() => handleItemSellBuyMessages(text)}/>

@@ -4,10 +4,10 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import SecondMain from './SecondMain';
 import Footer from './Footer';
-import { Link } from 'react-router-dom';
 import Sidebar from "../Sidebar"
 import FooterTwo from './FooterTwo';
 import PruebaDeNav from '../PruebaDeNav';
+import {Link} from "react-router-dom"
 //https://tailwindui.com/components
 
 export default function Main() {
@@ -42,7 +42,7 @@ export default function Main() {
             <p className="mt-6 text-lg leading-8 text-gray-600"> Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
 
              <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a href="#" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" > I Want to Sell  </a>
+              <a href="/buyMyCar" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" > I Want to Sell  </a>
 
               <a href="/allCars" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" > I want to Buy  </a>
             </div>

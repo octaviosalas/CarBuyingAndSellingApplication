@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const carsSchema = mongoose.Schema( { 
     id: { 
-        type: Number
+        type: String
     },
     name: { 
         type: String
@@ -38,6 +38,18 @@ const carsSchema = mongoose.Schema( {
         type: String
     },
     description: { 
+        type: String
+    },
+    phone: { 
+        type: String
+    },
+    type: { 
+        type: String
+    },
+    location: { 
+        type: String,
+    },
+    sellerId: { 
         type: String
     }
     

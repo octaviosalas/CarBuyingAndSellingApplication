@@ -37,6 +37,8 @@ import HundredToHundredFiftyVans from './components/FiltersVans/HundredToHundred
 import FilterHundredToTwoHundred from "./components/FiltersCars/FilterHundredToTwoHundred"
 import HundredFiftyToTwoHundredVans from './components/FiltersVans/HundredFiftyToTwoHundredVans'
 
+import MyPublications from "./components/MyPublications"
+
 
 
 
@@ -90,7 +92,8 @@ function App() {
                 <Route path="/hundredToTwoHundred" element={<FilterHundredToTwoHundred/>}></Route>
                 <Route path="/hundredToTwoHundredVans" element={<HundredFiftyToTwoHundredVans/>}></Route>
 
-                <Route path="/cloud" element={<ClouddinarPrueba/>}></Route>
+                <Route path="/buyMyCar" element={<ClouddinarPrueba/>}></Route>
+                <Route path="/myPublications" element={<MyPublications/>}></Route>
 
 
               </Routes>

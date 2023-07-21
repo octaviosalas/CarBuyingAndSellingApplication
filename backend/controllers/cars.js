@@ -174,7 +174,37 @@ export const getCarById = async (req, res) => {
 }
 
 export const saveNewCar = async (req, res) => { 
+
      console.log(req.body)
+     const {id, sellerId, seller, carName, description, kilometres, year, brand, img, price, phone, location, type} = req.body;
+
+     try{ 
+      const newCarToSaved = new Cars ( { 
+          id: id,
+          name: carName,
+          description: description,
+          kilometres: kilometres,
+          year: year,
+          seller: seller,
+          brand: brand,
+          img: img,
+          price: price,
+          phone: phone, 
+          location: location,
+          type: type,
+          sellerId: sellerId
+        
+      })
+      newCarToSaved.save()
+                   .then((newCar) => { 
+                    res.json({message: "The car was Published Correctly", newCar})
+                   })
+                   .catch((err) => console.log(err))
+     }catch(err) { 
+        console.log(err)
+     }
+
+   
 }
 
 export const saveInFavs = async (req, res) => { 
@@ -229,6 +259,6 @@ export const deleteFav = async (req, res) => {
 
 }
 
-export const saveImages = () => { 
+export const getPublications = () => { 
 
 }

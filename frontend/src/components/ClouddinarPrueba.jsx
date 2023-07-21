@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import PruebaDeNav from "../components/PruebaDeNav"
 import { useContext } from 'react'
 import { UserContext } from '../store/usercontext'
+import { v4 as uuidv4 } from 'uuid';
 
 const ClouddinarPrueba = () => {
   const [imagenes, setImagenes] = useState([]);
@@ -66,6 +67,8 @@ const ClouddinarPrueba = () => {
 
   const postMyCar = () => { 
       const newCar = ({ 
+          id: uuidv4(),
+          sellerId: userCtx.userId,
           seller: sellerName,
           carName: carName,
           description: description,
@@ -78,7 +81,7 @@ const ClouddinarPrueba = () => {
           location: location,
           type: type
       })
-      axios.post(`http://localhost:4000/newCar/${userCtx.userId}`, newCar)
+      axios.post("http://localhost:4000/newCar", newCar)
             .then((res) => console.log(res.data))
             .catch((err) => console.log(err))
   }
@@ -126,7 +129,7 @@ const ClouddinarPrueba = () => {
              onChange={(e) => setType(e.target.value)}
             >
               <option></option>
-              <option>Car</option>
+              <option>car</option>
               <option>Van</option>
              
             </select>
@@ -159,7 +162,7 @@ const ClouddinarPrueba = () => {
           <div {...getRootProps({ className: 'dropzone' })}>
             <input {...getInputProps()} />
             <div className='flex'>
-           <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]">
+                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]">
             <div class="text-center">
               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
@@ -173,8 +176,9 @@ const ClouddinarPrueba = () => {
               </div>
               <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
             </div>
-          </div>
-          <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]">
+                </div>
+
+             <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]">
             <div class="text-center">
               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
@@ -188,7 +192,7 @@ const ClouddinarPrueba = () => {
               </div>
               <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
             </div>
-          </div>
+             </div>
           </div>
           </div>
         )}
@@ -287,7 +291,8 @@ const ClouddinarPrueba = () => {
             <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" 
              onChange={(e) => setLocation(e.target.value)}
             >
-              <option>Buenos Aires</option>
+              <option></option>
+              <option>BuenosAires</option>
               <option>Cordoba</option>
               <option>Corrientes</option>
               <option>Santa Fe</option>
