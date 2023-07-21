@@ -51,6 +51,9 @@ const carsSchema = mongoose.Schema( {
     },
     sellerId: { 
         type: String
+    },
+    publicationDate: { 
+        type: String
     }
     
 })

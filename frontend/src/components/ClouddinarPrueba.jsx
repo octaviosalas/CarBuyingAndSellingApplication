@@ -20,6 +20,7 @@ const ClouddinarPrueba = () => {
   const [location, setLocation] = useState("")
   const [brand, setBrand] = useState("")
   const [phone, setPhone] = useState("")
+  const [datePublication, setDatePublication] = useState("")
 
   const userCtx = useContext(UserContext)
   console.log(userCtx.userId)
@@ -62,6 +63,11 @@ const ClouddinarPrueba = () => {
       // Aquí puedes realizar alguna acción después de cargar todas las imágenes
     });
   };
+ 
+  useEffect(() => { 
+    console.log(datePublication)
+  }, [datePublication])
+
 
 
 
@@ -79,7 +85,8 @@ const ClouddinarPrueba = () => {
           price: price,
           phone: phone,
           location: location,
-          type: type
+          type: type,
+          publicationDate: datePublication
       })
       axios.post("http://localhost:4000/newCar", newCar)
             .then((res) => console.log(res.data))
@@ -136,6 +143,20 @@ const ClouddinarPrueba = () => {
             </div>
           </div>
         </div>
+
+        <div class="sm:col-span-4">
+             <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Publication Date</label>
+              <div class="mt-2">
+               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              <input type="date" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"
+                 onChange={(e) => setDatePublication(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
+
+
+        
 
    
 

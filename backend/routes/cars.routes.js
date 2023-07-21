@@ -8,7 +8,7 @@ carsRoutes.post("/newCar", saveNewCar)
 carsRoutes.post("/setFav", saveInFavs)
 carsRoutes.get("/getFavs/:id", getFavs)
 carsRoutes.post("/deleteFav/:userId", deleteFav)
-carsRoutes.get("/getPublications", getPublications)
+carsRoutes.get("/getPublications/:userId", getPublications)
 
 
 

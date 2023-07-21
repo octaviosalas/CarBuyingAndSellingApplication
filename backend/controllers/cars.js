@@ -176,7 +176,7 @@ export const getCarById = async (req, res) => {
 export const saveNewCar = async (req, res) => { 
 
      console.log(req.body)
-     const {id, sellerId, seller, carName, description, kilometres, year, brand, img, price, phone, location, type} = req.body;
+     const {id, sellerId, seller, carName, description, kilometres, year, brand, img, price, phone, location, type, publicationDate} = req.body;
 
      try{ 
       const newCarToSaved = new Cars ( { 
@@ -192,7 +192,8 @@ export const saveNewCar = async (req, res) => {
           phone: phone, 
           location: location,
           type: type,
-          sellerId: sellerId
+          sellerId: sellerId,
+          publicationDate: publicationDate
         
       })
       newCarToSaved.save()
@@ -259,6 +260,12 @@ export const deleteFav = async (req, res) => {
 
 }
 
-export const getPublications = () => { 
-
+export const getPublications = async (req, res) => { 
+     const {userId} = req.params
+      
+     Cars.find({sellerId: userId})
+         .then((exist) => { 
+           res.json(exist)
+         })
+         .catch(err => console.log(err))
 }
