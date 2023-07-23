@@ -8,11 +8,15 @@ import Sidebar from "../Sidebar"
 import FooterTwo from './FooterTwo';
 import PruebaDeNav from '../PruebaDeNav';
 import {Link} from "react-router-dom"
+import { useContext } from 'react'
+import {UserContext} from "../../store/usercontext"
+
 //https://tailwindui.com/components
 
 export default function Main() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
 
   return (
 

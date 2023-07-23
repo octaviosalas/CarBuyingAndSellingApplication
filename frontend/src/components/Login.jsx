@@ -44,6 +44,7 @@ export default function Login() {
                  setTimeout(() => { 
                   sessionStorage.setItem("userId", res.data.id)
                   userCtx.updateUser(res.data.id)
+                  userCtx.updateUserProfileImage(res.data.profileImage)
                  }, 500) 
                  setTimeout(() => { 
                       navigate(`/main/${sessionStorage.userId}`)

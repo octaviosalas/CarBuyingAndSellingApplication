@@ -17,8 +17,7 @@ const usersSchema = mongoose.Schema( {
         required: true
     },
     profileImage: {
-        type: Schema.Types.Mixed,  
-        default: null
+        type: String
       },
     password: { 
         type: String,

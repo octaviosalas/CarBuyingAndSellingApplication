@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { UserContext } from '../store/usercontext'
 import { useNavigate } from 'react-router-dom';
+import axios from "axios"
 
 
 const navigation = {
@@ -24,7 +25,7 @@ const navigation = {
         {
           name: 'Top Cars',
           href: '#',
-          imageSrc: 'https://www.costapersonalcar.com.br/carros/7705ae94d1db78e5ff9dc7bf47902f37-thumbjpeg-bmw-320i-8990559-1000-750-70.jpg',
+          imageSrc: 'https://bestdrivers.com.ar/site/wp-content/uploads/2020/07/mercedes.jpg',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
         },
       ],
@@ -158,6 +159,7 @@ function classNames(...classes) {
 
 
 
+
 const PruebaDeNav = () => {
 
 
@@ -169,6 +171,7 @@ const PruebaDeNav = () => {
     const navigate = useNavigate()
 
     useEffect(() => { 
+          
         setTimeout(() => { 
              setText("Thanks for trusting us")
         }, 10000 )
@@ -215,6 +218,7 @@ const PruebaDeNav = () => {
       navigate("/")
       sessionStorage.clear()
       userCtx.updateUser(null)
+      userCtx.updateUserProfileImage(null)
       
       setTimeout(() => {  
            console.log("Cerraste la sesion, ahora el contexto tiene un ID de" +  userCtx.userId)
@@ -488,7 +492,7 @@ const PruebaDeNav = () => {
                   <div className="dropdown dropdown-end">
                      <label tabIndex={0} className="btn btn-ghost btn-circle avatar xxxs:mr-[50px]">
                         <div className="w-10 rounded-full ">
-                            <img src={me} />
+                            <img src={userCtx.userProfileImage} />
                         </div>
                      </label>
                      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 xxxs:mr-[50px]">

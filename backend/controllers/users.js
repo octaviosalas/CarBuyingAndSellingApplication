@@ -14,10 +14,11 @@ export const login = async (req, res) =>  {
         bcrypt.compare(password, userExist.password)
             .then((correct) => { 
                 if(correct) { 
-                    const {id, name} = userExist;
+                    const {id, name, profileImage} = userExist;
                     res.json({
                          id: id,
-                         name: name
+                         name: name,
+                         profileImage: profileImage
                         })
                     }else { 
                         res.json({message: "Password is Incorrect"})
