@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
 const carsSchema = mongoose.Schema( { 
-    id: { 
-        type: String
-    },
+     id: { 
+          type: String
+      },
     name: { 
         type: String
     },

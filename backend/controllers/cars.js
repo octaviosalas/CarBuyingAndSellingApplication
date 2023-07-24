@@ -162,9 +162,12 @@ export const addCars = async (req, res) => {
 
 export const getCarById = async (req, res) => { 
   const {id} = req.params
+  const idLike = id.toString()
+ 
   console.log(req.params)
+  console.log(idLike)
 
- Cars.find({id: id})
+ Cars.find({id: idLike})
        .then((car) => { 
           res.json(car)
        })
