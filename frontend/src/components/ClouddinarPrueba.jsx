@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
+import Sidebar from "./Sidebar"
 import { useEffect } from 'react';
 import PruebaDeNav from "../components/PruebaDeNav"
 import { useContext } from 'react'
@@ -96,6 +97,7 @@ const ClouddinarPrueba = () => {
   return (
     <div>
       <PruebaDeNav/>
+      <Sidebar/>
 
 <form>
   <div class="space-y-12 mt-[90px]">
@@ -104,9 +106,9 @@ const ClouddinarPrueba = () => {
       <p class="mt-1 text-sm leading-6 text-gray-600">The information of your car will be seen by all our users.</p>
 
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        
 
-   
-           <div class="sm:col-span-4">
+         <div class="sm:col-span-4 2xl:ml-[250px] xl:ml-[260px] lg:ml-[250px] md:ml-[250px] sm:ml-[200px] xxs:ml-[50px]   xxxs:ml-[50px]">
              <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Your Name</label>
               <div class="mt-2">
                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
@@ -117,18 +119,18 @@ const ClouddinarPrueba = () => {
           </div>
         </div>
 
-        <div class="sm:col-span-4">
+        <div class="sm:col-span-4 2xl:ml-[250px] xl:ml-[260px] lg:ml-[250px] md:ml-[250px] sm:ml-[200px] xxs:ml-[50px]  xxxs:ml-[50px]">
              <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
               <div class="mt-2">
                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"
+              <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 xxs:w-[100px]" placeholder="janesmith"
                  onChange={(e) => setCarName(e.target.value)}
               />
             </div>
           </div>
         </div>
 
-        <div class="sm:col-span-4">
+        <div class="sm:col-span-4 2xl:ml-[250px] xl:ml-[260px] lg:ml-[250px] md:ml-[250px] sm:ml-[200px] xxs:ml-[50px]  xxxs:ml-[50px]">
              <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Type</label>
               <div class="mt-2">
                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
@@ -144,7 +146,7 @@ const ClouddinarPrueba = () => {
           </div>
         </div>
 
-        <div class="sm:col-span-4">
+        <div class="sm:col-span-4 2xl:ml-[250px] xl:ml-[260px] lg:ml-[250px] md:ml-[250px] sm:ml-[200px] xxs:ml-[50px]  xxxs:ml-[50px]">
              <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Publication Date</label>
               <div class="mt-2">
                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
@@ -154,6 +156,10 @@ const ClouddinarPrueba = () => {
             </div>
           </div>
         </div>
+     
+
+   
+         
 
 
         
@@ -168,7 +174,7 @@ const ClouddinarPrueba = () => {
           <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Description of your vehicle</label>
           <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
           <div class="mt-2">
-            <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+            <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 xxs:ml-[20px]" 
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
