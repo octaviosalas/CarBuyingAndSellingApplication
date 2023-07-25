@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import SecondMain from './SecondMain';
@@ -10,18 +10,42 @@ import PruebaDeNav from '../PruebaDeNav';
 import {Link} from "react-router-dom"
 import { useContext } from 'react'
 import {UserContext} from "../../store/usercontext"
+import axios from "axios"
+import Buble from '../Buble';
 
 //https://tailwindui.com/components
 
 export default function Main() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [quantityMessages, setQuantityMessages] = useState(null)
+  const userCtx = useContext(UserContext)
+  const userId = userCtx.userId
+
+  useEffect(() => { 
+    axios.get(`http://localhost:4000/getMessages/${userId}`)
+         .then((res) => { 
+              console.log(res.data)
+              userCtx.updateUserQuantityMessages(res.data.length)
+              userCtx.updateUserMessages(res.data)
+              setTimeout(() => { 
+               console.log(userCtx.userMessages)
+             }, 1000)
+         })
+         .catch((err) => console.log(err))
+ }, [])
+
+ useEffect(() => { 
+    console.log(userCtx.userQuantityMessages)
+ }, [userCtx.userQuantityMessages])
+
 
 
   return (
 
     <>
     <div className="bg-white">
+ 
       <PruebaDeNav />
       <Sidebar />
       <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -66,7 +90,6 @@ export default function Main() {
     </div>
 
   
-
     <SecondMain/>
     <Footer />
     <FooterTwo/>

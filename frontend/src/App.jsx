@@ -95,7 +95,7 @@ function App() {
 
                 <Route path="/buyMyCar" element={<ClouddinarPrueba/>}></Route>
                 <Route path="/myPublications" element={<MyPublications/>}></Route>
-                <Route path="/myChats" element={<Chats/>}></Route>
+                <Route path="/myChats/:id" element={<Chats/>}></Route>
 
 
               </Routes>

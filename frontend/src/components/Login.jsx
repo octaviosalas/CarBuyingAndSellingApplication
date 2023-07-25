@@ -92,7 +92,7 @@ export default function Login() {
             </label>
             <div className="mt-2.5">
               <input onChange={(e) => setEmail(e.target.value)}  type="email" name="email" id="email"  autoComplete="email"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6  border-indigo-600 border-1 " 
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function Login() {
             <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">  Password  </label>
             <div className="mt-2.5">
               <input name="password"  type="password"  id="password"  rows={4}  onChange={(e) => setPassword(e.target.value)}
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-indigo-600 border-1 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={''}
               />
             </div>

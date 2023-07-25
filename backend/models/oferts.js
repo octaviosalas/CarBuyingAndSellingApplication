@@ -10,7 +10,11 @@ const ofertsSchema = mongoose.Schema( {
     },
     amount: { 
         type: Number
+    },
+    publicationId: { 
+        type: String
     }
+
     
 })
 

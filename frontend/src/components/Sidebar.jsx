@@ -27,6 +27,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../store/usercontext';
 import SignpostTwoToneIcon from '@mui/icons-material/SignpostTwoTone';
+import Buble from './Buble';
 
 
 const drawerWidth = 240;
@@ -129,6 +130,8 @@ const Sidebar = () => {
         navigate("/buyMyCar")
       } else if(text === "My Publications") { 
         navigate("/myPublications")
+      } else if(text === "Messages") { 
+        navigate(`/myChats/${userCtx.userId}`)
       } 
     }
 
@@ -168,10 +171,17 @@ const Sidebar = () => {
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton  sx={{minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5,}} >
                 <ListItemIcon  sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center', }} >
-                  {index === 0 ?  <SellOutlinedIcon /> : index === 1 ?  <ShoppingCartOutlinedIcon /> : index === 2 ? <MailIcon/> : <SignpostTwoToneIcon/>}
+                  {index === 0 ?  <SellOutlinedIcon /> : index === 1 ?  <ShoppingCartOutlinedIcon /> : index === 2 ? <MailIcon/>  : <SignpostTwoToneIcon/>}
                   {/*  {index === 0 ? <ShoppingBasketIcon  style={{ color: '#ee644c' }}/> : index === 1 ? <FavoriteIcon style={{ color: '#ee644c' }}/> : <SettingsIcon style={{ color: '#ee644c' }}/>}*/}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} onClick={() => handleItemSellBuyMessages(text)}/>
+                {text === 'Messages' && (
+          <div style={{ position: 'relative' }}>
+            <span className="badge badge-sm absolute right-0 bottom--1 text-white text-[9px] bg-stone-800 w-[20px] h-[20px] indicator-item">
+               {userCtx.userQuantityMessages}
+            </span>
+          </div>
+        )}
               </ListItemButton>
             </ListItem>
           ))}

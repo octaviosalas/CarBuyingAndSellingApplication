@@ -93,7 +93,8 @@ const sendOfertToSeller = () => {
   const myOfert = ( { 
     amount: amount,
     sellerId: car.sellerId,
-    interestedId: userCtx.userId
+    interestedId: userCtx.userId,
+    publicationId: car._id
   })
   axios.post("http://localhost:4000/sendOfert", myOfert)
        .then(res => console.log(res.data))
