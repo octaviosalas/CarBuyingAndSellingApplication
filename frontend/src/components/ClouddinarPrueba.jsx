@@ -112,7 +112,7 @@ const ClouddinarPrueba = () => {
              <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Your Name</label>
               <div class="mt-2">
                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"
+              <input type="text" name="username" id="username" autocomplete="username" class="  border-indigo-600 border-0.5   rounded-lg block flex-1   py-1.5 pl-1 text-gray-900 placeholder:text-gray-800 focus:ring-0 sm:text-sm sm:leading-6" 
                  onChange={(e) => setSellerName(e.target.value)}
               />
             </div>
@@ -123,7 +123,7 @@ const ClouddinarPrueba = () => {
              <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
               <div class="mt-2">
                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 xxs:w-[100px]" placeholder="janesmith"
+              <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-indigo-600 border-0.5 rounded-lg bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 xxs:w-[100px]" placeholder="janesmith"
                  onChange={(e) => setCarName(e.target.value)}
               />
             </div>
@@ -134,7 +134,7 @@ const ClouddinarPrueba = () => {
              <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Type</label>
               <div class="mt-2">
                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-               <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" 
+               <select id="country" name="country" autocomplete="country-name" class="block w-full  border-indigo-600 border-0.5 rounded-lg  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" 
              onChange={(e) => setType(e.target.value)}
             >
               <option></option>
@@ -150,7 +150,7 @@ const ClouddinarPrueba = () => {
              <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Publication Date</label>
               <div class="mt-2">
                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="date" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"
+              <input type="date" name="username" id="username" autocomplete="username" class="block flex-1 border-indigo-600 border-0.5 rounded-lg  bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"
                  onChange={(e) => setDatePublication(e.target.value)}
               />
             </div>
@@ -174,7 +174,7 @@ const ClouddinarPrueba = () => {
           <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Description of your vehicle</label>
           <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
           <div class="mt-2">
-            <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 xxs:ml-[20px]" 
+            <textarea id="about" name="about" rows="3" class="block w-full  border-indigo-600 border-0.5 rounded-lg  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 xxs:ml-[20px]" 
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
@@ -189,7 +189,7 @@ const ClouddinarPrueba = () => {
           <div {...getRootProps({ className: 'dropzone' })}>
             <input {...getInputProps()} />
             <div className='flex'>
-                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]">
+                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]"  style={{ backgroundImage: `url(${imagenes[0]})` }}>
             <div class="text-center">
               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
@@ -205,7 +205,7 @@ const ClouddinarPrueba = () => {
             </div>
                 </div>
 
-             <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]">
+             <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]"  style={{ backgroundImage: `url(${imagenes[1]})` }}>
             <div class="text-center">
               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
@@ -230,7 +230,7 @@ const ClouddinarPrueba = () => {
           <div {...getRootProps({ className: 'dropzone' })}>
             <input {...getInputProps()} />
             <div className='flex'>
-           <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]">
+           <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]"  style={{ backgroundImage: `url(${imagenes[2]})` }}>
             <div class="text-center">
               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
@@ -245,7 +245,7 @@ const ClouddinarPrueba = () => {
               <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
             </div>
           </div>
-          <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]">
+          <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 w-[400px]"  style={{ backgroundImage: `url(${imagenes[3]})` }}>
             <div class="text-center">
               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
@@ -282,7 +282,7 @@ const ClouddinarPrueba = () => {
         <div class="sm:col-span-3 md:ml-[50px] sm:ml-[50px] xxs:ml-[50px]  xxxs:ml-[50px]">
           <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Number of kilometers</label>
           <div class="mt-2">
-            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full  border-indigo-600 border-0.5 rounded-lg  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
               onChange={(e) => setKilometres(e.target.value)}
             />
           </div>
@@ -291,7 +291,7 @@ const ClouddinarPrueba = () => {
         <div class="sm:col-span-3 xxs:ml-[50px] xxxs:ml-[50px]">
           <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Vehicle year</label>
           <div class="mt-2">
-            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full  border-indigo-600 border-0.5 rounded-lg  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
              onChange={(e) => setYear(e.target.value)}
             />
           </div>
@@ -305,7 +305,7 @@ const ClouddinarPrueba = () => {
         <div class="sm:col-span-4 xxs:ml-[50px] xxxs:ml-[50px]">
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Price USD</label>
           <div class="mt-2">
-            <input id="text" name="text" type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            <input id="text" name="text" type="text" class="block w-full  border-indigo-600 border-0.5 rounded-lg  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
              onChange={(e) => setPrice(e.target.value)}
             />
           </div>
@@ -315,7 +315,7 @@ const ClouddinarPrueba = () => {
         <div class="sm:col-span-3 md:ml-[50px] sm:ml-[50px] xxs:ml-[50px]  xxxs:ml-[50px]">
           <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Your Location</label>
           <div class="mt-2">
-            <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" 
+            <select id="country" name="country" autocomplete="country-name" class="block w-full  border-indigo-600 border-0.5 rounded-lg  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" 
              onChange={(e) => setLocation(e.target.value)}
             >
               <option></option>
@@ -340,7 +340,7 @@ const ClouddinarPrueba = () => {
         <div class="sm:col-span-3 xxs:ml-[50px] xxxs:ml-[50px]">
           <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Brand</label>
           <div class="mt-2">
-          <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+          <select id="country" name="country" autocomplete="country-name" class="block w-full  border-indigo-600 border-0.5 rounded-lg  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
            onChange={(e) => setBrand(e.target.value)}
           >
               <option>Volkswagen</option>
@@ -362,7 +362,7 @@ const ClouddinarPrueba = () => {
         <div class="sm:col-span-4 2xl:ml-[320px] xl:ml-[260px] lg:ml-[250px] md:ml-[250px] sm:ml-[200px] xxs:ml-[50px]  xxxs:ml-[50px]">
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Telephone contact</label>
           <div class="mt-2">
-            <input id="email" name="text" type="text" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            <input id="email" name="text" type="text" autocomplete="email" class="block w-full  border-indigo-600 border-0.5 rounded-lg  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             onChange={(e) => setPhone(e.target.value)}
             />
           </div>

@@ -7,5 +7,4 @@ ofertsRoutes.get(`/getMessages/:userId`, getMessages)
 
 
 
-
 export default ofertsRoutes;

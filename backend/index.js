@@ -15,6 +15,7 @@ app.use(express.json())
 app.use(express.text())
 app.use(cors())
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({type:"*/*"}))
 app.use(express.urlencoded({extended:true}))
@@ -22,6 +23,9 @@ app.use(express.urlencoded({extended:true}))
 app.use(carsRoutes)
 app.use(usersRoutes)
 app.use(ofertsRoutes)
+
+
+
 
 
 
