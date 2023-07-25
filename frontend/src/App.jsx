@@ -38,6 +38,7 @@ import FilterHundredToTwoHundred from "./components/FiltersCars/FilterHundredToT
 import HundredFiftyToTwoHundredVans from './components/FiltersVans/HundredFiftyToTwoHundredVans'
 
 import MyPublications from "./components/MyPublications"
+import Chats from "./components/Chats"
 
 
 
@@ -94,6 +95,7 @@ function App() {
 
                 <Route path="/buyMyCar" element={<ClouddinarPrueba/>}></Route>
                 <Route path="/myPublications" element={<MyPublications/>}></Route>
+                <Route path="/myChats" element={<Chats/>}></Route>
 
 
               </Routes>
