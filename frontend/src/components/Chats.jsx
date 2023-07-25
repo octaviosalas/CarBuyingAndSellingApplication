@@ -14,10 +14,7 @@ const Chats = () => {
             .then((res) => { 
                 console.log(res.data)
                 userCtx.updateUserMessages(res.data)
-                const msj = userCtx.userMessages
-                 msj.forEach((message, index) => {
-                    console.log(`Message ${index + 1}:`, message);
-                  });
+
  
                 setTimeout(() => { 
                     console.log(userCtx.userMessages)
