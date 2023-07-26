@@ -14,6 +14,8 @@ const MyPublications = () => {
     const [publications, setPublications] = useState([])
     const [noPublications, setNoPublications] = useState(false)
 
+    console.log("El Nombre del contexto: " +   userCtx.userName)
+
     const getPublicationsOfUser = () => { 
       axios.get(`http://localhost:4000/getPublications/${userCtx.userId}`)
       .then((res) => { 

@@ -27,10 +27,6 @@ export default function Main() {
          .then((res) => { 
               console.log(res.data)
               userCtx.updateUserQuantityMessages(res.data.length)
-              userCtx.updateUserMessages(res.data)
-              setTimeout(() => { 
-               console.log(userCtx.userMessages)
-             }, 1000)
          })
          .catch((err) => console.log(err))
  }, [])

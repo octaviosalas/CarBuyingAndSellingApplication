@@ -45,6 +45,8 @@ export default function Login() {
                   sessionStorage.setItem("userId", res.data.id)
                   userCtx.updateUser(res.data.id)
                   userCtx.updateUserProfileImage(res.data.profileImage)
+                  userCtx.updateUserName(res.data.name)
+                  sessionStorage.setItem("userName", res.data.name)
                  }, 500) 
                  setTimeout(() => { 
                       navigate(`/main/${sessionStorage.userId}`)
@@ -60,7 +62,8 @@ export default function Login() {
    useEffect(() => { 
      console.log("El ID del contexto: " +    userCtx.userId)
      console.log("El ID del SessionStorage: " +    sessionStorage.userId)
-   }, [])
+     console.log("El Nombre del contexto: " +   userCtx.userName)
+   }, [userCtx.userName])
 
    
 

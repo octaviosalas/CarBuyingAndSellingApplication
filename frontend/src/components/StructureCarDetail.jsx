@@ -67,6 +67,7 @@ const StructureCarDetail = ({car}) => {
 
 
   const userCtx = useContext(UserContext)
+ 
 
   function handleCarouselClick(event) {
   event.preventDefault();
@@ -87,14 +88,35 @@ const openModal = () => {
    window.my_modal_3.showModal();
 }
 
-  
+function getActualDate() {
+  const fecha = new Date();
+  const dia = fecha.getDate();
+  const mes = fecha.getMonth() + 1; // Los meses en JavaScript son indexados desde 0 (enero) hasta 11 (diciembre)
+  const año = fecha.getFullYear();
+
+  return `${dia}/${mes}/${año}`;
+}
+
+const actualDate = getActualDate();
+console.log(actualDate);
+console.log(  "Sesion Name: " + sessionStorage.userName)
+console.log("Context Name: " + userCtx.userName)
 
 const sendOfertToSeller = () => { 
   const myOfert = ( { 
     amount: amount,
     sellerId: car.sellerId,
     interestedId: userCtx.userId,
-    publicationId: car._id
+    publicationId: car._id,
+    interested: userCtx.userName,
+    interestedImage: userCtx.userProfileImage,
+    vehicle: car.name,
+    date: actualDate
+    
+
+
+
+
   })
   axios.post("http://localhost:4000/sendOfert", myOfert)
        .then(res => console.log(res.data))
@@ -361,7 +383,7 @@ const sendOfertToSeller = () => {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3">
+           <div className="lg:col-span-3">
                 <div className="carousel w-[60vh] 2xl:ml-[1px] xl:ml-[1px] lg:ml-[1px] sm:ml-[100px] xxs:ml-[70px] xxxs:ml-[30px]">
                    <div id="item1" className="carousel-item w-full">
                      <img src={car.img[0]} className="w-[50vh] h-[50vh] md:w-[55vh] md:h-[35vh]  sm:w-[50vh] sm:h-[30vh] xxs:w-[46vh] xxs:h-[26vh] xxxs:w-[42vh] xxxs:h-[22vh]" />
@@ -382,7 +404,8 @@ const sendOfertToSeller = () => {
   <a href="#item3" className="btn btn-xs" >3</a> 
   <a href="#item4" className="btn btn-xs" >4</a>
 </div>
-                </div>
+                </div> 
+
             </div>
           </section>
         </main>

@@ -2,7 +2,7 @@ import Oferts from "../models/oferts.js"
 
 export const sendOfert = async (req, res) => { 
     console.log(req.body)
-    const {amount, sellerId, interestedId, publicationId} = req.body;
+    const {amount, sellerId, interestedId, publicationId, interested, interestedImage, vehicle, date} = req.body;
       
 
     try{ 
@@ -10,7 +10,11 @@ export const sendOfert = async (req, res) => {
         amount: amount,
         sellerId: sellerId,
         interestedId: interestedId,
-        publicationId: publicationId
+        publicationId: publicationId,
+        interested: interested,
+        interestedImage: interestedImage,
+        vehicle: vehicle,
+        date: date
      })
      saveOfert.save()
               .then((of) => { 

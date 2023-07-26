@@ -13,6 +13,18 @@ const ofertsSchema = mongoose.Schema( {
     },
     publicationId: { 
         type: String
+    },
+    interested: { 
+        type: String
+    },
+    interestedImage: { 
+        type: String
+    },
+    vehicle: { 
+        type: String
+    },
+    date: { 
+        type: String
     }
 
     

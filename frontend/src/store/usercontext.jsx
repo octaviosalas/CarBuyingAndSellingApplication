@@ -5,8 +5,8 @@ const UserContext = createContext({
     updateUser: () => {},
     userProfileImage: null,
     updateUserProfileImage: () => {},
-    userMessages: [],
-    updateUserMessages: () => {},
+    userName: null,
+    updateUserName: () => {},
     userQuantityMessages: [],
     updateUserQuantityMessages: () => {}      
 });
@@ -26,9 +26,9 @@ const [userId, setUserId] = useState(() => {
 
  })
 
- const [userMessages, setUserMessages] = useState(() => { 
-  const storedUserMessage = sessionStorage.getItem("userMessages")
-  return storedUserMessage !== null ? storedUserMessage : null;
+ const [userName, setUserName] = useState(() => { 
+  const storedUserName= sessionStorage.getItem("userName")
+  return storedUserName!== null ? storedUserName: null;
  })
 
  const [userQuantityMessages, setUserQuantityMessages] = useState(() => { 
@@ -38,7 +38,6 @@ const [userId, setUserId] = useState(() => {
 
 
 const updateUser = (id) => {                   
-    console.log("aca estoy ")
     setUserId(id)
     sessionStorage.setItem('userId', id);     
 };
@@ -48,13 +47,13 @@ const updateUserProfileImage = (x) => {
     sessionStorage.setItem("userProfileImage", x)
 }
 
-const updateUserMessages = (x) => { 
-  setUserMessages(x)
-  sessionStorage.setItem("userMessages", JSON.stringify(x))
+const updateUserName = (name) => { 
+  setUserName(name)
+  sessionStorage.setItem("userName", name)
 }
 
 const updateUserQuantityMessages = (x) => { 
-  setUserMessages(x)
+  setUserQuantityMessages(x)
   sessionStorage.setItem("userQuantityMessages", x)
 }
 
@@ -64,8 +63,8 @@ useEffect(() => {
         setUserId(event.newValue);
       } else if (event.key === 'userProfileImage') {            
         setUserProfileImage(event.newValue);
-      } else if (event.key === 'userMessages') {            
-        setUserMessages(event.newValue);
+      } else if (event.key === 'userName') {            
+        setUserName(event.newValue);
       } else if (event.key === 'userQuantityMessages') {            
         setUserQuantityMessages(event.newValue);
       }
@@ -77,7 +76,7 @@ useEffect(() => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ userId, updateUser, userProfileImage, updateUserProfileImage, userMessages, updateUserMessages, userQuantityMessages, updateUserQuantityMessages }}>
+    <UserContext.Provider value={{ userId, updateUser, userProfileImage, updateUserProfileImage, userName, updateUserName, userQuantityMessages, updateUserQuantityMessages }}>
       {children}
     </UserContext.Provider>
   );
