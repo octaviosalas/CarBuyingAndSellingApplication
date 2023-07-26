@@ -1,3 +1,4 @@
+import Message from "../models/messages.js";
 import Oferts from "../models/oferts.js"
 
 export const sendOfert = async (req, res) => { 
@@ -43,4 +44,44 @@ export const getMessages = async (req, res) => {
         })
 
         
+}
+
+
+export const sendMessage = async (req, res) => { 
+  console.log(req.body)
+  const {name, date, amount, image, senderUser, userRecipient} = req.body;
+
+  try{ 
+    const saveMessage = new Message ( { 
+      name: name,
+      date: date,
+      amount: amount,
+      image: image,
+      senderUser: senderUser,
+      userRecipient: userRecipient
+    })
+    saveMessage.save()
+             .then((msj) => { 
+              res.json({message: "The message was send and save Correctly", msj})
+             })
+             .catch((err) => { 
+               console.log(err)
+             })
+   }catch(err) { 
+        console.log(err)
+   }
+}
+
+export const getConversation = async (req, res) => { 
+
+  const {userId} = req.params
+ 
+ 
+  Message.find({senderUser: userId})
+        .then((exist) => { 
+          res.json(exist)
+        })
+        .catch((err) => { 
+          console.log(err)
+        })
 }

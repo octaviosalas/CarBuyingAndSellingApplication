@@ -8,14 +8,160 @@ import Sidebar from "./Sidebar"
 import {Link} from "react-router-dom"
 
 
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
 
 
 const Chats = () => {
+
+  
+function OffCanvasExample({ name, amount, image, idInterested, date, ...props }) {
+
+  const [show, setShow] = useState(false);
+  const [historyMessages, setHistoryMessages] = useState([])
+  const [messages, setMessages] = useState([ 
+     { 
+      name: name,
+      amount: amount,
+      image: image,
+      date: date
+     }
+  ]);
+
+  const [response, setResponse] = useState("")
+
+
+  useEffect(() => { 
+    axios.get(`http://localhost:4000/getConversations/${userCtx.userId}`)
+         .then((res) => { 
+          console.log(res.data)
+          setHistoryMessages(res.data)
+         })
+         .catch(err => console.log(err))
+  }, [])
+
+
+  
+  useEffect(() => { 
+     console.log(historyMessages)
+  }, [historyMessages])
+
+
+
+
+  const handleSend = () => {
+    if (response.trim() !== '') {
+      const newMessage = {
+        name: userCtx.userName, 
+        date: getCurrentDate(), 
+        amount: response,
+        image: userCtx.userProfileImage,
+        senderUser: userCtx.userId,
+        userRecipient: idInterested
+      }
+      setMessages([...messages, newMessage]);
+      setResponse('');
+      axios.post("http://localhost:4000/sendMessage", newMessage)
+           .then((res) => { 
+            console.log(res.data)
+           })
+           .catch((err) => console.log(err))
+      
+    }
+  };
+
+ 
+function getCurrentDate() {
+  const fecha = new Date();
+  const dia = fecha.getDate();
+  const mes = fecha.getMonth() + 1; 
+  const año = fecha.getFullYear();
+
+  return `${dia}/${mes}/${año}`;
+}
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const userCtx = useContext(UserContext)
+
+  useEffect(() => { 
+    axios.get(`http://localhost:4000/getMessages/${userId}`)
+         .then((res) => { 
+              console.log(res.data)
+         })
+         .catch((err) => console.log(err))
+ }, [])
+
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow} className="btn btn-ghost btn-xs">Response</Button>
+      <Offcanvas show={show} onHide={handleClose} {...props}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title> Chat with:  <b>{name}</b> </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+                    {messages.map((m) => ( 
+                          <div className="chat chat-start">
+                          <div className="chat-image avatar">
+                              <div className="w-10 rounded-full">
+                                <img src={m.image} />
+                                </div>
+                          </div>
+                          <div className="chat-header">
+                              {m.name}
+                              <time className="text-xs opacity-50">{m.date}</time>
+                          </div>
+                        <div className="chat-bubble">{m.amount} </div> 
+                    </div>
+                    ))}      
+        
+                {historyMessages.map((m) => {
+                  if (m.userRecipient === idInterested) { // Aquí va la condición dentro del if
+                    return (
+                      <div className="chat chat-start">
+                        <div className="chat-image avatar">
+                          <div className="w-10 rounded-full">
+                            <img src={m.image} />
+                          </div>
+                        </div>
+                        <div className="chat-header">
+                          {m.name}
+                          <time className="text-xs opacity-50">{m.date}</time>
+                        </div>
+                        <div className="chat-bubble">{m.amount} </div>
+                      </div>
+                    );
+                  } else {
+                    // Puedes retornar null si no quieres renderizar nada en el caso contrario
+                    return null;
+                  }
+                })}
+        </Offcanvas.Body>
+        <Offcanvas.Body>
+                <div className=" fixed bottom-1">
+                  <div className="flex">
+                  <textarea placeholder="Response" className="textarea border-2 border-gray-950 textarea-lg w-full max-w-xs"  value={response} onChange={(e) => setResponse(e.target.value)}></textarea>
+                  <button className="btn btn-info ml-4  bottom-1" onClick={handleSend}>Send</button>
+                  </div>
+                </div>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
+}
+
+
 
     const userCtx = useContext(UserContext)
     const userId = userCtx.userId
     const [quantityMessages, setQuantityMessages] = useState(null)
     const [offerts, setOfferts] = useState([])
+
+    const placements = ['start', 'end', 'top', 'bottom'];
+     const onlyEndPlacement = 'end';
     
 
     useEffect(() => { 
@@ -93,8 +239,8 @@ const Chats = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold">{of.interested}</div>
-                       
+                        <div className="font-bold">{of.interested}</div>   
+                          
                       </div>
                     </div>
                   </td>
@@ -106,7 +252,7 @@ const Chats = () => {
                   <td>{of.amount} USD</td>
                   <td>{of.date}</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs">Response</button>
+                     <> <OffCanvasExample name={of.interested} idInterested={of.interestedId} amount={of.amount} date={of.date} image={of.interestedImage} placement={onlyEndPlacement} /> </>
                     <button className="btn btn-ghost btn-xs">Reject</button>
                   </th>
                 </tr>

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'; //importacion de bootstrap
 import './App.css'
 import AllCars from './components/AllCars'
 import AllVans from './components/FiltersVans/AllVans'

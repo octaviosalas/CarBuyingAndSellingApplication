@@ -1,6 +1,6 @@
 import Cars from "../models/cars.js"
 import Favs from "../models/favorites.js";
-import Image from "../models/imagenes.js";
+
 
 export const addCars = async (req, res) => {
     const cars = [
