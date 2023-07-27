@@ -7,7 +7,6 @@ import { UserContext } from '../store/usercontext'
 import PruebaDeNav from './PruebaDeNav'
 
 
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -21,8 +20,7 @@ export default function Login() {
   const [showBackendMsj, setShowBackendMsj] = useState(false)
   const navigate = useNavigate()
   const userCtx = useContext(UserContext)
-  
-  
+
 
    const logIn = () => { 
      const userData = ( { 
@@ -120,7 +118,8 @@ export default function Login() {
         </div>
 
         <div>
-           {showBackendMsj && <div className="toast"><div className="alert alert-success  bg-indigo-300 text-black"><span>{backendMsj}</span></div></div>}
+        {/*   {showBackendMsj && <div className="toast"><div className="alert alert-success  bg-indigo-300 text-black"><span>{backendMsj}</span></div></div>} */}
+        {showBackendMsj &&  <p>{backendMsj}</p>}
         </div>
       
     </div>

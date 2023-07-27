@@ -85,3 +85,28 @@ export const getConversation = async (req, res) => {
           console.log(err)
         })
 }
+
+
+export const messagesReceived = async (req, res) => { 
+
+  const {userId} = req.params
+ 
+ 
+  Message.find({userRecipient: userId})
+        .then((exist) => { 
+          res.json(exist)
+        })
+        .catch((err) => { 
+          console.log(err)
+        })
+}
+
+export const deleteOfert =  async (req, res) => { 
+     const {id} = req.params
+     
+     Oferts.findOneAndDelete({_id: id})
+           .then((of) => { 
+            res.json({message: "The offert has been rejected", of})
+           })
+           .catch((err) => console.log(err))
+}

@@ -21,6 +21,7 @@ function OffCanvasExample({ name, amount, image, idInterested, date, ...props })
 
   const [show, setShow] = useState(false);
   const [historyMessages, setHistoryMessages] = useState([])
+  const [messagesReceived, setMessagesReceived] = useState([])
   const [messages, setMessages] = useState([ 
      { 
       name: name,
@@ -43,11 +44,27 @@ function OffCanvasExample({ name, amount, image, idInterested, date, ...props })
   }, [])
 
 
-  
+
   useEffect(() => { 
      console.log(historyMessages)
   }, [historyMessages])
 
+
+//Funcion para obtener los mensajes recibidos 
+  useEffect(() => { 
+    axios.get(`http://localhost:4000/getMessagesReceived/${userCtx.userId}`)
+    .then((res) => { 
+     console.log("Mensajes por responder: " +   res.data)
+     setMessagesReceived(res.data)
+    })
+    .catch(err => console.log(err))
+  }, [])
+
+
+  
+  useEffect(() => { 
+    console.log(messagesReceived)
+ }, [messagesReceived])
 
 
 
@@ -139,6 +156,27 @@ function getCurrentDate() {
                     return null;
                   }
                 })}
+                 {messagesReceived.map((m) => {
+                  if (m.senderUser === idInterested) { // Aquí va la condición dentro del if
+                    return (
+                      <div className="chat chat-start">
+                        <div className="chat-image avatar">
+                          <div className="w-10 rounded-full">
+                            <img src={m.image} />
+                          </div>
+                        </div>
+                        <div className="chat-header">
+                          {m.name}
+                          <time className="text-xs opacity-50">{m.date}</time>
+                        </div>
+                        <div className="chat-bubble">{m.amount} </div>
+                      </div>
+                    );
+                  } else {
+                    // Puedes retornar null si no quieres renderizar nada en el caso contrario
+                    return null;
+                  }
+                })}
         </Offcanvas.Body>
         <Offcanvas.Body>
                 <div className=" fixed bottom-1">
@@ -159,6 +197,8 @@ function getCurrentDate() {
     const userId = userCtx.userId
     const [quantityMessages, setQuantityMessages] = useState(null)
     const [offerts, setOfferts] = useState([])
+    const [wasDeleted, setWasDeleted] = useState(false)
+    const [backMsj, setBackMsj] = useState("")
 
     const placements = ['start', 'end', 'top', 'bottom'];
      const onlyEndPlacement = 'end';
@@ -176,6 +216,22 @@ function getCurrentDate() {
             })
             .catch((err) => console.log(err))
     }, [])
+
+
+    const deleteOfert = (id) => { 
+       axios.delete(`http://localhost:4000/deleteOfert/${id}`)
+            .then((res) => { 
+              console.log(res.data)
+              setWasDeleted(true)
+              setBackMsj(res.data.message)
+              userCtx.updateUserQuantityMessages(userCtx.quantityMessages - 1)
+
+              setTimeout(() => { 
+                window.location.reload()
+              }, 1500)
+            })
+            .catch((err) => console.log(err))
+    }
 
   
 
@@ -253,7 +309,7 @@ function getCurrentDate() {
                   <td>{of.date}</td>
                   <th>
                      <> <OffCanvasExample name={of.interested} idInterested={of.interestedId} amount={of.amount} date={of.date} image={of.interestedImage} placement={onlyEndPlacement} /> </>
-                    <button className="btn btn-ghost btn-xs">Reject</button>
+                    <button className="btn btn-ghost btn-xs" onClick={() => deleteOfert(of._id)}>Reject</button>
                   </th>
                 </tr>
             )
@@ -269,7 +325,9 @@ function getCurrentDate() {
     </tfoot>
     
   </table>
-</div>
+</div>    
+
+          { wasDeleted ? alert({backMsj}) : null}
          
     </div>
   )
