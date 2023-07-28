@@ -85,6 +85,7 @@ const CarDetail = () => {
       
       </div>
           <Footer />
+          <FooterTwo/>
        </div>
     </>
 

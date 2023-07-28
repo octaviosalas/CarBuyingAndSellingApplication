@@ -67,6 +67,13 @@ const StructureCarDetail = ({car}) => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
   const [amount, setAmount] = useState("")
+  const [logUser, setLogUser] = useState(true)
+
+  useEffect(() => {
+      if(userCtx.userId === null) { 
+        setLogUser(false)
+      }
+   }, [])
 
 
   const userCtx = useContext(UserContext)
@@ -356,7 +363,7 @@ const sendOfertToSeller = () => {
                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500"> {car.price} USD</Disclosure.Panel> </>  )}
                </Disclosure>
                 
-                <div>
+              { logUser ? <div>
                             <dialog id="my_modal_3" className="modal">
                                  <form method="dialog" className="modal-box">
                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -377,7 +384,16 @@ const sendOfertToSeller = () => {
                                      </div>
                                 </form>
                             </dialog>
-                </div>
+                </div> :
+                
+                <dialog id="my_modal_3" className="modal">
+                <form method="dialog" className="modal-box">
+                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                  <p>You must create an account to be able to place an offer.</p>
+                 <Link to={"/"}><p>Create my Acount</p></Link> 
+               </form>
+           </dialog>
+                }
     
               
             </div>
@@ -386,7 +402,7 @@ const sendOfertToSeller = () => {
               </form>
 
               {/* Product grid */}
-              <div className="2xl:w-[650px] xl:w-[650px] lg:-[650px] md:-[500px] sm:w-[500px]">
+              <div className="2xl:w-[650px] xl:w-[650px] lg:-[650px] md:-[500px] sm:w-[500px] 2xl:ml-[100px] xl:ml-[60px] lg:ml-[50px] md:ml-[200px] sm:ml-[80px] xxs:ml-[60px] xxxs:ml-[30px]">
 
                <Carousel fade >
                   <Carousel.Item interval={1000} >

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Dropzone from 'react-dropzone';
-
+import PruebaDeNav from './PruebaDeNav'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -85,7 +85,9 @@ export default function Register() {
 
 
   return (
-    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <>
+    <PruebaDeNav/>
+    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 w-[600px]">
       <div   className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"aria-hidden="true">
         <div className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
           style={{  clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%', }} />
@@ -139,7 +141,7 @@ export default function Register() {
         {({ getRootProps, getInputProps }) => (
           <div {...getRootProps({ className: 'dropzone' })}>
             <input {...getInputProps()} />
-            <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 2xl:w-[400px] xl:w-[400px] lg:w-[400px] md:w-[400px] sm:w-[400px] 2xl:ml-[355px] xl:ml-[350px] lg:ml-[350px] md:ml-[200px] sm:ml-[100px] xxs:w-[280px] xxxs:w-[200px] xxs:ml-[50px] xxxs:ml-[40px]"  style={{ backgroundImage: `url(${profileImage})` }}>
+            <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 2xl:w-[400px] xl:w-[400px] lg:w-[400px] md:w-[400px] sm:w-[400px] 2xl:ml-[65px] xl:ml-[65px] lg:ml-[65px] md:ml-[50px] sm:ml-[50px] xxs:w-[340px] xxxs:w-[310px] xxs:ml-[110px] xxxs:ml-[140px]"  style={{ backgroundImage: `url(${profileImage})` }}>
             <div class="text-center">
               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
@@ -176,6 +178,8 @@ export default function Register() {
             {showBackendMsj && <div className="toast"><div className="alert alert-success  bg-indigo-300 text-black"><span>{backendMsj}</span></div></div>}
         </div>
      
-    </div> 
+    </div>  
+    </>
+   
   )
 }
