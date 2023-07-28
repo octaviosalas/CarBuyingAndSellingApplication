@@ -13,6 +13,23 @@ const MyPublications = () => {
     const userCtx = useContext(UserContext)
     const [publications, setPublications] = useState([])
     const [noPublications, setNoPublications] = useState(false)
+    const [logUser, setLogUser] = useState(false)
+
+   
+
+     function openModal() {
+      window.my_modal_1.showModal();
+    }
+
+    useEffect(() => {
+      if(userCtx.userId === null) { 
+        setLogUser(true)
+        setTimeout(() => { 
+            openModal()
+        }, 300)
+      }
+   }, [])
+    
 
     console.log("El Nombre del contexto: " +   userCtx.userName)
 
@@ -41,7 +58,23 @@ const MyPublications = () => {
        <PruebaDeNav/>
        <SideBar/>
 
-       <div>
+       <div> 
+        
+         {logUser ? <div>
+
+            <dialog id="my_modal_1" className="modal">
+              <form method="dialog" className="modal-box">
+                <h3 className="font-bold text-lg">You are not Registered!</h3>
+                <p className="py-4">You must have an account to receive messages</p>
+                <div className="modal-action">
+                  {/* if there is a button in form, it will close the modal */}
+                  <Link to={"/"}><button className="btn">Create my Account</button></Link>
+             
+                </div>
+              </form>
+            </dialog>
+                    </div> : null}
+          
       
          {noPublications ? 
          

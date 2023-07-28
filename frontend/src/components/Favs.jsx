@@ -12,16 +12,35 @@ import Footer from './Main/Footer'
 import FooterTwo from './Main/FooterTwo'
 
 
+
 const Favs = () => {
      
 
     const [carData, setCarData] = useState([])
     const [loadingData, setLoadingData] = useState(false)
     const [msgJNoFavs, setMsgNoFavs] = useState(true)
-   
+    const [logUser, setLogUser] = useState(false)
 
     const userCtx = useContext(UserContext)
     console.log(userCtx.userId)
+
+   
+
+    function openModal() {
+     window.my_modal_1.showModal();
+   }
+
+   useEffect(() => {
+     if(userCtx.userId === null) { 
+       setLogUser(true)
+       setTimeout(() => { 
+           openModal()
+       }, 300)
+     }
+  }, [])
+   
+
+
 
     const getUserFavs = () => { 
         axios.get(`http://localhost:4000/getFavs/${userCtx.userId}`)
@@ -45,6 +64,21 @@ const Favs = () => {
     <div className="bg-white">
         <PruebaDeNav/>
         <SideBar/> 
+
+        {logUser ? <div>
+                  <dialog id="my_modal_1" className="modal">
+                  <form method="dialog" className="modal-box">
+                     <h3 className="font-bold text-lg">You are not Registered!</h3>
+                     <p className="py-4">You must have an account to have Favorites</p>
+                     <div className="modal-action">
+                        {/* if there is a button in form, it will close the modal */}
+                        <Link to={"/"}><button className="btn">Create my Account</button></Link>                
+                     </div>
+                  </form>
+                  </dialog>
+        </div> : null}
+
+
         <div>
            {msgJNoFavs ? 
              <>
@@ -66,12 +100,6 @@ const Favs = () => {
                  </div>
                 </>
               
-               
-                
-
-
-            
-                
             }
 
          

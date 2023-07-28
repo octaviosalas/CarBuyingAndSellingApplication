@@ -62,7 +62,7 @@ const CarDetail = () => {
        </div>
 
        <div>
-           { loadRelated ? <p> Cargando..</p>
+           { loadRelated ? <p> Loading..</p>
             : 
             <>
 
@@ -70,7 +70,7 @@ const CarDetail = () => {
               <div>
                   <h5>Recommended cars in the same location</h5>
               </div>
-              <div className='mt-[20px]'>
+              <div className=' 2xl:ml-[100px] mt-[20px]' >
                   <AutosSimilares cars={relatedCars}/>
               </div>
                 
