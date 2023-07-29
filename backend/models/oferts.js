@@ -1,4 +1,6 @@
-import mongoose from "mongoose";
+//import mongoose from "mongoose";
+import mongoose from "../database/connectdb.js"
+
 const { Schema } = mongoose;
 
 const ofertsSchema = mongoose.Schema( { 

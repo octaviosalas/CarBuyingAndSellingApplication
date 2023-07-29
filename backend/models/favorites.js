@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+//import mongoose from "mongoose";
+import mongoose from "../database/connectdb.js"
 
 const favsSchema = mongoose.Schema( { 
     carId: { 
