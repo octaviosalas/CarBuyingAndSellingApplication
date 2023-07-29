@@ -34,7 +34,7 @@ export default function Register() {
       password: password,
       profileImage: profileImage
     })
-    axios.post("http://localhost:4000/register", newUser)
+    axios.post("/register", newUser)
          .then((res) =>  { 
           console.log(res.data) 
           setTimeout(() => { 

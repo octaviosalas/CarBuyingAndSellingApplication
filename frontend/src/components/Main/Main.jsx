@@ -23,7 +23,7 @@ export default function Main() {
   const userId = userCtx.userId
 
   useEffect(() => { 
-    axios.get(`http://localhost:4000/getMessages/${userId}`)
+    axios.get(`/getMessages/${userId}`)
          .then((res) => { 
               console.log(res.data)
               userCtx.updateUserQuantityMessages(res.data.length)

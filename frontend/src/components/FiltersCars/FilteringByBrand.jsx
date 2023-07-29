@@ -16,7 +16,7 @@ const FilteringByBrand = () => {
    
    
    useEffect(() => { 
-       axios.get("http://localhost:4000/getAllCars")
+       axios.get("/getAllCars")
             .then((res) => { 
               const allCars = res.data
               const filterByBrand = allCars.filter(cars => cars.brand === brand && cars.type === "car")           

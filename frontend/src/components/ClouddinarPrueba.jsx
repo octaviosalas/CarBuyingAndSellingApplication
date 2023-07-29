@@ -107,7 +107,7 @@ const ClouddinarPrueba = () => {
           type: type,
           publicationDate: datePublication
       })
-      axios.post("http://localhost:4000/newCar", newCar)
+      axios.post("/newCar", newCar)
             .then((res) => console.log(res.data))
             .catch((err) => console.log(err))
   }

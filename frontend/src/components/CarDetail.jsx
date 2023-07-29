@@ -19,7 +19,7 @@ const CarDetail = () => {
     const [loadRelated, setLoadRelated] = useState(true)
 
     useEffect(() => { 
-        axios.get(`http://localhost:4000/getOneCar/${id}`)
+        axios.get(`/getOneCar/${id}`)
              .then((res) =>  {
                 console.log(res.data)
                 setCar(res.data)           
@@ -34,7 +34,7 @@ const CarDetail = () => {
       })
 
       setTimeout(() => { 
-         axios.get("http://localhost:4000/getAllCars")
+         axios.get("/getAllCars")
               .then((res) => { 
                 const docs = res.data
                 const filterByLoc = docs.filter(car => car.location === carLocation)

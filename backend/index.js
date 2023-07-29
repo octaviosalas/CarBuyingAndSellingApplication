@@ -7,14 +7,12 @@ import ofertsRoutes from "./routes/oferts.routes.js"
 import connectDataBase from "./database/connectdb.js"
 import { addCars } from "./controllers/cars.js"
 
-
 const app = express()
 const port = 4000
 
 app.use(express.json())
 app.use(express.text())
 app.use(cors())
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({type:"*/*"}))
@@ -23,11 +21,6 @@ app.use(express.urlencoded({extended:true}))
 app.use(carsRoutes)
 app.use(usersRoutes)
 app.use(ofertsRoutes)
-
-
-
-
-
 
 app.get('/', (req, res) => {
     res.send('Bienvenidos a tu Servidor de Articulos MERN!!!!!!!!')

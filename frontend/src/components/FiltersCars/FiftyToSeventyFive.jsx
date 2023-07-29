@@ -13,7 +13,7 @@ const FiftyToSeventyFive = () => {
     
     
     useEffect(() => { 
-        axios.get("http://localhost:4000/getAllCars")
+        axios.get("/getAllCars")
              .then((res) => { 
                const allCars = res.data
                const lessThanFiftyFiveKms = allCars.filter(cars => cars.kilometres <= 75000 && cars.kilometres >= 50000 && cars.type === "car")

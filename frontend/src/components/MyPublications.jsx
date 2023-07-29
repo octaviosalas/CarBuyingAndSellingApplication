@@ -34,7 +34,7 @@ const MyPublications = () => {
     console.log("El Nombre del contexto: " +   userCtx.userName)
 
     const getPublicationsOfUser = () => { 
-      axios.get(`http://localhost:4000/getPublications/${userCtx.userId}`)
+      axios.get(`/getPublications/${userCtx.userId}`)
       .then((res) => { 
        console.log(res.data)
        if(res.data.length === 0) { 

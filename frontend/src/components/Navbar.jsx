@@ -20,7 +20,7 @@ const Navbar = () => {
    const userCtx = useContext(UserContext)
 
    useEffect(() => { 
-      axios.get(`http://localhost:4000/getUserById/${id}`)
+      axios.get(`/getUserById/${id}`)
            .then((res) => console.log(res.data))
            .catch((err) => console.log(err))
    }, [])

@@ -24,7 +24,7 @@ const StructureCars = ({car}) => {
       carSeller: car.seller,
       carPrice: car.price
     }
-    axios.post("http://localhost:4000/setFav", newCar)
+    axios.post("/setFav", newCar)
          .then((res) => { 
           console.log(res.data)
          })

@@ -18,7 +18,7 @@ const StructureMyPublications = ({car}) => {
 
   
   useEffect(() => { 
-    axios.get(`http://localhost:4000/getMessages/${userId}`)
+    axios.get(`/getMessages/${userId}`)
            .then((res) => { 
               console.log(res.data)
               const seleccionando = res.data.filter(oferts => oferts.publicationId === car._id)

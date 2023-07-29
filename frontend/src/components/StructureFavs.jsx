@@ -11,7 +11,7 @@ const StructureFavs = ({favCar}) => {
 
 
     const deleteFav = (id) => { 
-      axios.post(`http://localhost:4000/deleteFav/${userCtx.userId}`, {id: id.toString()})
+      axios.post(`/deleteFav/${userCtx.userId}`, {id: id.toString()})
            .then((res) => { 
             console.log(res.data)
           

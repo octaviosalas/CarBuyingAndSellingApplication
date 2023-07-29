@@ -43,7 +43,7 @@ const Favs = () => {
 
 
     const getUserFavs = () => { 
-        axios.get(`http://localhost:4000/getFavs/${userCtx.userId}`)
+        axios.get(`/getFavs/${userCtx.userId}`)
              .then((res) => { 
               if(res.data.length === 0) { 
                 setMsgNoFavs(false)

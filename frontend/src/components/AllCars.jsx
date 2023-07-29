@@ -18,7 +18,7 @@ const AllCars = () => {
   const [allCars, setAllCars] = useState([])
 
   const getCars = () => { 
-    axios.get("http://localhost:4000/getAllCars")
+    axios.get("/getAllCars")
     .then((res) => { 
           const docs = res.data
           const onlyCars = docs.filter(car => car.type === "car")

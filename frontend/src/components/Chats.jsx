@@ -36,7 +36,7 @@ function OffCanvasExample({ name, amount, image, idInterested, date, ...props })
 
 
   useEffect(() => { 
-    axios.get(`http://localhost:4000/getConversations/${userCtx.userId}`)
+    axios.get(`/getConversations/${userCtx.userId}`)
          .then((res) => { 
           console.log(res.data)
           setHistoryMessages(res.data)
@@ -53,7 +53,7 @@ function OffCanvasExample({ name, amount, image, idInterested, date, ...props })
 
 //Funcion para obtener los mensajes recibidos 
   useEffect(() => { 
-    axios.get(`http://localhost:4000/getMessagesReceived/${userCtx.userId}`)
+    axios.get(`/getMessagesReceived/${userCtx.userId}`)
     .then((res) => { 
      console.log("Mensajes por responder: " +   res.data)
      setMessagesReceived(res.data)
@@ -81,7 +81,7 @@ function OffCanvasExample({ name, amount, image, idInterested, date, ...props })
       }
       setMessages([...messages, newMessage]);
       setResponse('');
-      axios.post("http://localhost:4000/sendMessage", newMessage)
+      axios.post("/sendMessage", newMessage)
            .then((res) => { 
             console.log(res.data)
            })
@@ -105,7 +105,7 @@ function getCurrentDate() {
   const userCtx = useContext(UserContext)
 
   useEffect(() => { 
-    axios.get(`http://localhost:4000/getMessages/${userId}`)
+    axios.get(`/getMessages/${userId}`)
          .then((res) => { 
               console.log(res.data)
          })
@@ -225,7 +225,7 @@ function getCurrentDate() {
     
 
     useEffect(() => { 
-       axios.get(`http://localhost:4000/getMessages/${userId}`)
+       axios.get(`/getMessages/${userId}`)
             .then((res) => { 
                  console.log(res.data)
                  setOfferts(res.data)
@@ -239,7 +239,7 @@ function getCurrentDate() {
 
 
     const deleteOfert = (id) => { 
-       axios.delete(`http://localhost:4000/deleteOfert/${id}`)
+       axios.delete(`/deleteOfert/${id}`)
             .then((res) => { 
               console.log(res.data)
               setWasDeleted(true)

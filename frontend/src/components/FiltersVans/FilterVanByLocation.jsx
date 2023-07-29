@@ -15,7 +15,7 @@ const FilterVanByLocation = () => {
    
    
    useEffect(() => { 
-       axios.get("http://localhost:4000/getAllCars")
+       axios.get("/getAllCars")
             .then((res) => { 
               const allCars = res.data
               const filterByLocation = allCars.filter(cars => cars.location === location && cars.type === "van")           
