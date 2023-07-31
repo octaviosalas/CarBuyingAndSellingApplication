@@ -19,7 +19,7 @@ const AutosSimilares = ({cars}) => {
 
  
     return (
-        <div className="grid grid-cols-4 gap-4 lg:ml-[50px] md:ml-[60px] 2xl:flex xl:flex lg:flex md:flex sm:inline-block xxxs:inline-block xxs:inline-block ">
+        <div className="grid grid-cols-4 gap-4 lg:ml-[50px] md:ml-[60px] 2xl:flex xl:flex lg:flex md:flex sm:inline-block xxxs:inline-block xxs:inline-block">
           {randomFiveCars.map(car => (
             <div key={car.id} className="p-4 border border-gray-200 rounded">
               <img src={car.img[0]} alt={car.brand} className="w-full mb-2 h-[130px]" />
