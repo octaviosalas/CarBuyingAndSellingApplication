@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "/vercel/path0/backend/node_modules/mongoose";
 const { Schema } = mongoose;
 
 const carsSchema = mongoose.Schema( { 
