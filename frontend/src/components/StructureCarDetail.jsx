@@ -368,12 +368,12 @@ const sendOfertToSeller = () => {
                                  <form method="dialog" className="modal-box bg-white">
                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                      <h3 className="text-[12px] text-gray-400">Please, try to match the price asked by the seller.</h3>
-                                     <h4 className='mt-[6px]'><b>{car.name}</b></h4>
+                                     <h4 className='mt-[6px] text-black'><b>{car.name}</b></h4>
                                      <hr />
                                      <div className='mt-[20px]'>
-                                        <p>The seller {car.seller} will recive your ofert</p>
+                                        <p className='text-black'>The seller {car.seller} will recive your ofert</p>
                                         <br/>
-                                        <p>Remember, he is askin <b>{car.price} USD</b> for the vehicle </p>
+                                        <p className='text-black'>Remember, he is askin <b>{car.price} USD</b> for the vehicle </p>
                                         <p className='text-[12px] text-gray-400'>(Offers with values that are far from the intended value will be rejected)</p>
                                      </div>
                                      
