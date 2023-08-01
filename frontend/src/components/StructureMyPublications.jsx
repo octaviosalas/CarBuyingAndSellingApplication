@@ -54,7 +54,7 @@ const StructureMyPublications = ({car}) => {
 
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl mt-4">
+    <div className="card lg:card-side  shadow-xl mt-4">
     <figure><img src={car.img[0]} alt="Album" className='w-[200px] h-[200px]'/></figure>
     <div className="card-body">
         <div className='flex'>

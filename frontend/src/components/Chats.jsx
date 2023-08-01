@@ -184,7 +184,7 @@ function getCurrentDate() {
         <Offcanvas.Body>
                 <div className=" fixed bottom-1">
                   <div className="flex">
-                  <textarea placeholder="Response" className="textarea border-2 border-gray-950 textarea-lg w-full max-w-xs"  value={response} onChange={(e) => setResponse(e.target.value)}></textarea>
+                  <textarea placeholder="Response" className="textarea border-2  textarea-lg w-full max-w-xs"  value={response} onChange={(e) => setResponse(e.target.value)}></textarea>
                   <button className="btn btn-info ml-4  bottom-1" onClick={handleSend}>Send</button>
                   </div>
                 </div>
