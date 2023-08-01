@@ -29,29 +29,27 @@ const CarDetail = () => {
 
 
     useEffect(() => { 
-      car.map((c) => { 
-          setCarLocation(c.location)
+      if (car.length > 0) {
+        setCarLocation(car[0].location);
+      }
+    }, [car]);
+    
+    useEffect(() => { 
+      axios.get("/getAllCars")
+        .then((res) => { 
+          console.log("La peticion para ver TODOS los autos: " + res.data)
+          const docs = res.data
+          const filterByLoc = docs.filter(car => car.location === carLocation)
           setTimeout(() => { 
-             console.log("LOCACION DEL AUTO: " +  carLocation)
-          }, 1000)
-      })
-         axios.get("/getAllCars")
-              .then((res) => { 
-                console.log("La peticion para ver TODOS los autos: " + res.data)
-                const docs = res.data
-                const filterByLoc = docs.filter(car => car.location === carLocation)
-                setTimeout(() => { 
-                  console.log("Los autos filtrados por localidad" +  filterByLoc)
-                  setRelatedCars(filterByLoc)
-                }, 1100)
-               
-              })
-              .catch(err => { 
-                console.log(err)
-                console.log("NO ENCUENTRO AUTOS RELACIONADOS")
-              } )
-  
-    }, [car])
+            console.log("Los autos filtrados por localidad" +  filterByLoc)
+            setRelatedCars(filterByLoc)
+          }, 1100)
+        })
+        .catch(err => { 
+          console.log(err)
+          console.log("NO ENCUENTRO AUTOS RELACIONADOS")
+        });
+    }, [carLocation]);
 
   return (
 
