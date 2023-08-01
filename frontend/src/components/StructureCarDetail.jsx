@@ -366,7 +366,7 @@ const sendOfertToSeller = () => {
               { logUser ? <div >
                             <dialog id="my_modal_3" className="modal">
                                  <form method="dialog" className="modal-box bg-white">
-                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-black">✕</button>
                                      <h3 className="text-[12px] text-gray-400">Please, try to match the price asked by the seller.</h3>
                                      <h4 className='mt-[6px] text-black'><b>{car.name}</b></h4>
                                      <hr />
@@ -378,7 +378,7 @@ const sendOfertToSeller = () => {
                                      </div>
                                      
                                      <div className="mt-[20px]">
-                                        <input type='number' placeholder='Ofert in USD' onChange={(e) => setAmount(e.target.value)}/>
+                                        <input type='number' className=' text-black' placeholder='Ofert in USD' onChange={(e) => setAmount(e.target.value)}/>
                                         <br/>
                                         <button className='btn btn-primary w-[120px] h-[30px] mt-[20px]' onClick={() => sendOfertToSeller()}>Send Ofert</button>
                                      </div>
