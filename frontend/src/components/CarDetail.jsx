@@ -21,7 +21,6 @@ const CarDetail = () => {
     useEffect(() => { 
         axios.get(`/getOneCar/${id}`)
              .then((res) =>  {
-                console.log(res.data)
                 setCar(res.data)           
              })
              .catch((err) => console.log(err))
@@ -37,17 +36,17 @@ const CarDetail = () => {
     useEffect(() => { 
       axios.get("/getAllCars")
         .then((res) => { 
-          console.log("La peticion para ver TODOS los autos: " + res.data)
           const docs = res.data
           const filterByLoc = docs.filter(car => car.location === carLocation)
           setTimeout(() => { 
-            console.log("Los autos filtrados por localidad" +  filterByLoc)
             setRelatedCars(filterByLoc)
           }, 1100)
+          setTimeout(() => { 
+            setLoadRelated(false)
+          }, 1700)
         })
         .catch(err => { 
           console.log(err)
-          console.log("NO ENCUENTRO AUTOS RELACIONADOS")
         });
     }, [carLocation]);
 
@@ -62,13 +61,13 @@ const CarDetail = () => {
        </div>
          {car.map((car) => <StructureCarDetail car={car}/>)}
        </div>
-       <button onClick={() => setLoadRelated(false)}>Ver autos en esta ubicacion</button>
-
+     
        <div>
-           { loadRelated ? null
+           { loadRelated ? <> <p>Loading...</p> </>
             : 
             <>
             <div >
+              <p>Cars that we recommend in this same location</p>
               <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
                   <AutosSimilares cars={relatedCars}/>
               </div>
