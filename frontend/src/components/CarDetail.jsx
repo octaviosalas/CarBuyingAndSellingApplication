@@ -59,15 +59,15 @@ const CarDetail = () => {
           <PruebaDeNav/>
           <Sidebar />
        </div>
-         {car.map((car) => <StructureCarDetail car={car}/>)}
+         {  car.map((car) => <StructureCarDetail car={car}/>)}
        </div>
      
        <div>
-           { loadRelated ? <> <p>Loading...</p> </>
+           { loadRelated ? <> <span className="loading loading-spinner loading-xs"></span> </>
             : 
             <>
             <div >
-              <p>Cars that we recommend in this same location</p>
+              <p className='bg-white text-black'>Cars that we recommend in this same location</p>
               <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
                   <AutosSimilares cars={relatedCars}/>
               </div>

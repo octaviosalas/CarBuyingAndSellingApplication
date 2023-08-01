@@ -26,7 +26,7 @@ const AutosSimilares = ({cars}) => {
               <h3 className="text-lg font-semibold sm:text-[15px]">{car.name}</h3>
               <p className="text-gray-500">{car.kilometres} Kms  </p>
               <hr />
-            <Link to={`/carDetail/${car.id}`}><button className=" btn h-[9px] w-[95px] text-[10px] mt-[5px] text-blue-600" onClick={() => refresh()}>View More</button> </Link>  
+            <Link to={`/carDetail/${car.id}`}><button className=" btn h-[9px] w-[95px] text-[10px] mt-[5px] text-blue-600 bg-white" onClick={() => refresh()}>View More</button> </Link>  
             </div>
           ))}
         </div>
