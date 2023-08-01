@@ -31,6 +31,9 @@ const CarDetail = () => {
     useEffect(() => { 
       car.map((c) => { 
           setCarLocation(c.location)
+          setTimeout(() => { 
+             console.log("LOCACION DEL AUTO: " +  carLocation)
+          }, 1000)
       })
          axios.get("/getAllCars")
               .then((res) => { 
