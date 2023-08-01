@@ -42,10 +42,11 @@ const CarDetail = () => {
                 setTimeout(() => { 
                    setLoadRelated(false)
                 }, 2200)
-
-
               })
-              .catch(err => console.log(err))
+              .catch(err => { 
+                console.log(err)
+                console.log("NO ENCUENTRO AUTOS RELACIONADOS")
+              } )
       }, 200)
     }, [car])
 

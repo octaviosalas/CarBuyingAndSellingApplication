@@ -403,8 +403,7 @@ const sendOfertToSeller = () => {
 
               {/* Product grid */}
               <div className="2xl:w-[650px] xl:w-[650px] lg:-[650px] md:-[500px] sm:w-[500px] 2xl:ml-[100px] xl:ml-[60px] lg:ml-[50px] md:ml-[200px] sm:ml-[80px] xxs:ml-[60px] xxxs:ml-[30px]">
-
-               <Carousel fade >
+               <Carousel fade className='2xl:h-[460px] xl:h-[460px] lg:h-[410px] md:h-[380px] sm:h-[380px] xxs:h-[300px] xxxs:h-[270px]'>
                   <Carousel.Item interval={1000} >
                   <img src={car.img[0]} className='w-[850px]'></img>
                     <Carousel.Caption>
