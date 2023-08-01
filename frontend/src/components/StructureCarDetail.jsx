@@ -364,7 +364,7 @@ const sendOfertToSeller = () => {
                </Disclosure>
                 
               { logUser ? <div >
-                            <dialog id="my_modal_3" className="modal">
+                            <dialog id="my_modal_3" className="modal bg-white">
                                  <form method="dialog" className="modal-box">
                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                      <h3 className="text-[12px] text-gray-400">Please, try to match the price asked by the seller.</h3>
