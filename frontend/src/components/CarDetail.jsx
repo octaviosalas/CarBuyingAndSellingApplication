@@ -36,6 +36,7 @@ const CarDetail = () => {
               .then((res) => { 
                 const docs = res.data
                 const filterByLoc = docs.filter(car => car.location === carLocation)
+                console.log(filterByLoc)
                 setRelatedCars(filterByLoc)
                
               })
@@ -64,8 +65,6 @@ const CarDetail = () => {
             : 
             <>
             <div >
-              <div>
-              </div>
               <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
                   <AutosSimilares cars={relatedCars}/>
               </div>
