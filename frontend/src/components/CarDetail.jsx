@@ -34,10 +34,13 @@ const CarDetail = () => {
       })
          axios.get("/getAllCars")
               .then((res) => { 
+                console.log("La peticion para ver TODOS los autos: " + res.data)
                 const docs = res.data
                 const filterByLoc = docs.filter(car => car.location === carLocation)
-                console.log(filterByLoc)
-                setRelatedCars(filterByLoc)
+                setTimeout(() => { 
+                  console.log("Los autos filtrados por localidad" +  filterByLoc)
+                  setRelatedCars(filterByLoc)
+                }, 1100)
                
               })
               .catch(err => { 
