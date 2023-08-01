@@ -41,7 +41,7 @@ const CarDetail = () => {
                 setRelatedCars(filterByLoc)
                 setTimeout(() => { 
                    setLoadRelated(false)
-                }, 1000)
+                }, 2200)
 
 
               })
