@@ -32,16 +32,12 @@ const CarDetail = () => {
       car.map((c) => { 
           setCarLocation(c.location)
       })
-
-      
          axios.get("/getAllCars")
               .then((res) => { 
                 const docs = res.data
                 const filterByLoc = docs.filter(car => car.location === carLocation)
                 setRelatedCars(filterByLoc)
-                setTimeout(() => { 
-                   setLoadRelated(false)
-                }, 2200)
+               
               })
               .catch(err => { 
                 console.log(err)
@@ -61,15 +57,14 @@ const CarDetail = () => {
        </div>
          {car.map((car) => <StructureCarDetail car={car}/>)}
        </div>
+       <button onClick={() => setLoadRelated(false)}>Ver autos en esta ubicacion</button>
 
        <div>
-           { loadRelated ? <p> Loading..</p>
+           { loadRelated ? null
             : 
             <>
-
-            <div className='mt-[80px]'>
+            <div >
               <div>
-                  <h5>Recommended cars in the same location</h5>
               </div>
               <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
                   <AutosSimilares cars={relatedCars}/>
