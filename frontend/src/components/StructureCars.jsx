@@ -48,10 +48,9 @@ const StructureCars = ({car}) => {
                           
                               <div className="card-body">
                                     <h2 className="card-title flex justify-center">{car.name}</h2>
-                                    <div className="flex-none">
-                                      <p>Brand: {car.brand}</p>
-                                      <p>Engine: {car.engine}</p>
+                                    <div className="flex-none">                               
                                       <p>Kilometres: {car.kilometres}</p>
+                                      <p> Location: {car.location}</p>
                                     </div>
                                       <div className="card-actions flex justify-center">
                                     <Link to={`/carDetail/${car.id}`}><button className="btn btn-primary">View More</button> </Link>
