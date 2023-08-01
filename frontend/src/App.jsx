@@ -41,6 +41,7 @@ import HundredFiftyToTwoHundredVans from './components/FiltersVans/HundredFiftyT
 import MyPublications from "./components/MyPublications"
 import Chats from "./components/Chats"
 import SeekerSearch from "./components/SeekerSearch"
+import Reviews from "./components/Reviews"
 
 function App() {
  
@@ -89,6 +90,7 @@ function App() {
                 <Route path="/myPublications" element={<MyPublications/>}></Route>
                 <Route path="/myChats/:id" element={<Chats/>}></Route>
                 <Route path="/seeker/:searchParam" element={<SeekerSearch/>}></Route>
+                <Route path="/review" element={<Reviews/>}></Route>
 
 
               </Routes>
