@@ -33,7 +33,7 @@ const CarDetail = () => {
           setCarLocation(c.location)
       })
 
-      setTimeout(() => { 
+      
          axios.get("/getAllCars")
               .then((res) => { 
                 const docs = res.data
@@ -47,7 +47,7 @@ const CarDetail = () => {
                 console.log(err)
                 console.log("NO ENCUENTRO AUTOS RELACIONADOS")
               } )
-      }, 200)
+  
     }, [car])
 
   return (
