@@ -70,7 +70,7 @@ const CarDetail = () => {
               <div>
                   <h5>Recommended cars in the same location</h5>
               </div>
-              <div className=' 2xl:ml-[100px] mt-[20px]' >
+              <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
                   <AutosSimilares cars={relatedCars}/>
               </div>
                 

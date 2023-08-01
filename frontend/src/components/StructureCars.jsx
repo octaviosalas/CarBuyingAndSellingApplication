@@ -37,10 +37,10 @@ const StructureCars = ({car}) => {
   return (
     <div className='flex justify-center items-center mt-3 xxxs:ml-[30px] xxs:ml-[25px] sm:ml-[20px] md:ml-[20px] lg:ml-[15px]'>
                       
-                <div className='border-black'>
-                      <div className="card card-compact flex w-96 bg-base-100 shadow-2xl mt-5 xxxs:w-[300px] xxs:w-[320px] sm:w-[350px] md:w-[400px]">
+                <div>
+                      <div className="card card-compact flex w-96  shadow-2xl mt-5 xxxs:w-[300px] xxs:w-[320px] sm:w-[350px] md:w-[400px]">
                         <div classname="float-right">
-                        <img src={fav} alt="" className='w-8 h-8  justify-center float-right cursor-pointer x' title="Save as Favorite" onClick={() => saveCarInFavs()}/>
+                        <img src={fav} alt="" className='w-8 h-8 mb-4  justify-center float-right cursor-pointer x' title="Save as Favorite" onClick={() => saveCarInFavs()}/>
                         </div>
                           <div className='float-left'>
                             <figure><img className="xxxs:w-[200px] xxs:w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] xl-w-[290px] 2xl:w-[310px]" src={car.img[0]} /></figure>
