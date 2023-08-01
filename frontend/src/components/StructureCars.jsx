@@ -5,7 +5,7 @@ import fav from "../img/fav.png"
 import axios from "axios"
 import { useContext } from 'react';
 import { UserContext } from '../store/usercontext';
-import { saveInFavs } from '../../../backend/controllers/cars'
+
 
 
 const StructureCars = ({car}) => { 
