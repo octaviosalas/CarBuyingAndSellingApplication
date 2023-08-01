@@ -35,7 +35,7 @@ const StructureCars = ({car}) => {
 
 
   return (
-    <div className='flex justify-center items-center mt-3 xxxs:ml-[30px] xxs:ml-[25px] sm:ml-[20px] md:ml-[20px] lg:ml-[15px]'>
+    <div className='flex justify-center items-center mt-3 2xs:ml-[15px] xxxs:ml-[15px] xxs:ml-[25px] sm:ml-[20px] md:ml-[20px] lg:ml-[15px]'>
                       
                 <div>
                       <div className="card card-compact flex w-96  shadow-2xl mt-5 xxxs:w-[300px] xxs:w-[320px] sm:w-[350px] md:w-[400px]">
