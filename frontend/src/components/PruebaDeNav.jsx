@@ -194,7 +194,7 @@ const PruebaDeNav = () => {
       }
     };
 
-   /* const handleEnterPress = (event) => {
+    const handleEnterPress = (event) => {
       if (event.key === 'Enter') {
         axios.get(`/getCarsBySearch/${searchParam}`)
              .then((res) =>  { 
@@ -202,7 +202,7 @@ const PruebaDeNav = () => {
              })
              .catch((err) => console.log(err))
       }
-    };*/
+    };
 
     const handleChange = (event) => {
       setSearchParam(event.target.value);
