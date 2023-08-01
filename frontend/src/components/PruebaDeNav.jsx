@@ -196,11 +196,9 @@ const PruebaDeNav = () => {
 
     const handleEnterPress = (event) => {
       if (event.key === 'Enter') {
-        axios.get(`/getCarsBySearch/${searchParam}`)
-             .then((res) =>  { 
-              console.log(res.data)
-             })
-             .catch((err) => console.log(err))
+        setTimeout(() => { 
+          navigate(`/seeker/${searchParam}`)
+        }, 200)
       }
     };
 

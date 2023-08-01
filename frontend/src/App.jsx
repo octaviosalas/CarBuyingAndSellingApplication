@@ -40,6 +40,7 @@ import HundredFiftyToTwoHundredVans from './components/FiltersVans/HundredFiftyT
 
 import MyPublications from "./components/MyPublications"
 import Chats from "./components/Chats"
+import SeekerSearch from "./components/SeekerSearch"
 
 function App() {
  
@@ -87,6 +88,7 @@ function App() {
                 <Route path="/buyMyCar" element={<ClouddinarPrueba/>}></Route>
                 <Route path="/myPublications" element={<MyPublications/>}></Route>
                 <Route path="/myChats/:id" element={<Chats/>}></Route>
+                <Route path="/seeker/:searchParam" element={<SeekerSearch/>}></Route>
 
 
               </Routes>
