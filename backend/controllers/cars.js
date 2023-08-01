@@ -275,9 +275,6 @@ export const getPublications = async (req, res) => {
 
 export const getCarsBySearch = async (req, res) => {
   const { searchParam } = req.params;
-  console.log(searchParam);
-
-  // Usamos una expresión regular (RegExp) para hacer la búsqueda de manera no sensible a mayúsculas y minúsculas
   const regex = new RegExp(searchParam, 'i');
 
   Cars.find({
