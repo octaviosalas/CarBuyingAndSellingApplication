@@ -165,6 +165,8 @@ const PruebaDeNav = () => {
 
     const [open, setOpen] = useState(false)
     const [text, setText] = useState("Before you meet with someone, you can look at their reputation as a seller.")
+    const [showInput, setShowInput] = useState(false)
+    const [searchParam, setSearchParam] = useState("")
    
 
     const userCtx = useContext(UserContext)
@@ -191,6 +193,22 @@ const PruebaDeNav = () => {
         navigate("/aboutUs")
       }
     };
+
+   /* const handleEnterPress = (event) => {
+      if (event.key === 'Enter') {
+        axios.get(`/getCarsBySearch/${searchParam}`)
+             .then((res) =>  { 
+              console.log(res.data)
+             })
+             .catch((err) => console.log(err))
+      }
+    };*/
+
+    const handleChange = (event) => {
+      setSearchParam(event.target.value);
+    };
+
+   
 
 
     const saveFiltersInSessionStorage = (text) => { 
@@ -480,7 +498,10 @@ const PruebaDeNav = () => {
                 <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
+                   {showInput ? 
+                   <input type="text" className='bg-white text-black rounded-lg' onKeyDown={handleEnterPress} onChange={handleChange}></input>
+                    : 
+                    <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" onClick={() => setShowInput(true)}/>}   
                   </a>
                 </div>
 

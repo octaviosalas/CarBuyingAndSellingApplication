@@ -272,3 +272,9 @@ export const getPublications = async (req, res) => {
          })
          .catch(err => console.log(err))
 }
+
+export const getCarsBySearch = async (req, res) => { 
+   const {param} = req.params
+   console.log(param)
+  
+}
