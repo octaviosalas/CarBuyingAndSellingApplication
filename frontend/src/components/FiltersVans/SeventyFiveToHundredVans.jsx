@@ -10,6 +10,7 @@ import Sidebar from '../Sidebar'
 const SeventyFiveToHundredVans = () => {
 
     const [carsFilteredByKms, setCarsFilteredByKms] = useState([])
+    const [noResults, setNoResults] = useState(false)
     
     
   useEffect(() => { 
@@ -18,7 +19,11 @@ const SeventyFiveToHundredVans = () => {
              const allCars = res.data
              const lessThanFiftyFiveKms = allCars.filter(cars => cars.kilometres <= 100000 && cars.kilometres >= 75000 && cars.type === "van")
              console.log(lessThanFiftyFiveKms)
-             setCarsFilteredByKms(lessThanFiftyFiveKms)
+             if(lessThanFiftyFiveKms.length === 0) { 
+              setNoResults(true)
+             } else { 
+              setCarsFilteredByKms(lessThanFiftyFiveKms)
+             }
            })
            .catch((err) => { 
              console.log(err)
@@ -32,12 +37,20 @@ const SeventyFiveToHundredVans = () => {
         <div>
             <div>
       <PruebaDeNav/>
-      <Sidebar/>
+      <Sidebar/> 
 
+
+      {noResults ? <p>We did not find results for your search <b>75,000 and 100,000  kilometers Vans.</b></p> 
+        :
+        <>
       <div className='mb-6'> 
          <h5>You are looking at Vans that have between 75,000 and 100,000  kilometers </h5>
       </div>
-         {carsFilteredByKms.map((car) => <StructureCars car={car}/>)}
+         {carsFilteredByKms.map((car) => <StructureCars car={car}/>)}  
+        </>  
+    }
+
+      
     </div>
     </div>
     </div>
