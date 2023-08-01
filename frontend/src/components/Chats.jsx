@@ -22,6 +22,7 @@ function OffCanvasExample({ name, amount, image, idInterested, date, ...props })
   const [show, setShow] = useState(false);
   const [historyMessages, setHistoryMessages] = useState([])
   const [messagesReceived, setMessagesReceived] = useState([])
+  const [response, setResponse] = useState("")
   const [messages, setMessages] = useState([ 
      { 
       name: name,
@@ -202,7 +203,6 @@ function getCurrentDate() {
     const [offerts, setOfferts] = useState([])
     const [wasDeleted, setWasDeleted] = useState(false)
     const [backMsj, setBackMsj] = useState("")
-    const [response, setResponse] = useState("")
     const [logUser, setLogUser] = useState(false)
   
      
