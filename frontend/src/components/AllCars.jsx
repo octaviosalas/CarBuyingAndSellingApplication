@@ -48,7 +48,7 @@ const AllCars = () => {
 
 
       <div className='mt-[40px] text-xs'>
-          <h1 className='text-[35px] font-bold tracking-tight text-gray-900 '>Featured Cars of the Month</h1>    
+          <h1 className='text-[35px] font-bold tracking-tight text-gray-900  xxxs:text-[27px] xxs:text-[30px] sm:text-[33px] md:text-[35px]'>Featured Cars of the Month</h1>    
       </div>
 
       

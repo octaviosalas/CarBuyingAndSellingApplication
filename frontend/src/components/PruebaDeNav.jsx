@@ -229,7 +229,7 @@ const PruebaDeNav = () => {
 
   return (
     <div>
-        <div className=" bg-indigo-500 2xl:w-[100%]  fixed top-0 left-0 right-0 main-content z-50 md:ml-[30px]  sm:ml-[38px]  xxs:ml-[40px] xxxs:ml-[35px]" >
+        <div className=" bg-indigo-500 2xl:w-[100%]  fixed top-0 left-0 right-0 main-content z-50 2xl:ml-[0px] xl:ml-[0px] lg:ml-[30px] md:ml-[30px]  sm:ml-[38px]  xxs:ml-[40px] xxxs:ml-[35px]" >
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment} >
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
