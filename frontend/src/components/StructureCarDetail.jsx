@@ -363,7 +363,7 @@ const sendOfertToSeller = () => {
                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500"> {car.price} USD</Disclosure.Panel> </>  )}
                </Disclosure>
                 
-              { logUser ? <div>
+              { logUser ? <div >
                             <dialog id="my_modal_3" className="modal">
                                  <form method="dialog" className="modal-box">
                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
