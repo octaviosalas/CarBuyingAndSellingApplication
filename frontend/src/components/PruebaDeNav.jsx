@@ -196,7 +196,7 @@ const PruebaDeNav = () => {
 
     const handleEnterPress = (event) => {
       if (event.key === 'Enter') {
-        axios.get(`http://localhost:4000/getCarsBySearch/${searchParam}`)
+        axios.get(`/getCarsBySearch/${searchParam}`)
              .then((res) =>  { 
               console.log(res.data)
              })
