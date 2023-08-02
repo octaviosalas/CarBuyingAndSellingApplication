@@ -14,12 +14,7 @@ import axios from "axios"
 import Carousel from 'react-bootstrap/Carousel';
 
 
-const sortOptions = [
-  { name: 'Contact Seller', href: '#', current: true },
-  { name: <p className=" text-[14px] cursor-pointer" onClick={()=>window.my_modal_3.showModal()}>Make an Ofert</p>, current: false },
-  { name: 'Sellers reputation', href: '#', current: false },
-  { name: 'Report Seller', href: '#', current: false }
-]
+
 const filters = [
   {
     id: 'color',
@@ -65,7 +60,6 @@ function classNames(...classes) {
 const StructureCarDetail = ({car}) => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-
   const [amount, setAmount] = useState("")
   const [logUser, setLogUser] = useState(true)
 
@@ -77,6 +71,13 @@ const StructureCarDetail = ({car}) => {
 
 
   const userCtx = useContext(UserContext)
+
+  const sortOptions = [
+    { name: 'Contact Seller', href: '#', current: true },
+    { name: <p className=" text-[14px] cursor-pointer" onClick={()=>window.my_modal_3.showModal()}>Make an Ofert</p>, current: false },
+    { name: 'Sellers reputation', href: `/review/${userCtx.userId}`, current: false },
+    { name: 'Rate Seller', href: '#', current: false }
+  ]
  
 
   function handleCarouselClick(event) {
@@ -122,11 +123,6 @@ const sendOfertToSeller = () => {
     interestedImage: userCtx.userProfileImage,
     vehicle: car.name,
     date: actualDate
-    
-
-
-
-
   })
   axios.post("/sendOfert", myOfert)
        .then(res => console.log(res.data))
