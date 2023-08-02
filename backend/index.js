@@ -4,6 +4,7 @@ import cors from "cors"
 import carsRoutes from "./routes/cars.routes.js"
 import usersRoutes from "./routes/users.routes.js"
 import ofertsRoutes from "./routes/oferts.routes.js"
+import reviewsRoutes from "./routes/reviews.routes.js"
 import connectDataBase from "./database/connectdb.js"
 import { addCars } from "./controllers/cars.js"
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(carsRoutes)
 app.use(usersRoutes)
 app.use(ofertsRoutes)
+app.use(reviewsRoutes)
 
 app.get('/', (req, res) => {
     res.send('Bienvenidos a tu Servidor de Articulos MERN!!!!!!!!')

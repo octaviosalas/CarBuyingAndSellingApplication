@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import axios from "axios"
 import { useParams } from 'react-router-dom'
 import StructureCarDetail from './StructureCarDetail'
@@ -8,7 +8,10 @@ import Footer from "./Main/Footer"
 import PruebaDeNav from './PruebaDeNav'
 import FooterTwo from './Main/FooterTwo'
 import AutosSimilares from './RelatedCars'
+import SendReview  from "./SendReview"
 import {Link} from "react-router-dom"
+import * as React from 'react';
+
 
 const CarDetail = () => {
     
@@ -17,11 +20,18 @@ const CarDetail = () => {
     const [carLocation, setCarLocation] = useState("")
     const [relatedCars, setRelatedCars] = useState([])
     const [loadRelated, setLoadRelated] = useState(true)
+    const [sendReview, setSendReview] = useState(false)
+    const [sellerName, setSellerName] = useState("")
+
 
     useEffect(() => { 
         axios.get(`/getOneCar/${id}`)
              .then((res) =>  {
-                setCar(res.data)           
+                console.log(res.data)
+                setCar(res.data)
+                res.data.map((c) => { 
+                  setSellerName(c.seller)
+                })           
              })
              .catch((err) => console.log(err))
     }, [])
@@ -50,41 +60,44 @@ const CarDetail = () => {
         });
     }, [carLocation]);
 
+    const showReview = () => { 
+      setSendReview(true)
+      setLoadRelated(true)
+      console.log("aa")
+    }
+
   return (
 
     <>
         <div>
+              <div>
+              <PruebaDeNav/>
+                <Sidebar />
+            </div>
+              {  car.map((car) => <StructureCarDetail car={car} showReview={showReview}/>)}
 
-        <div>
-          <PruebaDeNav/>
-          <Sidebar />
-       </div>
-         {  car.map((car) => <StructureCarDetail car={car}/>)}
-       </div>
+              
+            </div>
      
        <div>
-           { loadRelated ? <> <span className="loading loading-spinner loading-xs"></span> </>
-            : 
-            <>
-            <div >
-              <p className='bg-white text-black'>Cars that we recommend in this same location</p>
-              <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
-                  <AutosSimilares cars={relatedCars}/>
-              </div>
-                
-            </div>
+              { loadRelated ? null
+                : 
+                <div className='mt-[50px]'>
+                      <p className='bg-white text-black'>Cars that we recommend in this same location</p>
+                      <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
+                          <AutosSimilares cars={relatedCars}/>
+                      </div>     
+                </div>
+              }
 
-           </> }
-       </div>
+              {sendReview ?  <SendReview/> : null}
+        </div> 
 
-       <div className='mt-[35px]'>
-         <Link to={"/allCars"}> <p>Go Main</p> </Link> 
-       <div>
-      
-      </div>
-          <Footer />
-          <FooterTwo/>
-       </div>
+          <div className='mt-[35px]'>
+            <Link to={"/allCars"}> <p>Go Main</p> </Link> 
+              <Footer />
+              <FooterTwo/>
+          </div>
     </>
 
     

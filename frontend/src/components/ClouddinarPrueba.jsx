@@ -190,18 +190,6 @@ const ClouddinarPrueba = () => {
         </div>
      
 
-   
-         
-
-
-        
-
-   
-
-        
-
-        
-
         <div class="col-span-full 2xl:ml-[1px] xl:ml-[10px] sm:ml-[50px] xxs:ml-[20px] xxxs:ml-[25px]">
           <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Description of your vehicle</label>
           <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>

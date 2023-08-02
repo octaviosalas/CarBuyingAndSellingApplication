@@ -57,7 +57,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const StructureCarDetail = ({car}) => {
+const StructureCarDetail = ({car, showReview}) => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [amount, setAmount] = useState("")
@@ -70,13 +70,15 @@ const StructureCarDetail = ({car}) => {
    }, [])
 
 
+
+
   const userCtx = useContext(UserContext)
 
   const sortOptions = [
     { name: 'Contact Seller', href: '#', current: true },
     { name: <p className=" text-[14px] cursor-pointer" onClick={()=>window.my_modal_3.showModal()}>Make an Ofert</p>, current: false },
     { name: 'Sellers reputation', href: `/review/${userCtx.userId}`, current: false },
-    { name: 'Rate Seller', href: '#', current: false }
+    { name:  <p onClick={showReview}>Rate Seller</p>, href: '#', current: false }
   ]
  
 
@@ -252,9 +254,8 @@ const sendOfertToSeller = () => {
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <a href={option.href} className={classNames(
-                                option.current ? 'font-medium text-gray-900' : 'text-gray-500', active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm' )} >
+                                option.current ? 'font-medium text-gray-900' : 'text-gray-500', active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm' )} onClick={() => console.log("aa")}>
                               {option.name}
-                           
                             </a>
                           )}
                         </Menu.Item>
@@ -398,22 +399,22 @@ const sendOfertToSeller = () => {
               </form>
 
               {/* Product grid */}
-              <div className="2xl:w-[650px] xl:w-[650px] lg:-[650px] md:-[500px] sm:w-[500px] 2xl:ml-[100px] xl:ml-[60px] lg:ml-[50px] md:ml-[200px] sm:ml-[80px] xxs:ml-[60px] xxxs:ml-[30px]">
+              <div className="h-[300px] 2xl:w-[650px] xl:w-[650px] lg:-[650px] md:-[500px] sm:w-[500px] 2xl:ml-[100px] xl:ml-[60px] lg:ml-[50px] md:ml-[200px] sm:ml-[80px] xxs:ml-[60px] xxxs:ml-[30px]">
                <Carousel fade className='2xl:h-[460px] xl:h-[460px] lg:h-[410px] md:h-[380px] sm:h-[380px] xxs:h-[300px] xxxs:h-[270px]'>
                   <Carousel.Item interval={1000} >
-                  <img src={car.img[0]} className='w-[850px]'></img>
+                  <img src={car.img[0]} className='w-[720px]'></img>
                     <Carousel.Caption>
                      
                     </Carousel.Caption>
                   </Carousel.Item>
                   <Carousel.Item interval={500}>
-                    <img src={car.img[1]} className='w-[850px]'></img>
+                    <img src={car.img[1]} className='w-[720px]'></img>
                     <Carousel.Caption>
                    
                     </Carousel.Caption>
                   </Carousel.Item>
                   <Carousel.Item>
-                  <img src={car.img[2]} className='w-[850px]'></img>
+                  <img src={car.img[2]} className='w-[720px]'></img>
                     <Carousel.Caption>
                    
                     </Carousel.Caption>
