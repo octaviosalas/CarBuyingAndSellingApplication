@@ -77,7 +77,7 @@ const StructureCarDetail = ({car, showReview}) => {
   const sortOptions = [
     { name: 'Contact Seller', href: '#', current: true },
     { name: <p className=" text-[14px] cursor-pointer" onClick={()=>window.my_modal_3.showModal()}>Make an Ofert</p>, current: false },
-    { name: 'Sellers reputation', href: `/review/${userCtx.userId}`, current: false },
+    { name: 'Sellers reputation', href: `/review/${car.sellerId}`, current: false },
     { name:  <p onClick={showReview}>Rate Seller</p>, href: '#', current: false }
   ]
  

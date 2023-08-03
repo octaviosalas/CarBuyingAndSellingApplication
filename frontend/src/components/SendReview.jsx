@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { useContext } from 'react'
 import { UserContext } from '../store/usercontext'
 
+
 const SendReview = () => { 
 
     const {id} = useParams()
@@ -16,6 +17,7 @@ const SendReview = () => {
     const [sellerId, setSellerId] = useState("")
     const [comment, setComment] = useState("")
     const [commentDate, setCommentDate] = useState("")
+    const [backendMsg, setBackendMsg] = useState("")
 
     const userCtx = useContext(UserContext)
 
@@ -29,6 +31,7 @@ const SendReview = () => {
         return `${dia.toString().padStart(2, '0')}/${mes.toString().padStart(2, '0')}/${año}`;
       }
 
+      
     useEffect(() => { 
         axios.get(`/getOneCar/${id}`)
              .then((res) =>  {
@@ -43,7 +46,7 @@ const SendReview = () => {
     }, [])   
 
     const sendMyReview = () => { 
-        console.log("sgbkagdi")
+       
         const myReview = ( { 
             criticalName: userCtx.userName,
             criticalId: userCtx.userId,
@@ -56,6 +59,12 @@ const SendReview = () => {
         axios.post("/sendReview", myReview)
              .then((res) => { 
                 console.log(res.data)
+                setBackendMsg(res.data.message)
+                setTimeout(() => {
+                    setBackendMsg("")
+                    const comment = document.querySelector("textarea");
+                    comment.value = "";
+                }, 2000)
              })
              .catch((err) => { 
                 console.log(err)
@@ -74,7 +83,10 @@ const SendReview = () => {
                     <button className=" cursor-pointer rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => sendMyReview()}> 
                     Send Review 
                     </button>
+                    <p className='mt-4 text-indigo-600'>{backendMsg}</p>
+             
                 </div>  
+                
    </div>   
    )
 }

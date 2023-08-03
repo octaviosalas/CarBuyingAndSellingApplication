@@ -67,19 +67,19 @@ export const register = async (req, res) => {
 }
 
 
-export const getUserById = async (req, res) =>  { 
-   
-    const {id} = req.params;                                                        
-    if(id.length === 24) {                                                      
-       await User.findById(id).then((user) => {                                 
-           if(!user) {                                                             
-               return res.json({Mensaje: "El usuario no existe"})                 
-           } else {                                                             
-               const {_password, ...respuesta } = user._doc;           
-               res.json(respuesta)                                            
-           }                                                                 
-       })
-    } else { 
-        res.json({Mensaje: "La contraseña es incorrecta"})                  
-    }
- }
+
+export const getUserById = async (req, res) => { 
+    const {id} = req.params
+    console.log(id)
+
+    User.find({_id: id})
+    .then((exist) => { 
+      res.json(exist)
+    })
+    .catch((err) => { 
+      console.log(err)
+    })
+}
+
+
+

@@ -90,7 +90,7 @@ function App() {
                 <Route path="/myPublications" element={<MyPublications/>}></Route>
                 <Route path="/myChats/:id" element={<Chats/>}></Route>
                 <Route path="/seeker/:searchParam" element={<SeekerSearch/>}></Route>
-                <Route path="/review/:userId" element={<Reviews/>}></Route>
+                <Route path="/review/:id" element={<Reviews/>}></Route>
 
 
               </Routes>
