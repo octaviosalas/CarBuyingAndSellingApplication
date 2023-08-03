@@ -60,7 +60,7 @@ const AllCars = () => {
 
       <div className="flex flex-wrap 'mt-[6vh]">
            {allCars.map((car) => (
-                <div className="w-full p-1 mt-3">
+                 <div className="w-full 2xl:w-1/2 xl:w-1/2 lg:w-full md:w-full sm:w-full xxs:w-full xxxs:w-full 2xs:w-full p-1 mt-3">
                   
                    <StructureCars car={car} />
                 </div>))}

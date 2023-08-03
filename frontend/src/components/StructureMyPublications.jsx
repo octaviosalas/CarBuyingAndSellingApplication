@@ -54,23 +54,23 @@ const StructureMyPublications = ({car}) => {
 
 
   return (
-    <div className="card lg:card-side  shadow-xl mt-4">
+    <div className="card lg:card-side md:card-side sm:card-side xxs:card-side  shadow-xl mt-4">
     <figure><img src={car.img[0]} alt="Album" className='w-[200px] h-[200px]'/></figure>
     <div className="card-body">
-        <div className='flex'>
-            <div>
+        <div className=''>
+            <div className="ml-[48px]">
               <h2 className="card-title">{car.name}</h2>
             </div>
             <div className='ml-10 top-0'>
-              <div className="badge badge-primary bg-red-500 text-black border-none">Posted on: {car.publicationDate}</div>
+              <div className="badge badge-primary bg-white  text-black border-none">Posted on: {car.publicationDate}</div>
             </div>
-            <hr />
+            
         </div>
 
    
       <div className="card-actions  justify-center mt-[25px]">
         <hr />
-      <Link to={`/carDetail/${car.id}`}><button className="btn btn-primary">View More</button> </Link>
+      <Link to={`/carDetail/${car.id}`}><button className="btn btn-primary">See Stats</button> </Link>
       </div>
 
       <div>

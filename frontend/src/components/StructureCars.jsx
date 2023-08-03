@@ -43,7 +43,7 @@ const StructureCars = ({car}) => {
                         <img src={fav} alt="" className='w-8 h-8 mb-4  justify-center float-right cursor-pointer x' title="Save as Favorite" onClick={() => saveCarInFavs()}/>
                         </div>
                           <div className='float-left'>
-                            <figure><img className="xxxs:w-[200px] xxs:w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] xl-w-[290px] 2xl:w-[310px]" src={car.img[0]} /></figure>
+                            <figure><img className="h-[280px] xxxs:w-[200px] xxs:w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] xl-w-[290px] 2xl:w-[310px]" src={car.img[0]} /></figure>
                           </div>
                           
                               <div className="card-body">

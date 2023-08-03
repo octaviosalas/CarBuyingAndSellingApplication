@@ -80,7 +80,7 @@ const MyPublications = () => {
          
           <>
            <div>
-              <h5>At the moment you dont have publications</h5>
+              <p> <b>At the moment you dont have publications</b> </p>
            </div>
 
            <div className='mt-[20px]'>
@@ -91,7 +91,7 @@ const MyPublications = () => {
            :
 
            <>
-           <h5>At the moment you have published the following vehicles.</h5>
+           <h5><b>At the moment you have published the following vehicles.</b></h5>
            {publications.map((p) => <StructureMyPublications car={p}/>)}  
            </>
          
