@@ -25,5 +25,13 @@ export const sendReview = async (req, res) => {
 }
 
 export const getReviews = async (req, res) => { 
-     res.send("Holaaa")
+     const {id} = req.params
+
+     Reviews.find({evaluatedId: id})
+            .then((exist) => { 
+               res.json(exist)
+            })
+            .catch((err) => { 
+               console.log(err)
+            })
 }

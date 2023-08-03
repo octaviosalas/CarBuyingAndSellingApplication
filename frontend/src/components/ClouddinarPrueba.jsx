@@ -108,8 +108,14 @@ const ClouddinarPrueba = () => {
           publicationDate: datePublication
       })
       axios.post("/newCar", newCar)
-            .then((res) => console.log(res.data))
-            .catch((err) => console.log(err))
+            .then((res) =>  { 
+              console.log(res.data)
+              console.log("ENVIADO")
+               })
+            .catch((err) => { 
+              console.log(err)
+              console.log("NOOO")
+            } )
   }
 
   return (
