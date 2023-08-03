@@ -74,7 +74,7 @@ const StructureMyPublications = ({car}) => {
       </div>
 
       <div>
-          { thereAreOffers ?  <button className="btn text-black bg-white" onClick={() => goMyChats()}> You have Oferts <div className="badge badge-secondary">+{quantityOferts}</div> </button> : null}
+          { thereAreOffers ?  <button className="btn text-black bg-white border-none" onClick={() => goMyChats()}> You have Oferts <div className="badge badge-secondary">+{quantityOferts}</div> </button> : null}
       </div>
     </div>
   </div>
