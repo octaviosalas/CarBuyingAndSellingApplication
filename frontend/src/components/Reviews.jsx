@@ -21,7 +21,7 @@ const Reviews = () => {
   console.log(id)
 
   useEffect(() => { 
-     axios.get(`http://localhost:4000/getUserById/${id}`)
+     axios.get(`/getUserById/${id}`)
           .then((res) => { 
             const docs = res.data
             docs.map((d) => { 
