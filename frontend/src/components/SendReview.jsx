@@ -43,6 +43,7 @@ const SendReview = () => {
     }, [])   
 
     const sendMyReview = () => { 
+        console.log("sgbkagdi")
         const myReview = ( { 
             criticalName: userCtx.userName,
             criticalId: userCtx.userId,
@@ -52,6 +53,13 @@ const SendReview = () => {
             comment: comment,
             commentDate: commentDate
         })
+        axios.post("/sendReview", myReview)
+             .then((res) => { 
+                console.log(res.data)
+             })
+             .catch((err) => { 
+                console.log(err)
+             })
     }
 
 
@@ -63,9 +71,9 @@ const SendReview = () => {
             </Box>
             <textarea type="text" className='w-full ml-8 text-center' placeholder={`Leave a comment about ${sellerName} that will help other users...`} onChange={(e) => setComment(e.target.value)}></textarea> 
                 <div className='mt-2'>
-                    <a className=" cursor-pointer rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" > 
+                    <button className=" cursor-pointer rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => sendMyReview()}> 
                     Send Review 
-                    </a>
+                    </button>
                 </div>  
    </div>   
    )
