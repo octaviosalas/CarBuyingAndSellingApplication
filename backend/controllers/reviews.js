@@ -15,7 +15,7 @@ export const sendReview = async (req, res) => {
           })
           saveNewReview.save()
                        .then((rev) => { 
-                        res.json({message: "The car was Published Correctly", rev})
+                        res.json({message: "Your opinion was send Correctly. Thanks!", rev})
                        })
                        .catch((err) => console.log(err))
          }catch(err) { 
