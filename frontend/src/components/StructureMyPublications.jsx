@@ -15,6 +15,7 @@ const StructureMyPublications = ({car}) => {
   
   const [thereAreOffers, setThereAreOffers] = useState(false)
   const [quantityOferts, setQuantityOferts] = useState(null)
+  const [showStats, setShowStats] = useState(true)
 
   
   useEffect(() => { 
@@ -37,19 +38,7 @@ const StructureMyPublications = ({car}) => {
           navigate(`/myChats/${userCtx.userId}`)
        }
 
-      
 
-    
-   /*const searchId = () => { 
-     offersReceived.map((o) => { 
-       const dealsOnThisCar = 
-
-       console.log("El _id es" +   o.publicationId)
-       if( o.publicationId === car._id) { 
-        console.log("HAY COINDIDENCIAS")
-       }
-     })
-   }    */
 
 
 
@@ -59,7 +48,7 @@ const StructureMyPublications = ({car}) => {
     <div className="card-body">
         <div className=''>
             <div className="ml-[48px]">
-              <h2 className="card-title">{car.name}</h2>
+            <Link to={`/carDetail/${car.id}`}> <h2 className="card-title">{car.name}</h2></Link>
             </div>
             <div className='ml-10 top-0'>
               <div className="badge badge-primary bg-white  text-black border-none">Posted on: {car.publicationDate}</div>
@@ -68,10 +57,43 @@ const StructureMyPublications = ({car}) => {
         </div>
 
    
-      <div className="card-actions  justify-center mt-[25px]">
+    {showStats ?  <div className="card-actions  justify-center mt-[25px]">
         <hr />
-      <Link to={`/carDetail/${car.id}`}><button className="btn btn-primary">See Stats</button> </Link>
-      </div>
+      <button className="btn btn-primary" onClick={() => setShowStats(false)}>See Stats</button> 
+      </div> : 
+            <>
+              <div className="stats shadow">
+                      <div className="stat">
+                        <div className="stat-figure text-primary">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <div className="stat-title">Total Clicks</div>
+                        <div className="stat-value text-primary">12</div>
+                      
+                      </div>
+                      
+                      <div className="stat">
+                        <div className="stat-figure text-secondary">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div className="stat-title">Times Shared</div>
+                        <div className="stat-value text-secondary">2</div>
+                    
+                      </div>
+                      
+                      <div className="stat">
+                        <div className="stat-figure text-secondary">
+                          <div className="avatar online">
+                            <div className="w-16 rounded-full">
+                              <img src={userCtx.userProfileImage} />
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+               </div>
+               <p className='text-indigo-600 cursor-pointer mt-4' onClick={() => setShowStats(true)}> <b>Close Stats</b></p>
+            </>}
 
       <div>
           { thereAreOffers ?  <button className="btn text-black bg-white border-none" onClick={() => goMyChats()}> You have Ofertss <div className="badge badge-secondary">+{quantityOferts}</div> </button> : null}

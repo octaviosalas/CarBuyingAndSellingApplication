@@ -285,7 +285,7 @@ const sendOfertToSeller = () => {
                 <h3 className="sr-only">Categories</h3>
 
                 <div className='mb-1'>
-                  <b>Seller</b>: {car.seller}
+                  <b>Seller</b>: <Link to={`/review/${car.sellerId}`}>{car.seller}</Link> 
                   <img src={wsp} className='w-[130px] h-[45px] 2xl:ml-[50px] xl:ml-[50px] lg:ml-[50px] md:ml-[50px] cursor-pointer' onClick={() => contactWhatsApp()}></img>
                </div>
                

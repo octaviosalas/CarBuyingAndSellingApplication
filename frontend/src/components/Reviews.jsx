@@ -11,6 +11,8 @@ import {UserContext} from "../store/usercontext"
 import axios from "axios"
 import { useParams } from "react-router-dom";
 import SendReview from "./SendReview";
+import {useNavigate} from "react-router-dom"
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 /*criticalName: { 
         type: String
@@ -43,13 +45,14 @@ const Reviews = () => {
   const [reviewsAboutSeller, setReviewsAboutSeller] = useState([])
   const [noReviews, setNoReviews] = useState(false)
   const [sendOpinion, setSendOpinion] = useState(false)
-
-
-
-
+  const navigate = useNavigate();
 
   const userCtx = useContext(UserContext)
   const {id} = useParams()
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
 
       useEffect(() => { 
@@ -101,23 +104,23 @@ const Reviews = () => {
               </div>
             </div>
 
-            <div className="mt-4">
+            <div className="mt-4 xxxs:ml-[40px]">
               <p> Reputation about <b>{sellerName}</b></p>
             </div> 
             
            {noReviews ? <>
                           <div className="mt-20">
                              <h5> <b>{sellerName} still has no opinions regarding his care. In case you have  interacted, you can leave one.</b> </h5> 
-                             <button className="btn bt-primary bg-indigo-600 text-white mt-4" onClick={() => setSendOpinion(true)}>Review this seller</button>
+                            
                           </div>
                         </> : null }
 
-            {sendOpinion ? <SendReview/> : null}            
+               
 
       { reviewsAboutSeller.map((rev) => 
-              (  <div class="bg-white shadow rounded-md overflow-hidden sm:p-6 lg:p-8 mt-4">
+              (  <div class="bg-white shadow rounded-md overflow-hidden sm:p-6 lg:p-8 mt-4 2xl:w-[700px] xl:w-[680px] lg:w-[600px] md:w-[450px] sm:w-[370px] xxs:w-[340px] xxxs:ml-[40px]">
                   <div class="flex justify-between items-center">
-                    <h2 class="text-lg font-bold text-gray-800"> Review of: <b className="text-[15px]">{rev.criticalName}</b> </h2>
+                    <h2 class="text-lg font-bold text-gray-800 "> Review of: <b className="text-[15px]">{rev.criticalName}</b> </h2>
                   </div>
                       <li class="flex flex-col justify-between items-center">
                         <div class="flex items-center">
@@ -146,9 +149,19 @@ const Reviews = () => {
                  </div>
           ))}
 
-            <div className="mt-4">
-             <Link to={`/main/${userCtx.userId}`}><p>Go Main</p></Link> 
-            </div>
+          <div>
+               
+                    <div className="">
+                          <div className="">
+                            
+                              <button className=" btn btn-primary m-2 text-white cursor-pointer" onClick={() => handleGoBack()} title="Within the seller's publication, tapping on Options you can leave an opinion of your attention">Leave my Opinion</button>
+                              <Link to={`/main/${userCtx.userId}`}><p className="m-4"><b>Go Main</b></p></Link> 
+                          </div> 
+                    </div> 
+          </div>
+
+
+        
     </>
     
   )
