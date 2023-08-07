@@ -11,6 +11,7 @@ import AutosSimilares from './RelatedCars'
 import SendReview  from "./SendReview"
 import {Link} from "react-router-dom"
 import * as React from 'react';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
 const CarDetail = () => {
@@ -84,6 +85,7 @@ const CarDetail = () => {
                 : 
                 <div className='mt-[50px]'>
                       <p className='bg-white text-black'>Cars that we recommend in this same location</p>
+                      <KeyboardArrowDownIcon/>
                       <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
                           <AutosSimilares cars={relatedCars}/>
                       </div>     

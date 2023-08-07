@@ -16,12 +16,12 @@ const AutosSimilares = ({cars}) => {
 
     }
 
-
+//card card-compact flex w-96  shadow-2xl mt-5 xxxs:w-[300px] xxs:w-[320px] sm:w-[350px] md:w-[400px]
  
     return (
         <div className="grid grid-cols-4 gap-4 lg:ml-[50px] md:ml-[60px] 2xl:flex xl:flex lg:flex md:flex sm:inline-block xxxs:inline-block xxs:inline-block">
           {randomFiveCars.map(car => (
-            <div key={car.id} className="p-4 border border-gray-200 rounded">
+            <div key={car.id} className=" card card-compact shadow-xl p-4 border border-gray-200 rounded-xl">
               <img src={car.img[0]} alt={car.brand} className="w-full mb-2 h-[130px]" />
               <h3 className="text-lg font-semibold sm:text-[15px]">{car.name}</h3>
               <p className="text-gray-500">{car.kilometres} Kms  </p>
