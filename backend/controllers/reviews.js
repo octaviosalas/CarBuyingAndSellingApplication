@@ -1,4 +1,5 @@
 import Reviews from "../models/reviews.js";
+import Stats from "../models/stats.js";
 
 export const sendReview = async (req, res) => { 
      console.log(req.body)
@@ -34,4 +35,33 @@ export const getReviews = async (req, res) => {
             .catch((err) => { 
                console.log(err)
             })
+}
+
+export const addVisit = async (req, res) => { 
+   const {publicationId} = req.body
+
+   try {
+       const saveOneVisit = new Stats ( { 
+         publicationId: publicationId
+       })
+       saveOneVisit.save()
+                   .then((succesfull) => { 
+                     res.json({message: "Visita Guardada", succesfull})
+                   })
+                   .catch((err) => { 
+                     console.log(err)
+                   })
+   } catch (error) {
+       console.log(error)
+   }
+}
+
+export const getMyStats = async (req, res) => { 
+   const {id} = req.params
+
+   Stats.find({publicationId: id})
+        .then((exist) => { 
+          res.json(exist)
+        })
+        .catch((err) => console.log(err))
 }
