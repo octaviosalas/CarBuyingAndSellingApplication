@@ -68,7 +68,7 @@ const MyPublications = () => {
                 <p className="py-4">You must have an account to receive messages</p>
                 <div className="modal-action">
                   {/* if there is a button in form, it will close the modal */}
-                  <Link to={"/"}><button className="btn">Create my Account</button></Link>
+                  <Link to={"/register"}><button className="btn">Create my Account</button></Link>
              
                 </div>
               </form>

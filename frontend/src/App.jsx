@@ -44,11 +44,12 @@ function App() {
              <div className='app'>
         <UserProvider>
               <Routes>
+                <Route path="/" element={<Main/>}></Route> 
                 <Route path="/main/:id" element={<Main/>}></Route> 
                 <Route path="/allCars" element={<AllCars/>}></Route> 
                 <Route path="/allVans" element={<AllVans/>}></Route> 
                 <Route path="/carDetail/:id" element={<CarDetail/>}></Route> 
-                <Route path="/" element={<Register/>}></Route> 
+                <Route path="/register" element={<Register/>}></Route> 
                 <Route path="/login" element={<Login/>}></Route> 
                 <Route path="/favs/:id" element={<Favs/>}></Route>
                 <Route path="/aboutUs" element={<AboutUs/>}></Route> 

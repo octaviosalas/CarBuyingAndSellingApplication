@@ -40,7 +40,7 @@ const StructureMyPublications = ({car}) => {
        }
 
        const getMyStats = () => { 
-         axios.get(`http://localhost:4000/getPublicationStats/${car._id}`)
+         axios.get(`/getPublicationStats/${car._id}`)
               .then((res) => { 
                 console.log(res.data)
                 setQuantityVisits(res.data.length)

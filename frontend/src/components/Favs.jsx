@@ -72,7 +72,7 @@ const Favs = () => {
                      <p className="py-4">You must have an account to have Favorites</p>
                      <div className="modal-action">
                         {/* if there is a button in form, it will close the modal */}
-                        <Link to={"/"}><button className="btn">Create my Account</button></Link>                
+                        <Link to={"/register"}><button className="btn">Create my Account</button></Link>                
                      </div>
                   </form>
                   </dialog>

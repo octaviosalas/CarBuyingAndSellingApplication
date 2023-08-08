@@ -37,7 +37,7 @@ const StructureCars = ({car}) => {
     const data = ( { 
       publicationId: car._id
     })
-    axios.post("http://localhost:4000/addVisit", data)
+    axios.post("/addVisit", data)
          .then((res) => { 
           console.log(res.data)
          })

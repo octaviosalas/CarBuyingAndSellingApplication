@@ -387,7 +387,7 @@ const sendOfertToSeller = () => {
                 <form method="dialog" className="modal-box">
                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                   <p>You must create an account to be able to place an offer.</p>
-                 <Link to={"/"}><p>Create my Acount</p></Link> 
+                 <Link to={"/register"}><p>Create my Acount</p></Link> 
                </form>
            </dialog>
                 }
