@@ -34,6 +34,7 @@ import Chats from "./components/Chats"
 import SeekerSearch from "./components/SeekerSearch"
 import Reviews from "./components/Reviews"
 import ManualFilters from './components/ManualFilters';
+import Profile from './components/Profile';
 
 function App() {
  
@@ -75,6 +76,7 @@ function App() {
                 <Route path="/seeker/:searchParam" element={<SeekerSearch/>}></Route>
                 <Route path="/review/:id" element={<Reviews/>}></Route>
                 <Route path="/manualFilters" element={<ManualFilters/>}></Route>
+                <Route path="/profile/:id" element={<Profile/>}></Route>
 
 
               </Routes>

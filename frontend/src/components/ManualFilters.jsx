@@ -7,11 +7,14 @@ import Sidebar from './Sidebar'
 import Footer from './Main/Footer'
 import FooterTwo from './Main/FooterTwo'
 import { Link } from 'react-router-dom'
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const ManualFilters = () => {
     
     const [carsFiltered, setCarsFiltered] = useState("")
     const [noCars, setNoCars] = useState(false)
+    const [stopLoad, setStopLoad] = useState(true)
 
     useEffect(() => { 
         setTimeout(() => { 
@@ -34,6 +37,9 @@ const ManualFilters = () => {
                     const userFilters = docs.filter(car => car.brand === localStorage.getItem("carBrand") && car.price <= localStorage.getItem("carMaxPrice") && car.year >= localStorage.getItem("carSeniority") && 
                     car.kilometres <= localStorage.getItem("carMaxKilometres") && car.location === localStorage.getItem("carLocation"))
                     setCarsFiltered(userFilters)
+                    setTimeout(() => { 
+                        setStopLoad(false)
+                    }, 600)
                 }              
             })
             .catch((err) => { 
@@ -54,7 +60,8 @@ const ManualFilters = () => {
         <Sidebar/>
 
 
-    {noCars ? <p><b>We do not have available cars that meet the filters you applied for your search. Please try other filters</b></p> :  <>{carsFiltered.map((c) => <StructureCars car={c}/>)} </>}
+    {noCars ? <p><b>We do not have available cars that meet the filters you applied for your search. Please try other filters</b></p> : null}
+    {stopLoad ? <Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner> :  <>{carsFiltered.map((c) => <StructureCars car={c}/>)} </>}
           
            { /*  <div> 
                 <div>
