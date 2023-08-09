@@ -167,6 +167,7 @@ const PruebaDeNav = () => {
     const [text, setText] = useState("Before you meet with someone, you can look at their reputation as a seller.")
     const [showInput, setShowInput] = useState(false)
     const [searchParam, setSearchParam] = useState("")
+    const [logOutOrRegister, setLogOutOrRegister] = useState(true)
    
 
     const userCtx = useContext(UserContext)
@@ -183,6 +184,14 @@ const PruebaDeNav = () => {
        }, 20000 )
 
     }, [])
+
+    useEffect(() => { 
+      if(userCtx.userId !== null) { 
+        setLogOutOrRegister(false)
+      } else { 
+        setLogOutOrRegister(true)
+      }
+    }, [userCtx.userId])
 
     
 
@@ -235,7 +244,7 @@ const PruebaDeNav = () => {
     }}
 
     const logOut = () => { 
-      navigate("/")
+      navigate("/login")
       sessionStorage.clear()
       userCtx.updateUser(null)
       userCtx.updateUserProfileImage(null)
@@ -244,6 +253,10 @@ const PruebaDeNav = () => {
            console.log("Cerraste la sesion, ahora el contexto tiene un ID de" +  userCtx.userId)
            console.log("Cerraste la sesion, ahora el SessionStorage tiene un ID de" +  sessionStorage.userId)
       }, 1000)
+    }
+
+    const wantToRegister = () => { 
+      navigate("/register")
     }
 
 
@@ -414,7 +427,7 @@ const PruebaDeNav = () => {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
+                            <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500 2xl:w-full 2xl:ml-[0px] xl:w-full xl:ml-[8vh] lg:ml-[6vh] ">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
 
@@ -522,7 +535,7 @@ const PruebaDeNav = () => {
                        <li><a className="justify-between"> Profile <span className="badge">New</span></a></li>
                        <li><a>Settings</a></li>
                       <Link to={`/main/${userCtx.userId}`}><li><p>Main</p></li></Link> 
-                       <li><a onClick={() => logOut()}>Logout</a></li>
+                      {logOutOrRegister ? <li><a onClick={() => wantToRegister()}>Create Account</a></li>   : <li><a onClick={() => logOut()}>Logout</a></li>}
                       </ul> 
                   </div>
                </div>

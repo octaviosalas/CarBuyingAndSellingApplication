@@ -84,7 +84,7 @@ const CarDetail = () => {
               { loadRelated ? null
                 : 
                 <div className='mt-[50px]'>
-                      <p className='bg-white text-black'>Cars that we recommend in this same location</p>
+                      <p className='bg-white text-black'><b> Cars that we recommend in this same location</b></p>
                       <KeyboardArrowDownIcon/>
                       <div className=' 2xl:ml-[100px] xl:ml-[90px] lg:ml-[90px] mt-[20px]' >
                           <AutosSimilares cars={relatedCars}/>

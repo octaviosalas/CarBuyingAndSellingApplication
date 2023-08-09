@@ -34,8 +34,7 @@ const ManualFilters = () => {
                     const userFilters = docs.filter(car => car.brand === localStorage.getItem("carBrand") && car.price <= localStorage.getItem("carMaxPrice") && car.year >= localStorage.getItem("carSeniority") && 
                     car.kilometres <= localStorage.getItem("carMaxKilometres") && car.location === localStorage.getItem("carLocation"))
                     setCarsFiltered(userFilters)
-                }
-                
+                }              
             })
             .catch((err) => { 
                 console.log(err)
@@ -53,9 +52,11 @@ const ManualFilters = () => {
     <div>
         <PruebaDeNav/>
         <Sidebar/>
-         {noCars ? <p><b>We do not have available cars that meet the filters you applied for your search. Please try other filters</b></p> : 
-          <>
-            <div> 
+
+
+    {noCars ? <p><b>We do not have available cars that meet the filters you applied for your search. Please try other filters</b></p> :  <>{carsFiltered.map((c) => <StructureCars car={c}/>)} </>}
+          
+           { /*  <div> 
                 <div>
                     <h2 className='text-[20px]'><b>We find cars that match the applied filters</b></h2>
                     <p className='mt-4 text-gray-400'>You are getting closer to finding your ideal used.</p>
@@ -69,7 +70,7 @@ const ManualFilters = () => {
                 <FooterTwo/>
             </div>
           </>
-         }
+         } */}    
     </div>
   )
 }
