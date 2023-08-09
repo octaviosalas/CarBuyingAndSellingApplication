@@ -44,6 +44,7 @@ export default function Login() {
                   userCtx.updateUser(res.data.id)
                   userCtx.updateUserProfileImage(res.data.profileImage)
                   userCtx.updateUserName(res.data.name)
+                  userCtx.updateUserEmail(res.data.email)
                   sessionStorage.setItem("userName", res.data.name)
                  }, 500) 
                  setTimeout(() => { 
@@ -61,6 +62,7 @@ export default function Login() {
      console.log("El ID del contexto: " +    userCtx.userId)
      console.log("El ID del SessionStorage: " +    sessionStorage.userId)
      console.log("El Nombre del contexto: " +   userCtx.userName)
+     console.log("El Email del contexto: " +   userCtx.userEmail)
    }, [userCtx.userName])
 
    

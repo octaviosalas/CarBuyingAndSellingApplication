@@ -8,7 +8,9 @@ const UserContext = createContext({
     userName: null,
     updateUserName: () => {},
     userQuantityMessages: [],
-    updateUserQuantityMessages: () => {}      
+    updateUserQuantityMessages: () => {},
+    userEmail: null,
+    updateUserEmail: () => {}      
 });
 
 
@@ -36,6 +38,11 @@ const [userId, setUserId] = useState(() => {
   return storedUserQuantityMessages !== null ? storedUserQuantityMessages : null;
  })
 
+ const [userEmail, setUserEmail] = useState(() => { 
+  const storedUserEmail = sessionStorage.getItem("userEmail")
+  return storedUserEmail !== null ? storedUserEmail : null
+ })
+
 
 const updateUser = (id) => {                   
     setUserId(id)
@@ -57,6 +64,11 @@ const updateUserQuantityMessages = (x) => {
   sessionStorage.setItem("userQuantityMessages", x)
 }
 
+const updateUserEmail = (x) => { 
+  setUserEmail(x)
+  sessionStorage.setItem("userEmail", x)
+}
+
 useEffect(() => {
     const handleStorageChange = (event) => {    
       if (event.key === 'userId') {            
@@ -67,6 +79,8 @@ useEffect(() => {
         setUserName(event.newValue);
       } else if (event.key === 'userQuantityMessages') {            
         setUserQuantityMessages(event.newValue);
+      } else if (event.key === "userEmail") { 
+        setUserEmail(event.newValue)
       }
     };
     window.addEventListener('storage', handleStorageChange); 
@@ -76,7 +90,7 @@ useEffect(() => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ userId, updateUser, userProfileImage, updateUserProfileImage, userName, updateUserName, userQuantityMessages, updateUserQuantityMessages }}>
+    <UserContext.Provider value={{ userId, updateUser, userProfileImage, updateUserProfileImage, userName, updateUserName, userQuantityMessages, updateUserQuantityMessages, userEmail, updateUserEmail }}>
       {children}
     </UserContext.Provider>
   );
