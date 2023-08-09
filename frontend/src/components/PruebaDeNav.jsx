@@ -193,9 +193,7 @@ const PruebaDeNav = () => {
       }
     }, [userCtx.userId])
 
-    
 
-    console.log(userCtx.userId)
 
     const handleItemAboutUs = (text) => {
       if (text === 'About Us') {

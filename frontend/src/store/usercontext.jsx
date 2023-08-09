@@ -10,7 +10,7 @@ const UserContext = createContext({
     userQuantityMessages: [],
     updateUserQuantityMessages: () => {},
     userEmail: null,
-    updateUserEmail: () => {}      
+    updateUserEmail: () => {}         
 });
 
 

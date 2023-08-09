@@ -83,5 +83,34 @@ export const getUserById = async (req, res) => {
     })
 }
 
+export const editUserData = async (req, res) => { 
+     const {id} = req.params
+     const {name, email, lastPassword, newPassword, newImage} = req.body
+     try {
+        const userInformation = await User.findOne({_id: id})
+        if(userInformation) { 
+           bcrypt.compare(lastPassword, userInformation.password)
+                 .then( async (correct) => { 
+                    if(correct) { 
+                        const hashedNewPassword = await bcrypt.hash(newPassword, 10)
+                        await User.findOneAndUpdate({ _id: id }, { password: hashedNewPassword });
+                        await User.findOneAndUpdate({_id: id}, {name: name})
+                        await User.findOneAndUpdate({_id: id}, {profileImage: newImage})
+                        res.json({message: "Your data was changed correctly. Please log in again with the new data."})
+                    } else { 
+                        res.json({message: "The password you entered is not your current password. Please re-enter it to verify your identity."})
+                    }
+                 })
+                 .catch((err) => { 
+                    res.json({message: "The password you entered is not your current password. Please re-enter it to verify your identity."})
+                 }) 
+        } else { 
+            res.json({message: "The email entered is not registered. Please re-enter it correctly in order to make the changes."})
+        }
+     } catch (error) {
+        console.log(error)
+        res.json({message: "Erros Detected"})
 
+     }
+}
 

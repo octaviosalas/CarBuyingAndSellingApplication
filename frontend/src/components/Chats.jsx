@@ -204,6 +204,7 @@ function getCurrentDate() {
     const [wasDeleted, setWasDeleted] = useState(false)
     const [backMsj, setBackMsj] = useState("")
     const [logUser, setLogUser] = useState(false)
+    const [noOferts, setNoOferts] = useState(true)
   
      
   
@@ -228,6 +229,9 @@ function getCurrentDate() {
        axios.get(`/getMessages/${userId}`)
             .then((res) => { 
                  console.log(res.data)
+                 if(res.data.length === 0) { 
+                  setNoOferts(false)
+                 }
                  setOfferts(res.data)
                  setQuantityMessages(res.data.length)
                  setTimeout(() => { 
@@ -260,34 +264,29 @@ function getCurrentDate() {
     }, [offerts])
 
   return (
-    <div>
-      <PruebaDeNav/>
-      <Sidebar/>
+          <div>
+            <PruebaDeNav/>
+            <Sidebar/>
 
-      {logUser ? <div>
+            {logUser ? <div>
 
-<dialog id="my_modal_1" className="modal">
-  <form method="dialog" className="modal-box">
-    <h3 className="font-bold text-lg">You are not Registered!</h3>
-    <p className="py-4">You must have an account to receive messages</p>
-    <div className="modal-action">
-      {/* if there is a button in form, it will close the modal */}
-      <Link to={"/register"}><button className="btn">Create my Account</button></Link>
- 
-    </div>
-  </form>
-</dialog>
-        </div> : null}
+                <dialog id="my_modal_1" className="modal">
+                      <form method="dialog" className="modal-box">
+                        <h3 className="font-bold text-lg">You are not Registered!</h3>
+                        <p className="py-4">You must have an account to receive messages</p>
+                        <div className="modal-action">
+                          {/* if there is a button in form, it will close the modal */}
+                          <Link to={"/register"}><button className="btn">Create my Account</button></Link>
+                    
+                        </div>
+                    </form>
+               </dialog>
+             </div> : null}
 
-
-
-      
-
-      
-
-
-
-      <div className="text-center">
+    {noOferts ? 
+    
+    <>
+    <div className="text-center">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl">
              <b>¡Congratulations! </b>You are getting closer to seeing your Vehicle!
             </h1>
@@ -301,72 +300,76 @@ function getCurrentDate() {
      
           
 
-      <div className="overflow-x-auto">
-  <table className="table w-[100vh] mt-[10vh]">
-    {/* head */}
-    <thead>
-      <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
-        <th>Name</th>
-        <th>Vehicle</th>
-        <th>Offert </th>
-        <th>Date</th>
-        <th>Quantity Offerts: {offerts.length}</th>
-      </tr>
-    </thead>
-    <tbody>
-      {/* row 1 */}
-       {offerts.map((of) =>  { 
-           return ( 
-                  <tr key={of._id}>
-                  <th>
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                  </th>
-                  <td>
-                    <div className="flex items-center space-x-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img src={of.interestedImage} alt="Avatar Tailwind CSS Component" />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">{of.interested}</div>   
-                          
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                   {of.vehicle}
-                    <br/>
-                
-                  </td>
-                  <td>{of.amount} USD</td>
-                  <td>{of.date}</td>
-                  <th>
-                     <> <OffCanvasExample name={of.interested} idInterested={of.interestedId} amount={of.amount} date={of.date} image={of.interestedImage} placement={onlyEndPlacement} /> </>
-                    <button className="btn btn-ghost btn-xs" onClick={() => deleteOfert(of._id)}>Reject</button>
-                  </th>
-                </tr>
-            )
-       })}
+            <div className="overflow-x-auto">
+        <table className="table w-[100vh] mt-[10vh]">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                </label>
+              </th>
+              <th>Name</th>
+              <th>Vehicle</th>
+              <th>Offert </th>
+              <th>Date</th>
+              <th>Quantity Offerts: {offerts.length}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* row 1 */}
+            {offerts.map((of) =>  { 
+                return ( 
+                        <tr key={of._id}>
+                        <th>
+                          <label>
+                            <input type="checkbox" className="checkbox" />
+                          </label>
+                        </th>
+                        <td>
+                          <div className="flex items-center space-x-3">
+                            <div className="avatar">
+                              <div className="mask mask-squircle w-12 h-12">
+                                <img src={of.interestedImage} alt="Avatar Tailwind CSS Component" />
+                              </div>
+                            </div>
+                            <div>
+                              <div className="font-bold">{of.interested}</div>   
+                                
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                        {of.vehicle}
+                          <br/>
+                      
+                        </td>
+                        <td>{of.amount} USD</td>
+                        <td>{of.date}</td>
+                        <th>
+                          <> <OffCanvasExample name={of.interested} idInterested={of.interestedId} amount={of.amount} date={of.date} image={of.interestedImage} placement={onlyEndPlacement} /> </>
+                          <button className="btn btn-ghost btn-xs" onClick={() => deleteOfert(of._id)}>Reject</button>
+                        </th>
+                      </tr>
+                  )
+            })}  
+          </tbody>
+          {/* foot */}
+          <tfoot> <tr><p >Go Main</p> </tr> </tfoot>
+        </table>
+      </div> 
+    </>   : <>
+                <div>
+                   <h5 className="text-[20px]"><b>In order to receive an offer, you must first list your vehicle</b> .</h5>      
+                </div>
 
-     
-    </tbody>
-    {/* foot */}
-    <tfoot>
-      <tr >
-       <p >Go Main</p>
-      </tr>
-    </tfoot>
-    
-  </table>
-</div>    
+                <div className="mt-[20px]">
+                    <p >Remember that this section is to see the offers received and be able to interact with potential buyers.</p>
+                   <Link to={"/buyMyCar"}><p className="mt-6">If you want to sell your car, click here.</p></Link> 
+                </div>
+             
+            </>  }
 
          
          
