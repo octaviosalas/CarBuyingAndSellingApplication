@@ -119,7 +119,7 @@ const Profile = () => {
                     <dt className="text-sm font-medium leading-6 text-gray-900">Password</dt>
                     <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
                 </div>
-               dfdsfd
+           
                 </dl>
             </div> 
             <div>
