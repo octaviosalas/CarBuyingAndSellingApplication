@@ -72,7 +72,7 @@ const Reviews = () => {
       }, [])
 
       useEffect(() => { 
-        axios.get(`http://localhost:4000/getReviews/${sellerId}`)
+        axios.get(`/getReviews/${sellerId}`)
             .then((res) => { 
               const docs = res.data
               if(docs.length === 0) { 
