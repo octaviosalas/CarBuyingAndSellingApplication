@@ -529,7 +529,7 @@ const PruebaDeNav = () => {
                             <img src={userCtx.userProfileImage} />
                         </div>
                      </label>
-                       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 xxxs:mr-[50px]">
+                       <ul tabIndex={0} className=" bg-white mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content  rounded-box w-52 xxxs:mr-[50px]">
                        <Link to={`/profile/${userCtx.userId}`}><li><a className="justify-between"> Profile <span className="badge">New</span></a></li></Link>
                        <li><a>Settings</a></li>
                        <Link to={`/main/${userCtx.userId}`}><li><p>Main</p></li></Link> 
