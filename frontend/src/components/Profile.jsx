@@ -119,11 +119,11 @@ const Profile = () => {
                     <dt className="text-sm font-medium leading-6 text-gray-900">Password</dt>
                     <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
                 </div>
-               
+               dfdsfd
                 </dl>
             </div> 
             <div>
-                <button><b className='text-indigo-600 bg-white mt-2 m-2 bg-whitem-2 cursor-pointer  text-[16px]' onClick={() => setShowInputs(false)}>Edit my Data</b></button>
+                <button><b className='text-indigo-600 bg-white mt-2 m-2  cursor-pointer  text-[16px]' onClick={() => setShowInputs(false)}>Edit my Data</b></button>
                 <button className='text-indigo-600 mt-2 m-2 bg-white' onClick={() => goBack()}><b>Continue with current data</b> </button>
                 <div className='mt-6'>
                     <p className='text-indigo-500 text-[15px]'>{backendMsg}</p>
