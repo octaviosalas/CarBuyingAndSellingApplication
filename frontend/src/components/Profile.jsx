@@ -34,7 +34,7 @@ const Profile = () => {
            newPassword: newPassword,
            newImage: newImage
         })
-        axios.put(`http://localhost:4000/changeUserData/${userCtx.userId}`, newUserData)
+        axios.put(`/changeUserData/${userCtx.userId}`, newUserData)
              .then((res) => { 
                 console.log(res.data)
                 if(res.data.message === "The password you entered is not your current password. Please re-enter it to verify your identity.") { 
@@ -168,11 +168,11 @@ const Profile = () => {
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt className="text-sm font-medium leading-6 text-gray-900">Last Password</dt>
-                    <input type='text' placeholder='Last Password..' className='rounded-xl text-[14px] h-[25px]' onChange={(e) => setLastPassword(e.target.value)}/>
+                    <input type='password' placeholder='Last Password..' className='rounded-xl text-[14px] h-[25px]' onChange={(e) => setLastPassword(e.target.value)}/>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt className="text-sm font-medium leading-6 text-gray-900">New Password</dt>
-                    <input type='text' placeholder='New Password..' className='rounded-xl text-[14px] h-[25px]' onChange={(e) => setNewPassword(e.target.value)}/>
+                    <input type='password' placeholder='New Password..' className='rounded-xl text-[14px] h-[25px]' onChange={(e) => setNewPassword(e.target.value)}/>
                 </div>
                 </dl>
             </div> 
