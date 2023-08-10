@@ -522,7 +522,7 @@ const PruebaDeNav = () => {
                 <div className="ml-4 flow-root lg:ml-6">
 
                    {/*AVATAR CON MENU DESPLEGABLE */}
-               <div className="navbar-end">
+               <div className="navbar-end bg-white">
                   <div className="dropdown dropdown-end">
                      <label tabIndex={0} className="btn btn-ghost btn-circle avatar xxxs:mr-[50px]">
                         <div className="w-10 rounded-full ">

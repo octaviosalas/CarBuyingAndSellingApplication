@@ -78,7 +78,10 @@ const Reviews = () => {
               if(docs.length === 0) { 
                 setNoReviews(true)
               } else { 
-                setReviewsAboutSeller(docs)
+                setTimeout(() => { 
+                  setReviewsAboutSeller(docs)
+                }, 1000)
+              
               }
             })
             .catch((err) => { 

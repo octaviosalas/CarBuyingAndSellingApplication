@@ -74,7 +74,7 @@ const Filters = () => {
   return (
    <div className='ml-5'>
           <p className=" text-indigo-500 cursor-pointer text-base md:text-[13.5px] sm:text-[13.5px] xxxs:text-[12.5px] xxs:text-[11px] " title="Search By Filter" onClick={()=>window.my_modal_2.showModal()}> <b>Apply filters Manually</b> </p>
-              <dialog id="my_modal_2" className="modal">
+              <dialog id="my_modal_2" className="modal bg-white">
                  <form method="dialog" className="modal-box">
                     <h3 className="font-bold text-lg">Chose filters for a better search</h3>
                       <p className="py-4">
