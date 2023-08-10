@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
@@ -116,7 +117,8 @@ export default function Login() {
         </div>
 
         <div>
-           <p className='cursor-pointer mt-4 textdecora underline'>Forgot my password</p>
+           <Link><p className='cursor-pointer mt-4 textdecora underline '>Forgot my password</p></Link> 
+           <Link to={"/register"}><p className='cursor-pointer mt-2 underline'>Create Account</p></Link>  
         </div>
 
         <div>

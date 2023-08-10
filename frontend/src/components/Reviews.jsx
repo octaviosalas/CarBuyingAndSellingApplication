@@ -152,9 +152,9 @@ const Reviews = () => {
           <div>
                
                     <div className="">
-                          <div className="">
+                          <div className="mt-[25px]">
                             
-                              <button className=" btn btn-primary m-2 text-white cursor-pointer" onClick={() => handleGoBack()} title="Within the seller's publication, tapping on Options you can leave an opinion of your attention">Leave my Opinion</button>
+                              <button className=" btn btn-primary m-2 mt-[10px] text-white cursor-pointer" onClick={() => handleGoBack()} title="Within the seller's publication, tapping on Options you can leave an opinion of your attention">Leave my Opinion</button>
                               <Link to={`/main/${userCtx.userId}`}><p className="m-4"><b>Go Main</b></p></Link> 
                           </div> 
                     </div> 

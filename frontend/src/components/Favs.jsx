@@ -81,8 +81,14 @@ const Favs = () => {
 
         <div>
            {msgJNoFavs ? 
-             <>
-                {carData.map((car) => <StructureFavs favCar={car}/>)}  
+             <> 
+             <div className='mt-4'>
+                <h3 className='text-[19px]'><b>Hi {userCtx.userName} these are yours Favs!</b> </h3>
+             </div>
+             <div className='flex m-4'>
+               {carData.map((car) => <StructureFavs favCar={car}/>)}  
+             </div>
+               
                 <div className=' bottom-0 left-0 right-0 z-50'>
                 
                 <FooterTwo/>
@@ -91,13 +97,11 @@ const Favs = () => {
                 : 
                 <>
                  <div>
-                    <p>You don`t Have Favs saved.</p>
+                    <p><b>At the moment, you don`t Have Favs saved.</b></p>
+                    <Link to={"/allCars"}><p className='mt-4'>Go To save Favs</p></Link>
                  </div>
 
-                 <div className=' bottom-0 left-0 right-0 z-50'>
-                
-                     <FooterTwo/>
-                 </div>
+              
                 </>
               
             }

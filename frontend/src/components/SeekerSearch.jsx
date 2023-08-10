@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import StructureCars from './StructureCars'
 import Filters from './Filters'
+import { Link } from 'react-router-dom'
 
 const SeekerSearch = () => {
 
@@ -42,7 +43,11 @@ const SeekerSearch = () => {
 
         <div>
             {searchResults.map((r) => <StructureCars car={r}/>)}
-        </div>      
+        </div>   
+
+        <div className='mt-6'>
+           <Link to={"/allCars"}><p>Go Main</p></Link>
+        </div>   
          </>
         
         }

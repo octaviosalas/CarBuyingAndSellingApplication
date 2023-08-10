@@ -27,7 +27,7 @@ const StructureFavs = ({favCar}) => {
 
   return (
     <div>
-        <div className='flex justify-center items-center mt-3'>
+        <div className='flex justify-center items-center mt-3 m-4'>
        
        <div className='border-black'>
               <div className="card card-compact flex w-96 bg-base-100 shadow-2xl mt-5">

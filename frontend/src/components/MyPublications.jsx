@@ -80,7 +80,7 @@ const MyPublications = () => {
          
           <>
            <div>
-              <p> <b>Hey{userCtx.userName}! At the moment you dont have publications</b> </p>
+              <p> <b>Hi {userCtx.userName}! At the moment you dont have publications</b> </p>
            </div>
 
            <div className='mt-[20px]'>
